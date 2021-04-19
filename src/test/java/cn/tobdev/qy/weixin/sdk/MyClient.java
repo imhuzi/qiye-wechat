@@ -1,4 +1,4 @@
-package cn.tobdev.weixin;
+package cn.tobdev.qy.weixin.sdk;
 
 import com.dtflys.forest.annotation.Request;
 
