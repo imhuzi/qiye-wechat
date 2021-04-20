@@ -1,12 +1,18 @@
-package cn.tobdev.qy.weixin.sdk.model.auth.resp;
+package cn.tobdev.qy.weixin.sdk.model.appauth.resp;
 
 import cn.tobdev.qy.weixin.sdk.model.BaseResp;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.Serializable;
+
+/**
+ * 预授权码接口响应数据
+ *
+ * @author : Hui.Wang [huzi.wh@gmail.com]
+ * @version : 1.0
+ * @created : 2021/1/3
+ */
 
 @EqualsAndHashCode(callSuper = true)
 @Data

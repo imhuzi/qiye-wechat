@@ -1,13 +1,11 @@
-package cn.tobdev.qy.weixin.sdk.api.auth;
+package cn.tobdev.qy.weixin.sdk.api.appauth;
 
-import cn.tobdev.qy.weixin.sdk.MyClient;
 import cn.tobdev.qy.weixin.sdk.coverter.ApiJacksonConverter;
 import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
-import cn.tobdev.qy.weixin.sdk.model.auth.resp.PreAuthCodeResp;
+import cn.tobdev.qy.weixin.sdk.model.appauth.resp.PreAuthCodeResp;
 import com.dtflys.forest.config.ForestConfiguration;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,18 @@
-package cn.tobdev.qy.weixin.sdk.model.auth.req;
+package cn.tobdev.qy.weixin.sdk.model.appauth.req;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
  * 企业授权信息接口请求参数
+ *
+ * @author : Hui.Wang [huzi.wh@gmail.com]
+ * @version : 1.0
+ * @created : 2021/1/3
  */
+
 @Data
-public class AuthInfoReqParam {
+public class CorpAuthInfoReqParam {
     /**
      * 授权企业id
      */

@@ -1,11 +1,8 @@
 package cn.tobdev.qy.weixin.sdk;
 
-import cn.tobdev.qy.weixin.sdk.api.auth.AppAuthApiService;
 import cn.tobdev.qy.weixin.sdk.coverter.ApiJacksonConverter;
 import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
-import cn.tobdev.qy.weixin.sdk.model.auth.req.PermanentCodeReqParam;
-import cn.tobdev.qy.weixin.sdk.model.auth.resp.PermanentCodeResp;
-import cn.tobdev.qy.weixin.sdk.model.auth.resp.PreAuthCodeResp;
+import cn.tobdev.qy.weixin.sdk.model.appauth.req.CorpPermanentCodeReqParam;
 import com.dtflys.forest.config.ForestConfiguration;
 
 import java.util.ArrayList;
@@ -26,7 +23,7 @@ public class ClientTest {
         MyClient appAuthApiService = configuration.createInstance(MyClient.class);
 
         // 调用Forest请求接口，并获取响应返回结果
-        PermanentCodeReqParam reqParam = new PermanentCodeReqParam();
+        CorpPermanentCodeReqParam reqParam = new CorpPermanentCodeReqParam();
         reqParam.setAuthCode("codekkkkkk");
         String result = appAuthApiService.hello();
         System.out.println(result);
