@@ -19,4 +19,15 @@ public class TokenInterceptor implements Interceptor<String> {
         log.info("on invoke method:{}", method.getVariable("appId"));
         method.getVariable("");
     }
+
+    @Override
+    public boolean beforeExecute(ForestRequest request) {
+        log.info("invoke Simple beforeExecute:{}", request.getUrl());
+        // 执行在发送请求之前处理的代码
+//        request.addHeader("accessToken", "11111111");  // 添加Header
+//        request.addQuery("username", "foo");  // 添加URL的Query参数
+//        request.replaceQuery()
+
+        return true;  // 继续执行请求返回true
+    }
 }
