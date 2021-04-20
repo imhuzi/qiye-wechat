@@ -1,5 +1,7 @@
 # 企业微信 Java SDK
 
+基于 forest http client 封装 http://forest.dtflyx.com/docs/
+
 ### todo:
 自定义 注解 实现 第三方 应用和内部应用 的 各种 token 透传
 1. provider_access_token
