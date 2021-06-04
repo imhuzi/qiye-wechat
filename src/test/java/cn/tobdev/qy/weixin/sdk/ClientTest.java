@@ -2,7 +2,7 @@ package cn.tobdev.qy.weixin.sdk;
 
 import cn.tobdev.qy.weixin.sdk.coverter.ApiJacksonConverter;
 import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
-import cn.tobdev.qy.weixin.sdk.model.appauth.req.CorpPermanentCodeReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpPermanentCodeReqParam;
 import com.dtflys.forest.config.ForestConfiguration;
 
 import java.util.ArrayList;
