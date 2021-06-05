@@ -1,4 +1,4 @@
-package cn.tobdev.qy.weixin.sdk.api.contact.resp;
+package cn.tobdev.qy.weixin.sdk.api.contact.req;
 
 import java.io.Serializable;
 
@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.UserExtattrVo;
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.UserExternalProfile;
-import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,7 +20,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ContactUserGetResp extends RespStatus implements Serializable  {
+public class ContactUserParam implements Serializable  {
 
   /**
    * 成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节
@@ -64,24 +63,18 @@ public class ContactUserGetResp extends RespStatus implements Serializable  {
   private Integer gender;
 
   /**
-   * 头像
+   * 是否邀请该成员使用企业微信（将通过微信服务通知或短信或邮件下发邀请，每天自动下发一次，最多持续3个工作日），默认值为true。
    */
-  private String avatar;
+  @JsonProperty("to_invite")
+  private Boolean toInvite = true;
+  /**
+   * 成员头像的mediaid，通过素材管理接口上传图片获得的mediaid
+   */
+  @JsonProperty("avatar_mediaid")
+  private String avatarMediaid;
 
   /**
-   * 头像缩略
-   */
-  @JsonProperty("thumb_avatar")
-  private String thumbAvatar;
-
-  /**
-   * 企业微信返回的 open_userId
-   */
-  @JsonProperty("open_userid")
-  private String openUserid;
-
-  /**
-   * 表示在所在的部门内是否为上级。；第三方仅通讯录应用可获取；对于非第三方创建的成员，第三方通讯录应用也不可获取
+   * 个数必须和参数department的个数一致，表示在所在的部门内是否为上级。1表示为上级，0表示非上级。在审批等应用里可以用来标识上级审批人
    */
 
   @JsonProperty("is_leader_in_dept")
@@ -97,20 +90,15 @@ public class ContactUserGetResp extends RespStatus implements Serializable  {
   private String alias;
 
   /**
-   * 激活状态: 1=已激活，2=已禁用，4=未激活，5=退出企业
+   * 启用/禁用成员。1表示启用成员，0表示禁用成员
    */
-  private Integer status;
+  private Integer enable;
 
   /**
    * 别名
    */
   private UserExtattrVo extattr;
 
-  /**
-   * 员工个人二维码，扫描可添加为外部联系人(注意返回的是一个url，可在浏览器上打开该url以展示二维码)；第三方仅通讯录应用可获取；对于非第三方创建的成员，第三方通讯录应用也不可获取
-   */
-  @JsonProperty("qr_code")
-  private String qrCode;
 
   /**
    * 成员对外属性，字段详情见对外属性；

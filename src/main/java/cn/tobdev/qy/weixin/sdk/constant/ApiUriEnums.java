@@ -15,6 +15,16 @@ public enum ApiUriEnums {
    * 通讯录 用户详情api
    */
   CONTACT_USER_GET("/user/get", "contact", "读取成员"),
+  CONTACT_USER_CREATE("/user/create", "contact", "创建成员"),
+  CONTACT_USER_UPDATE("/user/update", "contact", "更新成员"),
+  CONTACT_USER_DELETE("/user/delete", "contact", "删除成员"),
+  CONTACT_USER_DELETE_BATCH("/user/batchdelete", "contact", "批量删除成员"),
+  CONTACT_USER_TO_OPENID("/user/convert_to_openid", "contact", "userid与openid互换"),
+  CONTACT_USER_TO_USERID("/user/convert_to_userid", "contact", "openid转userid"),
+  CONTACT_USER_TO_AUTHSUCC("/user/authsucc", "contact", "二次验证"),
+  CONTACT_USER_INVITE("/batch/invite", "contact", "邀请成员"),
+  CONTACT_GET_JOIN_QRCODE("/corp/get_join_qrcode", "contact", "获取加入企业二维码"),
+  CONTACT_GET_ACTIVE_STAT("/user/get_active_stat", "contact", "获取企业活跃成员数"),
   /**
    * 通讯录用户列表
    */
@@ -39,13 +49,35 @@ public enum ApiUriEnums {
 
   public static final String API_DEPT_CREATE = "/department/create";
 
+  //-------------通讯录成员管理
   public static final String API_USER_LIST = "/user/list";
 
   public static final String API_USER_SIMPLE_LIST = "/user/simplelist";
 
   public static final String API_USER_GET = "/user/get";
 
+  public static final String API_USER_CREATE = "/user/create";
+
+  public static final String API_USER_UPDATE = "/user/update";
+
+  public static final String API_USER_DELETE = "/user/delete";
+
+  public static final String API_USER_DELETE_BATCH = "/user/batchdelete";
+
+  public static final String API_USER_TO_OPENID = "/user/convert_to_openid";
+
+  public static final String API_USER_TO_USERID = "/user/convert_to_userid";
+
+  public static final String API_USER_AUTHSUCC = "/user/authsucc";
+
+  public static final String API_USER_INVITE = "/batch/invite";
+
+  public static final String API_GET_JOIN_QRCODE = "/corp/get_join_qrcode";
+
+  public static final String API_GET_ACTIVE_STAT = "/user/get_active_stat";
+
   public static final String API_OAUTH2_USER_INFO = "/user/getuserinfo";
+  //-----------------通讯录成员管理 end
 
   private final String apiUri;
 

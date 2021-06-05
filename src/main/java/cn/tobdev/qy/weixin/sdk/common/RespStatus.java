@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class BaseResp {
+public  class RespStatus {
     protected Long errcode;
     protected String errmsg;
 

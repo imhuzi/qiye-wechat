@@ -6,7 +6,7 @@ import java.util.List;
 
 
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.ContactDeptVo;
-import cn.tobdev.qy.weixin.sdk.common.BaseResp;
+import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ContactDeptListResp extends BaseResp implements Serializable {
+public class ContactDeptListResp extends RespStatus implements Serializable {
     /**
      * 部门列表
      */

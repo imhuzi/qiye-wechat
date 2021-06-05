@@ -1,6 +1,6 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty.resp;
 
-import cn.tobdev.qy.weixin.sdk.common.BaseResp;
+import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class PreAuthCodeResp extends BaseResp implements Serializable {
+public class PreAuthCodeResp extends RespStatus implements Serializable {
     private String preAuthCode;
     private Integer expiresIn;
 }
