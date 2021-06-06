@@ -2,9 +2,9 @@ package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
 
 import cn.tobdev.qy.weixin.sdk.exception.QyApiErrorException;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.AdminListReqParam;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAuthInfoReqParam;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpPermanentCodeReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.AdminListParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAuthInfoParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpPermanentCodeParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.AppAdminListResp;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpAuthInfoResp;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpPermanentCodeResp;
@@ -54,7 +54,7 @@ public interface AppAuthApi {
      * @since 2020 -03-18
      */
     @Post("/service/get_permanent_code")
-    CorpPermanentCodeResp getPermanentCodeInfo(@Query String appId, @JSONBody CorpPermanentCodeReqParam reqParam);
+    CorpPermanentCodeResp getPermanentCodeInfo(@Query String appId, @JSONBody CorpPermanentCodeParam reqParam);
 
     /**
      * 获取企业的授权信息
@@ -65,7 +65,7 @@ public interface AppAuthApi {
      * @throws QyApiErrorException the wx error exception
      */
     @Post("/service/get_auth_info")
-    CorpAuthInfoResp getAuthInfo(@Query String appId, @JSONBody CorpAuthInfoReqParam reqParam) throws QyApiErrorException;
+    CorpAuthInfoResp getAuthInfo(@Query String appId, @JSONBody CorpAuthInfoParam reqParam) throws QyApiErrorException;
 
 
     /**
@@ -76,6 +76,6 @@ public interface AppAuthApi {
      * @return
      */
     @Post("/service/get_pre_auth_code")
-    AppAdminListResp getAdminList(@Query String appId, @JSONBody AdminListReqParam reqParam) throws QyApiErrorException;
+    AppAdminListResp getAdminList(@Query String appId, @JSONBody AdminListParam reqParam) throws QyApiErrorException;
 
 }

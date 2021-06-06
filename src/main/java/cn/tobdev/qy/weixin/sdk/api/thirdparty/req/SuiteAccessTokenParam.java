@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 
 @Data
-public class SuiteAccessTokenReqParam implements Serializable {
+public class SuiteAccessTokenParam implements Serializable {
     @JsonProperty("suite_id")
     private String suiteId;
 

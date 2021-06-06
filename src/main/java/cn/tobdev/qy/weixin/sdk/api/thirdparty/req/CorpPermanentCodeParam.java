@@ -11,7 +11,7 @@ import lombok.Data;
  * @created : 2021/1/3
  */
 @Data
-public class CorpPermanentCodeReqParam {
+public class CorpPermanentCodeParam {
     /**
      * 临时授权码，会在授权成功时附加在redirect_uri中跳转回第三方服务商网站，或通过授权成功通知回调推送给服务商。长度为64至512个字节
      */

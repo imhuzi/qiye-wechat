@@ -12,7 +12,7 @@ import lombok.Data;
  */
 
 @Data
-public class CorpAuthInfoReqParam {
+public class CorpAuthInfoParam {
     /**
      * 授权企业id
      */

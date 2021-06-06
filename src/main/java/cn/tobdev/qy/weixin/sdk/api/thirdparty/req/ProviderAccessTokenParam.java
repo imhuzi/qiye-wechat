@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 
 @Data
-public class ProviderAccessTokenReqParam implements Serializable {
+public class ProviderAccessTokenParam implements Serializable {
 
     private String corpid;
 

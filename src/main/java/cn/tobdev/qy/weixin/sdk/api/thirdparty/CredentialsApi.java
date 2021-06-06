@@ -1,11 +1,11 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
 
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAccessTokenReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpAccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.SuiteAccessTokenReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.SuiteAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.SuiteAccessTokenResp;
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.JSONBody;
@@ -34,7 +34,7 @@ public interface CredentialsApi {
      * @return the corp token
      */
     @Post("/service/get_provider_token")
-    ProviderAccessTokenResp getProviderTokenInfo(@JSONBody ProviderAccessTokenReqParam reqParam);
+    ProviderAccessTokenResp getProviderTokenInfo(@JSONBody ProviderAccessTokenParam reqParam);
 
 
     /**
@@ -44,7 +44,7 @@ public interface CredentialsApi {
      * @return the suite access token
      */
     @Post("/service/get_suite_token")
-    SuiteAccessTokenResp getSuiteAccessTokenInfo(@JSONBody SuiteAccessTokenReqParam reqParam);
+    SuiteAccessTokenResp getSuiteAccessTokenInfo(@JSONBody SuiteAccessTokenParam reqParam);
 
     /**
      * 获取企业凭证 信息
@@ -53,6 +53,6 @@ public interface CredentialsApi {
      * @return the corp token
      */
     @Post("/service/get_corp_token")
-    CorpAccessTokenResp getCorpTokenInfo(@JSONBody CorpAccessTokenReqParam reqParam);
+    CorpAccessTokenResp getCorpTokenInfo(@JSONBody CorpAccessTokenParam reqParam);
 
 }

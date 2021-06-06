@@ -1,7 +1,7 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
 import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenReqParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
 import com.dtflys.forest.config.ForestConfiguration;
 import junit.framework.TestCase;
@@ -30,7 +30,7 @@ public class CredentialsApiTest extends TestCase {
     }
 
     public void testGetProviderTokenInfo() {
-        ProviderAccessTokenReqParam reqParam = new ProviderAccessTokenReqParam();
+        ProviderAccessTokenParam reqParam = new ProviderAccessTokenParam();
         reqParam.setCorpid("kk");
         reqParam.setProviderSecret("ll-8dVyBqp4-Gkp86vEM-yKbpOWY6URYR1uUkn4YSTM6mJKDZEv28gf");
         ProviderAccessTokenResp resp = credentialsApi.getProviderTokenInfo(reqParam);
