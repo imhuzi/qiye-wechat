@@ -1,19 +1,13 @@
 package cn.tobdev.qy.weixin.sdk.api.inner;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Query;
 
+import cn.tobdev.qy.weixin.sdk.api.BaseApi;
 import cn.tobdev.qy.weixin.sdk.api.inner.resp.Oauth2UserInfoResp;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUriEnums;
-import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
+import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import feign.Param;
+import feign.RequestLine;
 
-@BaseRequest(
-    baseURL = "${qywx_api_host}",     // 默认域名
-    interceptor = TokenInterceptor.class,
-    headers = {"Accept:text/plain"}
-)
-public interface Oauth2Api {
+public interface Oauth2Api extends BaseApi {
 
   String OAUTH2_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
   String OAUTH2_QR_URL = "https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=%s&agentid=%s&redirect_uri=%s&state=STATE";
@@ -24,8 +18,8 @@ public interface Oauth2Api {
    * @param code 授权code
    * @return {@link Oauth2UserInfoResp}
    */
-  @Get(ApiUriEnums.API_OAUTH2_USER_INFO)
-  Oauth2UserInfoResp getUserInfo(@Query("code") String code);
+  @RequestLine(ApiUri.API_OAUTH2_USER_INFO)
+  Oauth2UserInfoResp getUserInfo(@Param("code") String code);
 
   /**
    * 获取 Oauth2 url， 普通应用和家校应用

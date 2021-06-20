@@ -1,18 +1,11 @@
 package cn.tobdev.qy.weixin.sdk.api.inner;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Query;
 
 import cn.tobdev.qy.weixin.sdk.api.inner.resp.AccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUriEnums;
-import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
+import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import feign.Param;
+import feign.RequestLine;
 
-@BaseRequest(
-        baseURL = "${qywx_api_host}",     // 默认域名
-        interceptor = TokenInterceptor.class,
-        headers = {"Accept:text/plain"}
-)
 public interface AccessTokenApi {
 
     /**
@@ -21,17 +14,17 @@ public interface AccessTokenApi {
      * @param appId 应用id
      * @return {@link AccessTokenResp}
      */
-    @Get(ApiUriEnums.API_TOKEN_GET)
-    AccessTokenResp accessTokenInfo(@Query("appId") Integer appId);
+    @RequestLine(ApiUri.API_GET_TOKEN)
+    AccessTokenResp accessTokenInfo(@Param("appId") Integer appId);
 
     /**
      * 获取通讯录 接口 的 accessToken
      *
-     * @param appId 应用id
+     * @param appId 应用id 为 corpId
      * @return {@link AccessTokenResp}
      */
-    @Get(ApiUriEnums.API_TOKEN_GET)
-    AccessTokenResp contactAccessTokenInfo(@Query("appId") Integer appId);
+    @RequestLine(ApiUri.API_GET_TOKEN)
+    AccessTokenResp contactAccessTokenInfo(@Param("appId") Integer appId);
 
 
 }

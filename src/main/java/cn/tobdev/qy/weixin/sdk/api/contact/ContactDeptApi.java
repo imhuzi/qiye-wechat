@@ -1,42 +1,43 @@
 package cn.tobdev.qy.weixin.sdk.api.contact;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Body;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Query;
 
+import cn.tobdev.qy.weixin.sdk.api.BaseApi;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactDeptCreateResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactDeptListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.ContactDeptVo;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUriEnums;
-import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
+import cn.tobdev.qy.weixin.sdk.common.RespStatus;
+import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import feign.Body;
+import feign.Param;
+import feign.RequestLine;
 
 /**
  * 通讯录 部门 相关接口
+ *
+ * https://work.weixin.qq.com/api/doc/90000/90135/90204
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
  * @date  : 2021/6/3
  */
+public interface ContactDeptApi extends BaseApi {
 
-@BaseRequest(
-        baseURL = "${qywx_api_host}",
-        interceptor = TokenInterceptor.class
-)
-public interface ContactDeptApi {
+  /**
+   * 获取 部门列表
+   *
+   * @param id 父级部门id
+   * @return {@link ContactDeptListResp}
+   */
+  @RequestLine(ApiUri.API_DEPT_LIST)
+  ContactDeptListResp list(@Param("id") Integer id);
 
-    /**
-     * 获取 部门列表
-     *
-     * @param id 父级部门id
-     * @return {@link ContactDeptListResp}
-     */
-    @Get(ApiUriEnums.API_DEPT_LIST)
-    ContactDeptListResp list(@Query("id") Integer id);
+  @RequestLine(ApiUri.API_DEPT_CREATE)
+  ContactDeptCreateResp create(ContactDeptVo deptResp);
 
+  @RequestLine(ApiUri.API_DEPT_UPDATE)
+  RespStatus update(ContactDeptVo deptResp);
 
-    @Get(ApiUriEnums.API_DEPT_CREATE)
-    ContactDeptCreateResp create(@Body ContactDeptVo deptResp);
-
+  @RequestLine(ApiUri.API_DEPT_DELETE)
+  RespStatus delete(@Param("id") Integer id);
 
 }

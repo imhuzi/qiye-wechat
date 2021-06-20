@@ -1,0 +1,95 @@
+package cn.tobdev.qy.weixin.sdk.api.contact;
+
+
+import cn.tobdev.qy.weixin.sdk.api.BaseApi;
+import cn.tobdev.qy.weixin.sdk.api.contact.req.TagMemberUpdateParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagCreateResp;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagListResp;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagMemberListResp;
+import cn.tobdev.qy.weixin.sdk.api.contact.vo.TagVo;
+import cn.tobdev.qy.weixin.sdk.common.RespStatus;
+import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import feign.Param;
+import feign.RequestLine;
+
+/**
+ * 通讯录 标签 相关接口
+ *
+ * https://work.weixin.qq.com/api/doc/90000/90135/90209
+ *
+ * @author : Hui.Wang [huzi.wh@gmail.com]
+ * @version : 1.0
+ * @date  : 2021/6/3
+ */
+public interface ContactTagApi extends BaseApi {
+
+  /**
+   * 获取 标签列表
+   *
+   * @return {@link TagListResp}
+   */
+  @RequestLine(ApiUri.API_TAG_LIST)
+  TagListResp list();
+
+  /**
+   * 创建标签
+   *
+   * 请求方式：POST（HTTPS）
+   * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token=ACCESS_TOKEN
+   *
+   * 请求包体：
+   *
+   * {
+   *    "tagname": "UI",
+   *    "tagid": 12
+   * }
+   * 参数说明：
+   *
+   * 参数	必须	说明
+   * access_token	是	调用接口凭证
+   * tagname	是	标签名称，长度限制为32个字以内（汉字或英文字母），标签名不可与其他标签重名。
+   * tagid	否	标签id，非负整型，指定此参数时新增的标签会生成对应的标签id，不指定时则以目前最大的id自增。
+   *
+   * @param tag 标签参数
+   * @return {@link TagCreateResp}
+   */
+  @RequestLine(ApiUri.API_TAG_CREATE)
+  TagCreateResp create(TagVo tag);
+
+  /**
+   * 更新标签名字
+   *
+   * 请求方式：POST（HTTPS）
+   * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token=ACCESS_TOKEN
+   *
+   * 请求包体：
+   *
+   * {
+   *    "tagid": 12,
+   *    "tagname": "UI design"
+   * }
+   * 参数说明：
+   *
+   * 参数	必须	说明
+   * access_token	是	调用接口凭证
+   * tagid	是	标签ID
+   * tagname	是	标签名称，长度限制为32个字（汉字或英文字母），标签不可与其他标签重名。
+   *
+   * @param tag
+   * @return
+   */
+  @RequestLine(ApiUri.API_TAG_UPDATE)
+  RespStatus update(TagVo tag);
+
+  @RequestLine(ApiUri.API_TAG_DELETE)
+  RespStatus delete(@Param("tagid") Integer tagid);
+
+  @RequestLine(ApiUri.API_TAG_GET)
+  TagMemberListResp getMemberList(@Param("tagid") Integer tagid);
+
+  @RequestLine(ApiUri.API_TAG_DELTAGUSERS)
+  RespStatus deleteMembers(TagMemberUpdateParam param);
+
+  @RequestLine(ApiUri.API_TAG_ADDTAGUSERS)
+  RespStatus addMembers(TagMemberUpdateParam param);
+}

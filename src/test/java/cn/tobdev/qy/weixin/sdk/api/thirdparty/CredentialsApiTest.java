@@ -1,14 +1,9 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
-import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
-import com.dtflys.forest.config.ForestConfiguration;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 public class CredentialsApiTest extends TestCase {
@@ -17,16 +12,7 @@ public class CredentialsApiTest extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
-        ForestConfiguration configuration = ForestConfiguration.configuration();
-        configuration.setVariableValue("baseUrl", "https://qyapi.weixin.qq.com/cgi-bin");
-        configuration.setSslProtocol("TLSv1.2");
-        configuration.setBackendName("okhttp3");
-        configuration.setLogResponseContent(true);
-        List<Class> interceptors = new ArrayList<>();
-        interceptors.add(TokenInterceptor.class);
-        configuration.setInterceptors(interceptors);
 
-        credentialsApi = configuration.createInstance(CredentialsApi.class);
     }
 
     public void testGetProviderTokenInfo() {

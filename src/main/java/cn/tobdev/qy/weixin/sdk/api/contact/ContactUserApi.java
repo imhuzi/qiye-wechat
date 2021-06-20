@@ -1,26 +1,30 @@
 package cn.tobdev.qy.weixin.sdk.api.contact;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Body;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Post;
-import com.dtflys.forest.annotation.Query;
 
+import cn.tobdev.qy.weixin.sdk.api.BaseApi;
+import cn.tobdev.qy.weixin.sdk.api.contact.req.AuthMemberListParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.req.CheckMemberAuthParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactInviteParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactToOpenIdParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactToUserIdParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactUserBatchDeleteParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactUserParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.req.GetActiveStatParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.req.GetUserIdParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.AuthMemberListResp;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.CheckMemberAuthResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactToOpenIdResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactToUserIdResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactUserGetResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactUserListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetActiveStatResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetJoinQrcodeResp;
+import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetUserIdResp;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUriEnums;
-import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
+import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import feign.Body;
+import feign.Param;
+import feign.RequestLine;
 
 /**
  * 通讯录 部门 相关接口
@@ -28,12 +32,7 @@ import cn.tobdev.qy.weixin.sdk.interceptor.TokenInterceptor;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-@BaseRequest(
-    baseURL = "${qywx_api_host}",     // 默认域名
-    interceptor = TokenInterceptor.class,
-    headers = {"Accept:text/plain"}
-)
-public interface ContactUserApi {
+public interface ContactUserApi extends BaseApi {
 
   /**
    * 获取 获取部门成员列表详情
@@ -42,9 +41,8 @@ public interface ContactUserApi {
    * @param fetchChild  1/0：是否递归获取子部门下面的成员
    * @return {@link ContactUserListResp}
    */
-  @Get(ApiUriEnums.API_USER_LIST)
-  ContactUserListResp list(@Query("department_id") Integer id,
-      @Query(value = "fetch_child", defaultValue = "0") Integer fetchChild);
+  @RequestLine(ApiUri.API_USER_LIST)
+  ContactUserListResp list(@Param("department_id") Integer id, @Param(value = "fetch_child") Integer fetchChild);
 
   /**
    * 获取 部门下成员
@@ -53,9 +51,8 @@ public interface ContactUserApi {
    * @param fetchChild  1/0：是否递归获取子部门下面的成员
    * @return {@link ContactUserListResp}
    */
-  @Get(ApiUriEnums.API_USER_SIMPLE_LIST)
-  ContactUserListResp simpleList(@Query("department_id") Integer id,
-      @Query(value = "fetch_child", defaultValue = "0") Integer fetchChild);
+  @RequestLine(ApiUri.API_USER_SIMPLE_LIST)
+  ContactUserListResp simpleList(@Param("department_id") Integer id, @Param(value = "fetch_child") Integer fetchChild);
 
   /**
    * 根据 userid 读取 通讯录成员
@@ -63,24 +60,24 @@ public interface ContactUserApi {
    * @param userid 通讯录 用户id
    * @return {@link ContactUserGetResp}
    */
-  @Get(ApiUriEnums.API_USER_GET)
-  ContactUserGetResp get(@Query("userid") String userid);
+  @RequestLine(ApiUri.API_USER_GET)
+  ContactUserGetResp get(@Param("userid") String userid);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90195
    * @param userReq
    * @return {@link RespStatus}
    */
-  @Get(ApiUriEnums.API_USER_CREATE)
-  RespStatus create(@Body ContactUserParam userReq);
+  @RequestLine(ApiUri.API_USER_CREATE)
+  RespStatus create(ContactUserParam userReq);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90197
    * @param userReq
    * @return {@link RespStatus}
    */
-  @Get(ApiUriEnums.API_USER_UPDATE)
-  RespStatus update(@Body ContactUserParam userReq);
+  @RequestLine(ApiUri.API_USER_UPDATE)
+  RespStatus update(ContactUserParam userReq);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90198
@@ -88,8 +85,8 @@ public interface ContactUserApi {
    * @param userid
    * @return {@link RespStatus}
    */
-  @Get(ApiUriEnums.API_USER_DELETE)
-  RespStatus delete(@Query String userid);
+  @RequestLine(ApiUri.API_USER_DELETE)
+  RespStatus delete(@Param String userid);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90199
@@ -97,8 +94,8 @@ public interface ContactUserApi {
    * @param deleteReq
    * @return {@link RespStatus}
    */
-  @Post(ApiUriEnums.API_USER_DELETE_BATCH)
-  RespStatus deleteBatch(@Body ContactUserBatchDeleteParam deleteReq);
+  @RequestLine(ApiUri.API_USER_DELETE_BATCH)
+  RespStatus deleteBatch(ContactUserBatchDeleteParam deleteReq);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90202
@@ -106,8 +103,8 @@ public interface ContactUserApi {
    * @param param
    * @return {@link ContactToOpenIdResp}
    */
-  @Post(ApiUriEnums.API_USER_TO_OPENID)
-  ContactToOpenIdResp toOpenId(@Body ContactToOpenIdParam param);
+  @RequestLine(ApiUri.API_USER_TO_OPENID)
+  ContactToOpenIdResp toOpenId(ContactToOpenIdParam param);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90202
@@ -115,8 +112,8 @@ public interface ContactUserApi {
    * @param param
    * @return {@link ContactToUserIdResp}
    */
-  @Post(ApiUriEnums.API_USER_TO_USERID)
-  ContactToUserIdResp toUserid(@Body ContactToUserIdParam param);
+  @RequestLine(ApiUri.API_USER_TO_USERID)
+  ContactToUserIdResp toUserid(ContactToUserIdParam param);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/90203
@@ -124,8 +121,8 @@ public interface ContactUserApi {
    * @param userid
    * @return {@link RespStatus}
    */
-  @Get(ApiUriEnums.API_USER_AUTHSUCC)
-  RespStatus authsucc(@Query String userid);
+  @RequestLine(ApiUri.API_USER_AUTHSUCC)
+  RespStatus authsucc(@Param String userid);
 
 
   /**
@@ -134,27 +131,65 @@ public interface ContactUserApi {
    * @param param
    * @return {@link RespStatus}
    */
-  @Get(ApiUriEnums.API_USER_INVITE)
-  RespStatus invite(@Body ContactInviteParam param);
+  @RequestLine(ApiUri.API_USER_INVITE)
+  RespStatus invite(ContactInviteParam param);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/91714
    *
    * @param type qrcode尺寸类型，1: 171 x 171; 2: 399 x 399; 3: 741 x 741; 4: 2052 x 2052
-   * @return {@link RespStatus}
+   * @return {@link GetJoinQrcodeResp}
    */
-  @Get(ApiUriEnums.API_GET_JOIN_QRCODE)
-  GetJoinQrcodeResp getJoinQrcode(@Query("size_type") Integer type);
+  @RequestLine(ApiUri.API_GET_JOIN_QRCODE)
+  GetJoinQrcodeResp getJoinQrcode(@Param("size_type") Integer type);
 
   /**
    * https://work.weixin.qq.com/api/doc/90000/90135/92714
    *
    * @param param
-   * @return {@link RespStatus}
+   * @return {@link GetActiveStatResp}
    */
-  @Post(ApiUriEnums.API_GET_ACTIVE_STAT)
-  GetActiveStatResp getActiveStat(@Body GetActiveStatParam param);
+  @RequestLine(ApiUri.API_GET_ACTIVE_STAT)
+  GetActiveStatResp getActiveStat(GetActiveStatParam param);
+
+  /**
+   * 第三方 专属接口
+   *
+   * 手机号获取userid,通过手机号获取其所对应的userid。
+   *
+   * https://work.weixin.qq.com/api/doc/90001/90143/91693
+   * @param param 请求参数
+   * @return {@link GetUserIdResp}
+   */
+  @RequestLine(ApiUri.API_USER_GET_USERID)
+  GetUserIdResp getUserIdByPhone(GetUserIdParam param);
 
 
+  /**
+   * 第三方 专属接口
+   *
+   * 获取成员授权列表,当企业当前授权模式为成员授权时，可调用该接口获取成员授权列表。
+   *
+   * https://work.weixin.qq.com/api/doc/90001/90143/94513
+   *
+   * @param param 请求参数
+   * @return {@link AuthMemberListResp}
+   */
+  @RequestLine(ApiUri.API_USER_AUTH_MEMBER_LIST)
+  AuthMemberListResp getAuthMemberList(AuthMemberListParam param);
 
+  /**
+   *  第三方 专属接口
+   *
+   * 查询成员用户是否已授权
+   *
+   * 当企业当前授权模式为成员授权时，可调用该接口查询成员用户是否已授权
+   *
+   * https://work.weixin.qq.com/api/doc/90001/90143/94514
+   *
+   * @param param 请求参数
+   * @return {@link CheckMemberAuthResp}
+   */
+  @RequestLine(ApiUri.API_USER_CHECK_MEMBER_AUTH)
+  CheckMemberAuthResp checkMemberAuth(CheckMemberAuthParam param);
 }

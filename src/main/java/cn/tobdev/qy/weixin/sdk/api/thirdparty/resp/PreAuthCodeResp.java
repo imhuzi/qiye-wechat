@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * 预授权码接口响应数据
  *
@@ -17,6 +19,9 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class PreAuthCodeResp extends RespStatus implements Serializable {
-    private String preAuthCode;
-    private Integer expiresIn;
+  @JsonProperty("pre_auth_code")
+  private String preAuthCode;
+
+  @JsonProperty("expires_in")
+  private Integer expiresIn;
 }

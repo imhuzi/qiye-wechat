@@ -1,6 +1,5 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
-import com.dtflys.forest.annotation.BaseRequest;
 
 /**
  * js api 相关接口
@@ -10,12 +9,6 @@ import com.dtflys.forest.annotation.BaseRequest;
  * @version : 1.0
  * @created : 2021/1/3
  */
-@BaseRequest(
-    baseURL = "${qywx_api_host}",     // 默认域名
-    headers = {
-        "Accept:application/json, text/plain, */*"                // 默认请求头
-    }
-)
 public interface JsSdkApi {
 
     /**

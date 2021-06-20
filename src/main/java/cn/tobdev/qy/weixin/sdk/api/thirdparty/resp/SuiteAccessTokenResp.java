@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * https://work.weixin.qq.com/api/doc/90001/90143/90600
  *
@@ -17,6 +19,8 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class SuiteAccessTokenResp extends RespStatus implements Serializable {
+    @JsonProperty("suite_access_token")
     private String suiteAccessToken;
+    @JsonProperty("expires_in")
     private int expiresIn = -1;
 }

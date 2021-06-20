@@ -7,9 +7,8 @@ import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.SuiteAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.SuiteAccessTokenResp;
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.JSONBody;
-import com.dtflys.forest.annotation.Post;
+import feign.RequestLine;
+
 
 /**
  * 访问 凭证 相关(token)
@@ -18,12 +17,6 @@ import com.dtflys.forest.annotation.Post;
  * @version : 1.0
  * @created on  : 2021/1/3
  */
-@BaseRequest(
-        baseURL = "${qywx_api_host}",     // 默认域名
-        headers = {
-                "Accept:application/json, text/plain, */*"                // 默认请求头
-        }
-)
 public interface CredentialsApi {
 
     /**
@@ -33,8 +26,8 @@ public interface CredentialsApi {
      * @param reqParam 请求参数
      * @return the corp token
      */
-    @Post("/service/get_provider_token")
-    ProviderAccessTokenResp getProviderTokenInfo(@JSONBody ProviderAccessTokenParam reqParam);
+    @RequestLine("/service/get_provider_token")
+    ProviderAccessTokenResp getProviderTokenInfo( ProviderAccessTokenParam reqParam);
 
 
     /**
@@ -43,8 +36,8 @@ public interface CredentialsApi {
      * @param reqParam
      * @return the suite access token
      */
-    @Post("/service/get_suite_token")
-    SuiteAccessTokenResp getSuiteAccessTokenInfo(@JSONBody SuiteAccessTokenParam reqParam);
+    @RequestLine("/service/get_suite_token")
+    SuiteAccessTokenResp getSuiteAccessTokenInfo( SuiteAccessTokenParam reqParam);
 
     /**
      * 获取企业凭证 信息
@@ -52,7 +45,7 @@ public interface CredentialsApi {
      * @param reqParam
      * @return the corp token
      */
-    @Post("/service/get_corp_token")
-    CorpAccessTokenResp getCorpTokenInfo(@JSONBody CorpAccessTokenParam reqParam);
+    @RequestLine("/service/get_corp_token")
+    CorpAccessTokenResp getCorpTokenInfo( CorpAccessTokenParam reqParam);
 
 }
