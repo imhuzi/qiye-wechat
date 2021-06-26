@@ -3,7 +3,7 @@ package cn.tobdev.qy.weixin.sdk.api.inner;
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
 import cn.tobdev.qy.weixin.sdk.api.inner.resp.Oauth2UserInfoResp;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -18,7 +18,7 @@ public interface Oauth2Api extends BaseApi {
    * @param code 授权code
    * @return {@link Oauth2UserInfoResp}
    */
-  @RequestLine(ApiUri.API_OAUTH2_USER_INFO)
+  @RequestLine(BaseApiUris.API_OAUTH2_USER_INFO)
   Oauth2UserInfoResp getUserInfo(@Param("code") String code);
 
   /**

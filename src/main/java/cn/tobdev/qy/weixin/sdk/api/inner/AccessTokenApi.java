@@ -2,7 +2,7 @@ package cn.tobdev.qy.weixin.sdk.api.inner;
 
 
 import cn.tobdev.qy.weixin.sdk.api.inner.resp.AccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -14,7 +14,7 @@ public interface AccessTokenApi {
      * @param appId 应用id
      * @return {@link AccessTokenResp}
      */
-    @RequestLine(ApiUri.API_GET_TOKEN)
+    @RequestLine(BaseApiUris.API_GET_TOKEN)
     AccessTokenResp accessTokenInfo(@Param("appId") Integer appId);
 
     /**
@@ -23,7 +23,7 @@ public interface AccessTokenApi {
      * @param appId 应用id 为 corpId
      * @return {@link AccessTokenResp}
      */
-    @RequestLine(ApiUri.API_GET_TOKEN)
+    @RequestLine(BaseApiUris.API_GET_TOKEN)
     AccessTokenResp contactAccessTokenInfo(@Param("appId") Integer appId);
 
 

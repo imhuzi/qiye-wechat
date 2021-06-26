@@ -4,7 +4,7 @@ package cn.tobdev.qy.weixin.sdk.api.app;
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
 import cn.tobdev.qy.weixin.sdk.api.app.resp.AppInfoResp;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -17,7 +17,7 @@ import feign.RequestLine;
  */
 public interface AppManageApi extends BaseApi {
 
-  @RequestLine(ApiUri.API_AGENT_GET)
+  @RequestLine(BaseApiUris.API_AGENT_GET)
   AppInfoResp get(@Param Integer agentid);
 
   RespStatus set();

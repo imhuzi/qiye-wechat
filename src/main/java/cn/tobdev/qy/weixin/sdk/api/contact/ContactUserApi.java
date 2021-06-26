@@ -21,8 +21,7 @@ import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetActiveStatResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetJoinQrcodeResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.GetUserIdResp;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
-import feign.Body;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -41,7 +40,7 @@ public interface ContactUserApi extends BaseApi {
    * @param fetchChild  1/0：是否递归获取子部门下面的成员
    * @return {@link ContactUserListResp}
    */
-  @RequestLine(ApiUri.API_USER_LIST)
+  @RequestLine(BaseApiUris.API_USER_LIST)
   ContactUserListResp list(@Param("department_id") Integer id, @Param(value = "fetch_child") Integer fetchChild);
 
   /**
@@ -51,7 +50,7 @@ public interface ContactUserApi extends BaseApi {
    * @param fetchChild  1/0：是否递归获取子部门下面的成员
    * @return {@link ContactUserListResp}
    */
-  @RequestLine(ApiUri.API_USER_SIMPLE_LIST)
+  @RequestLine(BaseApiUris.API_USER_SIMPLE_LIST)
   ContactUserListResp simpleList(@Param("department_id") Integer id, @Param(value = "fetch_child") Integer fetchChild);
 
   /**
@@ -60,7 +59,7 @@ public interface ContactUserApi extends BaseApi {
    * @param userid 通讯录 用户id
    * @return {@link ContactUserGetResp}
    */
-  @RequestLine(ApiUri.API_USER_GET)
+  @RequestLine(BaseApiUris.API_USER_GET)
   ContactUserGetResp get(@Param("userid") String userid);
 
   /**
@@ -68,7 +67,7 @@ public interface ContactUserApi extends BaseApi {
    * @param userReq
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_CREATE)
+  @RequestLine(BaseApiUris.API_USER_CREATE)
   RespStatus create(ContactUserParam userReq);
 
   /**
@@ -76,7 +75,7 @@ public interface ContactUserApi extends BaseApi {
    * @param userReq
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_UPDATE)
+  @RequestLine(BaseApiUris.API_USER_UPDATE)
   RespStatus update(ContactUserParam userReq);
 
   /**
@@ -85,7 +84,7 @@ public interface ContactUserApi extends BaseApi {
    * @param userid
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_DELETE)
+  @RequestLine(BaseApiUris.API_USER_DELETE)
   RespStatus delete(@Param String userid);
 
   /**
@@ -94,7 +93,7 @@ public interface ContactUserApi extends BaseApi {
    * @param deleteReq
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_DELETE_BATCH)
+  @RequestLine(BaseApiUris.API_USER_DELETE_BATCH)
   RespStatus deleteBatch(ContactUserBatchDeleteParam deleteReq);
 
   /**
@@ -103,7 +102,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param
    * @return {@link ContactToOpenIdResp}
    */
-  @RequestLine(ApiUri.API_USER_TO_OPENID)
+  @RequestLine(BaseApiUris.API_USER_TO_OPENID)
   ContactToOpenIdResp toOpenId(ContactToOpenIdParam param);
 
   /**
@@ -112,7 +111,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param
    * @return {@link ContactToUserIdResp}
    */
-  @RequestLine(ApiUri.API_USER_TO_USERID)
+  @RequestLine(BaseApiUris.API_USER_TO_USERID)
   ContactToUserIdResp toUserid(ContactToUserIdParam param);
 
   /**
@@ -121,7 +120,7 @@ public interface ContactUserApi extends BaseApi {
    * @param userid
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_AUTHSUCC)
+  @RequestLine(BaseApiUris.API_USER_AUTHSUCC)
   RespStatus authsucc(@Param String userid);
 
 
@@ -131,7 +130,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param
    * @return {@link RespStatus}
    */
-  @RequestLine(ApiUri.API_USER_INVITE)
+  @RequestLine(BaseApiUris.API_USER_INVITE)
   RespStatus invite(ContactInviteParam param);
 
   /**
@@ -140,7 +139,7 @@ public interface ContactUserApi extends BaseApi {
    * @param type qrcode尺寸类型，1: 171 x 171; 2: 399 x 399; 3: 741 x 741; 4: 2052 x 2052
    * @return {@link GetJoinQrcodeResp}
    */
-  @RequestLine(ApiUri.API_GET_JOIN_QRCODE)
+  @RequestLine(BaseApiUris.API_GET_JOIN_QRCODE)
   GetJoinQrcodeResp getJoinQrcode(@Param("size_type") Integer type);
 
   /**
@@ -149,7 +148,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param
    * @return {@link GetActiveStatResp}
    */
-  @RequestLine(ApiUri.API_GET_ACTIVE_STAT)
+  @RequestLine(BaseApiUris.API_GET_ACTIVE_STAT)
   GetActiveStatResp getActiveStat(GetActiveStatParam param);
 
   /**
@@ -161,7 +160,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param 请求参数
    * @return {@link GetUserIdResp}
    */
-  @RequestLine(ApiUri.API_USER_GET_USERID)
+  @RequestLine(BaseApiUris.API_USER_GET_USERID)
   GetUserIdResp getUserIdByPhone(GetUserIdParam param);
 
 
@@ -175,7 +174,7 @@ public interface ContactUserApi extends BaseApi {
    * @param param 请求参数
    * @return {@link AuthMemberListResp}
    */
-  @RequestLine(ApiUri.API_USER_AUTH_MEMBER_LIST)
+  @RequestLine(BaseApiUris.API_USER_AUTH_MEMBER_LIST)
   AuthMemberListResp getAuthMemberList(AuthMemberListParam param);
 
   /**
@@ -190,6 +189,6 @@ public interface ContactUserApi extends BaseApi {
    * @param param 请求参数
    * @return {@link CheckMemberAuthResp}
    */
-  @RequestLine(ApiUri.API_USER_CHECK_MEMBER_AUTH)
+  @RequestLine(BaseApiUris.API_USER_CHECK_MEMBER_AUTH)
   CheckMemberAuthResp checkMemberAuth(CheckMemberAuthParam param);
 }

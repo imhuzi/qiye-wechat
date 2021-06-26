@@ -8,7 +8,7 @@ import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagMemberListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.TagVo;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -28,7 +28,7 @@ public interface ContactTagApi extends BaseApi {
    *
    * @return {@link TagListResp}
    */
-  @RequestLine(ApiUri.API_TAG_LIST)
+  @RequestLine(BaseApiUris.API_TAG_LIST)
   TagListResp list();
 
   /**
@@ -53,7 +53,7 @@ public interface ContactTagApi extends BaseApi {
    * @param tag 标签参数
    * @return {@link TagCreateResp}
    */
-  @RequestLine(ApiUri.API_TAG_CREATE)
+  @RequestLine(BaseApiUris.API_TAG_CREATE)
   TagCreateResp create(TagVo tag);
 
   /**
@@ -78,18 +78,18 @@ public interface ContactTagApi extends BaseApi {
    * @param tag
    * @return
    */
-  @RequestLine(ApiUri.API_TAG_UPDATE)
+  @RequestLine(BaseApiUris.API_TAG_UPDATE)
   RespStatus update(TagVo tag);
 
-  @RequestLine(ApiUri.API_TAG_DELETE)
+  @RequestLine(BaseApiUris.API_TAG_DELETE)
   RespStatus delete(@Param("tagid") Integer tagid);
 
-  @RequestLine(ApiUri.API_TAG_GET)
+  @RequestLine(BaseApiUris.API_TAG_GET)
   TagMemberListResp getMemberList(@Param("tagid") Integer tagid);
 
-  @RequestLine(ApiUri.API_TAG_DELTAGUSERS)
+  @RequestLine(BaseApiUris.API_TAG_DELTAGUSERS)
   RespStatus deleteMembers(TagMemberUpdateParam param);
 
-  @RequestLine(ApiUri.API_TAG_ADDTAGUSERS)
+  @RequestLine(BaseApiUris.API_TAG_ADDTAGUSERS)
   RespStatus addMembers(TagMemberUpdateParam param);
 }

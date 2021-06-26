@@ -6,8 +6,7 @@ import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactDeptCreateResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactDeptListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.vo.ContactDeptVo;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
-import cn.tobdev.qy.weixin.sdk.constant.ApiUri;
-import feign.Body;
+import cn.tobdev.qy.weixin.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
@@ -28,16 +27,16 @@ public interface ContactDeptApi extends BaseApi {
    * @param id 父级部门id
    * @return {@link ContactDeptListResp}
    */
-  @RequestLine(ApiUri.API_DEPT_LIST)
+  @RequestLine(BaseApiUris.API_DEPT_LIST)
   ContactDeptListResp list(@Param("id") Integer id);
 
-  @RequestLine(ApiUri.API_DEPT_CREATE)
+  @RequestLine(BaseApiUris.API_DEPT_CREATE)
   ContactDeptCreateResp create(ContactDeptVo deptResp);
 
-  @RequestLine(ApiUri.API_DEPT_UPDATE)
+  @RequestLine(BaseApiUris.API_DEPT_UPDATE)
   RespStatus update(ContactDeptVo deptResp);
 
-  @RequestLine(ApiUri.API_DEPT_DELETE)
+  @RequestLine(BaseApiUris.API_DEPT_DELETE)
   RespStatus delete(@Param("id") Integer id);
 
 }
