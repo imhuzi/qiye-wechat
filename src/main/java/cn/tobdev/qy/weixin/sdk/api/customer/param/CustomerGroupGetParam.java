@@ -1,4 +1,4 @@
-package cn.tobdev.qy.weixin.sdk.api.customer.req;
+package cn.tobdev.qy.weixin.sdk.api.customer.param;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

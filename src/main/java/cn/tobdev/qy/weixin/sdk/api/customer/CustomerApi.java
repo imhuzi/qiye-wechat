@@ -1,7 +1,7 @@
 package cn.tobdev.qy.weixin.sdk.api.customer;
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
-import cn.tobdev.qy.weixin.sdk.api.customer.req.CustomerBatchByUserParam;
+import cn.tobdev.qy.weixin.sdk.api.customer.param.CustomerBatchByUserParam;
 import cn.tobdev.qy.weixin.sdk.api.customer.resp.CustomerGetResp;
 import cn.tobdev.qy.weixin.sdk.api.customer.resp.CustomerListResp;
 import cn.tobdev.qy.weixin.sdk.constant.CustomerApiUris;

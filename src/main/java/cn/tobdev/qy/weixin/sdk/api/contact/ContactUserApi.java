@@ -2,15 +2,15 @@ package cn.tobdev.qy.weixin.sdk.api.contact;
 
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.AuthMemberListParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.CheckMemberAuthParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactInviteParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactToOpenIdParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactToUserIdParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactUserBatchDeleteParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.ContactUserParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.GetActiveStatParam;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.GetUserIdParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.AuthMemberListParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.CheckMemberAuthParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.ContactInviteParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.ContactToOpenIdParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.ContactToUserIdParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.ContactUserBatchDeleteParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.ContactUserParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.GetActiveStatParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.GetUserIdParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.AuthMemberListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.CheckMemberAuthResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.ContactToOpenIdResp;

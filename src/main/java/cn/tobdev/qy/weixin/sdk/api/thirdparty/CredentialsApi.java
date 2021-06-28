@@ -1,11 +1,11 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
 
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAccessTokenParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.CorpAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpAccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.SuiteAccessTokenParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.SuiteAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.SuiteAccessTokenResp;
 import feign.RequestLine;
 

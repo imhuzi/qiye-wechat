@@ -2,9 +2,9 @@ package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
 
 import cn.tobdev.qy.weixin.sdk.exception.QyApiErrorException;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.AdminListParam;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpAuthInfoParam;
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.CorpPermanentCodeParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.AdminListParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.CorpAuthInfoParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.CorpPermanentCodeParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.AppAdminListResp;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpAuthInfoResp;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.CorpPermanentCodeResp;

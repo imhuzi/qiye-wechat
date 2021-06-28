@@ -1,8 +1,6 @@
-package cn.tobdev.qy.weixin.sdk.api.contact.req;
+package cn.tobdev.qy.weixin.sdk.api.contact.param;
 
 import java.io.Serializable;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Data;

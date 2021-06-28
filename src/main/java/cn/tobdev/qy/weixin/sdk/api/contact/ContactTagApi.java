@@ -2,7 +2,7 @@ package cn.tobdev.qy.weixin.sdk.api.contact;
 
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
-import cn.tobdev.qy.weixin.sdk.api.contact.req.TagMemberUpdateParam;
+import cn.tobdev.qy.weixin.sdk.api.contact.param.TagMemberUpdateParam;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagCreateResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagListResp;
 import cn.tobdev.qy.weixin.sdk.api.contact.resp.TagMemberListResp;

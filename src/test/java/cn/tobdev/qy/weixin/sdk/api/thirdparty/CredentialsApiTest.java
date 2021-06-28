@@ -1,6 +1,6 @@
 package cn.tobdev.qy.weixin.sdk.api.thirdparty;
 
-import cn.tobdev.qy.weixin.sdk.api.thirdparty.req.ProviderAccessTokenParam;
+import cn.tobdev.qy.weixin.sdk.api.thirdparty.param.ProviderAccessTokenParam;
 import cn.tobdev.qy.weixin.sdk.api.thirdparty.resp.ProviderAccessTokenResp;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;

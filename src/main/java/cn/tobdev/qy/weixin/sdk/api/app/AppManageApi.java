@@ -11,6 +11,8 @@ import feign.RequestLine;
 /**
  * 应用管理
  *
+ * https://work.weixin.qq.com/api/doc/90000/90135/90226
+ *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
  * @date  : 2021/6/6
@@ -21,4 +23,5 @@ public interface AppManageApi extends BaseApi {
   AppInfoResp get(@Param Integer agentid);
 
   RespStatus set();
+
 }

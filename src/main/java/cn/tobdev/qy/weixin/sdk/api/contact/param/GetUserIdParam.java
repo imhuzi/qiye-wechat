@@ -1,4 +1,4 @@
-package cn.tobdev.qy.weixin.sdk.api.contact.req;
+package cn.tobdev.qy.weixin.sdk.api.contact.param;
 
 import java.io.Serializable;
 
@@ -12,6 +12,6 @@ import lombok.Data;
  * @date  : 2021/6/5
  */
 @Data
-public class ContactToOpenIdParam implements Serializable {
-  private String userid;
+public class GetUserIdParam implements Serializable {
+  private String mobile;
 }

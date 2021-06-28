@@ -1,4 +1,4 @@
-package cn.tobdev.qy.weixin.sdk.api.contact.req;
+package cn.tobdev.qy.weixin.sdk.api.contact.param;
 
 import java.io.Serializable;
 
