@@ -16,14 +16,10 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class ImageDto implements Serializable {
+public class VideoDto implements Serializable {
   /**
    * mediaId
    */
   @JsonProperty("media_id")
   private String mediaId;
-
-  @JsonProperty("pic_url")
-  private String picUrl;
-
 }

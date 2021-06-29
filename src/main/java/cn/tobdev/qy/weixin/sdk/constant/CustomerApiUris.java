@@ -55,10 +55,10 @@ public interface CustomerApiUris {
   String API_CUSTOMER_MOMENT_COMMENTS = "POST /externalcontact/get_moment_comments";
 
   // 客户-消息推送
-  String API_CUSTOMER_SEND_MSG = "POST /externalcontact/add_msg_template";
-  String API_CUSTOMER_SEND_MSG_LIST = "POST /externalcontact/get_groupmsg_list_v2";
-  String API_CUSTOMER_SEND_MSG_TASK = "POST /externalcontact/get_groupmsg_task";
-  String API_CUSTOMER_SEND_MSG_RESULT = "POST /externalcontact/get_groupmsg_send_result";
+  String API_CUSTOMER_ADD_MSG_TEMPLATE = "POST /externalcontact/add_msg_template";
+  String API_CUSTOMER_GET_GROUPMSG_LIST_V2 = "POST /externalcontact/get_groupmsg_list_v2";
+  String API_CUSTOMER_GET_GROUPMSG_TASK = "POST /externalcontact/get_groupmsg_task";
+  String API_CUSTOMER_GET_GROUPMSG_SENT_RESULT = "POST /externalcontact/get_groupmsg_send_result";
   String API_CUSTOMER_SEND_WELCOME_MSG = "POST /externalcontact/send_welcome_msg";
 
   // 客户-如群欢迎语

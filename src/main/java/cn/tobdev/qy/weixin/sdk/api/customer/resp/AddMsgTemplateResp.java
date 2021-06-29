@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import cn.tobdev.qy.weixin.sdk.api.customer.dto.GroupChatStatByOwnerItemDto;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Data;
 import lombok.Getter;
@@ -23,23 +22,17 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class GroupChatStatByOwnerResp extends RespStatus implements Serializable {
+public class AddMsgTemplateResp  extends RespStatus implements Serializable {
 
   /**
-   * total
+   * failList
    */
-  @JsonProperty("total")
-  private Integer total;
+  @JsonProperty("fail_list")
+  private List<String> failList;
 
   /**
-   * nextOffset
+   * msgid
    */
-  @JsonProperty("next_offset")
-  private Integer nextOffset;
-
-  /**
-   * items
-   */
-  @JsonProperty("items")
-  private List<GroupChatStatByOwnerItemDto> items;
+  @JsonProperty("msgid")
+  private String msgid;
 }

@@ -9,7 +9,10 @@ import cn.tobdev.qy.weixin.sdk.api.customer.dto.GroupChatStatByDayItemDto;
 import cn.tobdev.qy.weixin.sdk.api.customer.dto.GroupChatStatByOwnerItemDto;
 import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -18,8 +21,9 @@ import lombok.NoArgsConstructor;
  * @version : 1.0
  * @date  : 2021/6/29
  */
-@NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class GroupChatStatByDayResp extends RespStatus implements Serializable {
 
   /**
