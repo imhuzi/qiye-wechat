@@ -1,9 +1,9 @@
 package cn.tobdev.qy.weixin.sdk.api.customer.param;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
-import java.util.List;
+import cn.tobdev.qy.weixin.sdk.api.customer.dto.OwnerFilterDto;
+import lombok.Data;
 
 @Data
 public class CustomerGroupListParam {
@@ -12,14 +12,9 @@ public class CustomerGroupListParam {
     private Integer statusFilter=0;
 
     @JsonProperty("owner_filter")
-    private OwnerFilter ownerFilter;
+    private OwnerFilterDto ownerFilter;
 
     private String cursor;
 
     private Integer limit = 1000;
-
-    @Data
-    static class OwnerFilter {
-        private List<String> useridList;
-    }
 }
