@@ -30,6 +30,7 @@ public interface CustomerApiUris {
    */
   String API_CUSTOMER_TAG_LIST = "POST /externalcontact/get_corp_tag_list";
   String API_CUSTOMER_TAG_ADD = "POST /externalcontact/add_corp_tag";
+  String API_CUSTOMER_TAG_EDIT = "POST /externalcontact/edit_corp_tag";
   String API_CUSTOMER_TAG_MARK = "POST /externalcontact/mark_tag";
   String API_CUSTOMER_TAG_DEL = "POST /externalcontact/del_corp_tag";
 
