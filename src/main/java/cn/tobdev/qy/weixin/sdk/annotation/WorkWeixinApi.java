@@ -58,4 +58,6 @@ public @interface WorkWeixinApi {
    * api  分类: 通讯录，客户关系等
    */
   String type() default "";
+
+  boolean isFile() default false;
 }
