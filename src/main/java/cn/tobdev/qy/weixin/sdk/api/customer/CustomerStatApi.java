@@ -48,6 +48,6 @@ public interface CustomerStatApi extends BaseApi {
    * @param param
    * @return
    */
-  @RequestLine(CustomerApiUris.API_CUSTOMER_GROUP_CHAT_STAT)
+  @RequestLine(CustomerApiUris.API_CUSTOMER_GROUP_CHAT_STAT_BY_DAY)
   GroupChatStatByDayResp getGroupChatStatByDay(GroupChatStatParam param);
 }
