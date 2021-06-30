@@ -11,6 +11,12 @@ package cn.tobdev.qy.weixin.sdk.constant;
  */
 public interface MessageApiUris {
 
-    // 客户管理
-    String API_CUSTOMER_LIST = "GET /externalcontact/list";
+    /**
+     * 创建群会话
+     */
+    String API_APP_CHAT_CREATE = "POST /appchat/create";
+    String API_APP_CHAT_UPDATE = "POST /appchat/update";
+    String API_APP_CHAT_GET = "GET /appchat/get";
+    String API_APP_CHAT_SEND_MESSAGE = "POST /appchat/send";
+
 }
