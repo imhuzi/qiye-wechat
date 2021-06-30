@@ -21,7 +21,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerContactWayApi extends BaseApi {
+public interface CustomerContactMeApi extends BaseApi {
   /**
    * 获取配置了客户联系功能的成员列表
    *
@@ -33,7 +33,7 @@ public interface CustomerContactWayApi extends BaseApi {
    * @return {@link FollowUserListResp}
    */
   @RequestLine(CustomerApiUris.API_CUSTOMER_FOLLOW_LIST)
-  FollowUserListResp list();
+  FollowUserListResp getAllFollowUser();
 
   /**
    * 配置客户联系「联系我」方式

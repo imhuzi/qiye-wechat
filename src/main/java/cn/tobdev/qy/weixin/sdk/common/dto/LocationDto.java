@@ -1,7 +1,5 @@
 package cn.tobdev.qy.weixin.sdk.common.dto;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -12,20 +10,26 @@ import lombok.NoArgsConstructor;
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
- * @date  : 2021/6/29
+ * @date  : 2021/6/30
  */
 @NoArgsConstructor
 @Data
-public class VideoDto implements Serializable {
+public class LocationDto {
   /**
-   * mediaId
+   * latitude
    */
-  @JsonProperty("media_id")
-  private String mediaId;
+  @JsonProperty("latitude")
+  private String latitude;
 
   /**
-   * thumbMediaId
+   * longitude
    */
-  @JsonProperty("thumb_media_id")
-  private String thumbMediaId;
+  @JsonProperty("longitude")
+  private String longitude;
+
+  /**
+   * name
+   */
+  @JsonProperty("name")
+  private String name;
 }

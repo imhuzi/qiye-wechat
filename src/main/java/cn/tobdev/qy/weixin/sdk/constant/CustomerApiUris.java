@@ -49,7 +49,7 @@ public interface CustomerApiUris {
 
   // 客户-朋友圈
   String API_CUSTOMER_MOMENT_LIST = "POST /externalcontact/get_moment_list";
-  String API_CUSTOMER_MOMENT_TASK = "POST /externalcontact/get_moment_task";
+  String API_CUSTOMER_MOMENT_TASK_STATUS = "POST /externalcontact/get_moment_task";
   String API_CUSTOMER_MOMENT_VIEW_LIST = "POST /externalcontact/get_moment_customer_list";
   String API_CUSTOMER_MOMENT_SEND_RESULT = "POST /externalcontact/get_moment_send_result";
   String API_CUSTOMER_MOMENT_COMMENTS = "POST /externalcontact/get_moment_comments";
