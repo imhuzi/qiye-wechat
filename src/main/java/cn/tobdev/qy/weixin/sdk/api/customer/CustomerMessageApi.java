@@ -1,13 +1,21 @@
 package cn.tobdev.qy.weixin.sdk.api.customer;
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
+import cn.tobdev.qy.weixin.sdk.api.customer.dto.SentWelcomeMsgParam;
 import cn.tobdev.qy.weixin.sdk.api.customer.param.AddMsgTemplateParam;
 import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupMsgListV2Param;
 import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupMsgSentResultGetParam;
 import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupMsgTaskGetParam;
+import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupWelcomeTemplateDelParam;
+import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupWelcomeTemplateGetParam;
+import cn.tobdev.qy.weixin.sdk.api.customer.param.GroupWelcomeTemplateParam;
 import cn.tobdev.qy.weixin.sdk.api.customer.resp.AddMsgTemplateResp;
 import cn.tobdev.qy.weixin.sdk.api.customer.resp.GroupMsgListV2Resp;
+import cn.tobdev.qy.weixin.sdk.api.customer.resp.GroupMsgSentResultGetResp;
 import cn.tobdev.qy.weixin.sdk.api.customer.resp.GroupMsgTaskGetResp;
+import cn.tobdev.qy.weixin.sdk.api.customer.resp.GroupWelcomeTemplateAddResp;
+import cn.tobdev.qy.weixin.sdk.api.customer.resp.GroupWelcomeTemplateGetResp;
+import cn.tobdev.qy.weixin.sdk.common.RespStatus;
 import cn.tobdev.qy.weixin.sdk.constant.CustomerApiUris;
 import feign.RequestLine;
 
@@ -63,9 +71,84 @@ public interface CustomerMessageApi extends BaseApi {
   @RequestLine(CustomerApiUris.API_CUSTOMER_GET_GROUPMSG_TASK)
   GroupMsgTaskGetResp getGroupMsgTask(GroupMsgTaskGetParam param);
 
+  /**
+   * 获取企业群发成员执行结果
+   *
+   * @param param
+   * @return
+   */
   @RequestLine(CustomerApiUris.API_CUSTOMER_GET_GROUPMSG_SENT_RESULT)
-  AddMsgTemplateResp getGroupMsgSentResult(GroupMsgSentResultGetParam param);
+  GroupMsgSentResultGetResp getGroupMsgSentResult(GroupMsgSentResultGetParam param);
 
+  /**
+   * 发送新客户欢迎语
+   *
+   * 企业微信在向企业推送添加外部联系人事件时，会额外返回一个welcome_code，企业以此为凭据调用接口，即可通过成员向新添加的客户发送个性化的欢迎语。
+   * 为了保证用户体验以及避免滥用，企业仅可在收到相关事件后20秒内调用，且只可调用一次。
+   * 如果企业已经在管理端为相关成员配置了可用的欢迎语，则推送添加外部联系人事件时不会返回welcome_code。
+   * 每次添加新客户时可能有多个企业自建应用/第三方应用收到带有welcome_code的回调事件，但仅有最先调用的可以发送成功。后续调用将返回41051（externaluser has started chatting）错误，请用户根据实际使用需求，合理设置应用可见范围，避免冲突。
+   * 旧接口发送新客户欢迎语已经废弃，接口升级后支持发送视频文件，并且最多支持同时发送9个附件
+   * 请求方式: POST(HTTP)
+   *
+   * @param param
+   * @return
+   */
   @RequestLine(CustomerApiUris.API_CUSTOMER_SEND_WELCOME_MSG)
-  AddMsgTemplateResp sendWelcomeMsg();
+  RespStatus sendWelcomeMsg(SentWelcomeMsgParam param);
+
+  /**
+   * 添加入群欢迎语素材
+   *
+   * 企业可通过此API向企业的入群欢迎语素材库中添加素材。每个企业的入群欢迎语素材库中，最多容纳100个素材。
+   * 请求方式: POST(HTTP)
+   *
+   * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/add?access_token=ACCESS_TOKEN
+   * @param param
+   * @return
+   */
+  @RequestLine(CustomerApiUris.API_CUSTOMER_WELCOME_MSG_TPL_ADD)
+  GroupWelcomeTemplateAddResp addGroupWelcomeTemplate(GroupWelcomeTemplateParam param);
+
+  /**
+   * 编辑入群欢迎语素材
+   * 企业可通过此API编辑入群欢迎语素材库中的素材，且仅能够编辑调用方自己创建的入群欢迎语素材。
+   *
+   * 请求方式: POST(HTTP)
+   *
+   * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/edit?access_token=ACCESS_TOKEN
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(CustomerApiUris.API_CUSTOMER_WELCOME_MSG_TPL_EDIT)
+  RespStatus updateGroupWelcomeTemplate(GroupWelcomeTemplateParam param);
+
+  /**
+   * 删除入群欢迎语素材
+   * 企业可通过此API删除入群欢迎语素材，且仅能删除调用方自己创建的入群欢迎语素材。
+   *
+   * 请求方式: POST(HTTP)
+   *
+   * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/del?access_token=ACCESS_TOKEN
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(CustomerApiUris.API_CUSTOMER_WELCOME_MSG_TPL_DEL)
+  RespStatus delGroupWelcomeTemplate(GroupWelcomeTemplateDelParam param);
+
+  /**
+   * 获取入群欢迎语素材
+   * 企业可通过此API获取入群欢迎语素材。
+   *
+   * 请求方式: POST(HTTP)
+   *
+   * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/group_welcome_template/get?access_token=ACCESS_TOKEN
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(CustomerApiUris.API_CUSTOMER_WELCOME_MSG_TPL_GET)
+  GroupWelcomeTemplateGetResp getGroupWelcomeTemplate(GroupWelcomeTemplateGetParam param);
+
 }
