@@ -110,7 +110,7 @@ public interface AppMessageApi  extends BaseApi {
    * @param param
    * @return
    */
-  @RequestLine(MessageApiUris.API_GET_SEND_STAT)
+  @RequestLine(MessageApiUris.API_APP_TASKCARD_MESSAGE_UPDATE)
   AppTaskCardMessageUpdateResp getSendStat(AppTaskCardMessageUpdateParm param);
 
 
