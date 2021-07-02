@@ -31,12 +31,44 @@ public interface AppChatMessageApi extends BaseApi {
   @RequestLine(MessageApiUris.API_APP_CHAT_CREATE)
   AppChatCreateResp create(AppChatCreateParam param);
 
+  /**
+   * 修改群聊会话
+   *
+   * 请求方式： POST（HTTPS）
+   * 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/update?access_token=ACCESS_TOKEN
+   *
+   * @param param
+   * @return
+   */
   @RequestLine(MessageApiUris.API_APP_CHAT_UPDATE)
   RespStatus update(AppChatUpdateParam param);
 
+  /**
+   * 获取群聊会话
+   *
+   * 请求方式： GET（HTTPS）
+   * 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/get?access_token=ACCESS_TOKEN&chatid=CHATID
+   *
+   * @param chatid
+   * @return
+   */
   @RequestLine(MessageApiUris.API_APP_CHAT_GET)
   AppChatGetResp get(@Param("chatid") String chatid);
 
+  /**
+   * 应用推送消息
+   * 应用支持推送文本、图片、视频、文件、图文等类型。
+   *
+   * 请求方式： POST（HTTPS）
+   * 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token=ACCESS_TOKEN
+   *
+   * 请求包体:
+   *
+   * 各个消息类型的具体POST格式参考后面消息类型说明
+   *
+   * @param param
+   * @return
+   */
   @RequestLine(MessageApiUris.API_APP_CHAT_SEND_MESSAGE)
   AppChatCreateResp sentMessage(MessageDto param);
 

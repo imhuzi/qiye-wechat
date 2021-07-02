@@ -19,4 +19,10 @@ public interface MessageApiUris {
     String API_APP_CHAT_GET = "GET /appchat/get";
     String API_APP_CHAT_SEND_MESSAGE = "POST /appchat/send";
 
+    String API_APP_SEND_MESSAGE = "POST /message/send";
+
+    String API_SCHOOL_SEND_MESSAGE = "POST /externalcontact/message/send";
+
+    String API_LINKEDCORP_SEND_MESSAGE = "POST /linkedcorp/message/send";
+
 }
