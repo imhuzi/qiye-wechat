@@ -21,8 +21,12 @@ public interface MessageApiUris {
 
     String API_APP_SEND_MESSAGE = "POST /message/send";
 
+    String API_APP_TASKCARD_MESSAGE_UPDATE = "POST /message/update_taskcard";
+
     String API_SCHOOL_SEND_MESSAGE = "POST /externalcontact/message/send";
 
     String API_LINKEDCORP_SEND_MESSAGE = "POST /linkedcorp/message/send";
+
+    String API_GET_SEND_STAT = "POST /message/get_statistics?";
 
 }

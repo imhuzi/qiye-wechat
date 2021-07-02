@@ -1,12 +1,14 @@
 package cn.tobdev.qy.weixin.sdk.api.message;
 
 import cn.tobdev.qy.weixin.sdk.api.BaseApi;
-import cn.tobdev.qy.weixin.sdk.api.message.dto.MessageDto;
 import cn.tobdev.qy.weixin.sdk.api.message.dto.app.AppMessageDto;
 import cn.tobdev.qy.weixin.sdk.api.message.dto.linkedcorp.LinkedCorpMessageDto;
-import cn.tobdev.qy.weixin.sdk.api.message.resp.AppChatCreateResp;
+import cn.tobdev.qy.weixin.sdk.api.message.param.AppTaskCardMessageUpdateParm;
+import cn.tobdev.qy.weixin.sdk.api.message.param.MessageStatGetParam;
 import cn.tobdev.qy.weixin.sdk.api.message.resp.AppMessageSendResp;
+import cn.tobdev.qy.weixin.sdk.api.message.resp.AppTaskCardMessageUpdateResp;
 import cn.tobdev.qy.weixin.sdk.api.message.resp.LinkedCorpMessageSendResp;
+import cn.tobdev.qy.weixin.sdk.api.message.resp.MessageStatGetResp;
 import cn.tobdev.qy.weixin.sdk.constant.MessageApiUris;
 import feign.RequestLine;
 
@@ -58,8 +60,58 @@ public interface AppMessageApi  extends BaseApi {
   @RequestLine(MessageApiUris.API_APP_SEND_MESSAGE)
   AppMessageSendResp sentMessage(AppMessageDto param);
 
+  /**
+   * 发送互联企业消息
+   *
+   * 互联企业是企业微信提供的满足集团与子公司、企业与上下游供应商进行连接的功能，企业可以共享通讯录以及应用给互联企业，如需要，你可以前往管理后台-通讯录创建互联企业，之后你可以在自建应用的可见范围设置互联企业的通讯录；此接口主要满足开发者给互联企业成员推送消息的诉求。
+   *
+   * @param param
+   * @return
+   */
   @RequestLine(MessageApiUris.API_LINKEDCORP_SEND_MESSAGE)
   LinkedCorpMessageSendResp sentLinkedCorpMessage(LinkedCorpMessageDto param);
+
+  /**
+   * 查询应用消息发送统计
+   *
+   * 请求方式：POST（HTTPS）
+   * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/message/get_statistics?access_token=ACCESS_TOKEN
+   *
+   * 请求示例：
+   *
+   * {
+   *    "time_type": 0
+   * }
+   * 参数说明：
+   *
+   * 参数	必须	说明
+   * access_token	是	调用接口凭证
+   * time_type	否	查询哪天的数据，0：当天；1：昨天。默认为0。
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(MessageApiUris.API_GET_SEND_STAT)
+  MessageStatGetResp getSendStat(MessageStatGetParam param);
+
+  /**
+   * 更新任务卡片消息状态
+   *
+   * 应用可以发送任务卡片消息，发送之后可再通过接口更新用户任务卡片消息的替换文案信息。
+   *
+   * 请求方式：POST（HTTPS）
+   * 请求地址： https://qyapi.weixin.qq.com/cgi-bin/message/update_taskcard?access_token=ACCESS_TOKEN
+   *
+   * 参数说明：
+   *
+   * 参数	是否必须	说明
+   * access_token	是	调用接口凭证
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(MessageApiUris.API_GET_SEND_STAT)
+  AppTaskCardMessageUpdateResp getSendStat(AppTaskCardMessageUpdateParm param);
 
 
 }
