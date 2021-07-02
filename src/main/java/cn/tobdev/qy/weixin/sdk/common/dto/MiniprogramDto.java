@@ -40,4 +40,10 @@ public class MiniprogramDto implements Serializable {
    */
   @JsonProperty("page")
   private String page;
+
+  /**
+   * pagepath
+   */
+  @JsonProperty("pagepath")
+  private String pagepath;
 }
