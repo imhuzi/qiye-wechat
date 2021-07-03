@@ -1,2 +1,4 @@
-rootProject.name = 'qy-weixin-sdk'
+rootProject.name = 'qiye-wechat'
+include 'qiye-wechat-sdk'
+include 'spring-boot-starter-qiye-wechat'
 
