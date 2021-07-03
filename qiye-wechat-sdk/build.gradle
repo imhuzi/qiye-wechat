@@ -1,0 +1,17 @@
+dependencies {
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.14.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: '2.14.0'
+
+//    compile group: 'com.dtflys.forest', name: 'forest-core', version: '1.5.0'
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-core
+    implementation group: 'io.github.openfeign', name: 'feign-core', version: '11.2'
+    implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '11.2'
+//    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.10'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.10'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.10'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
