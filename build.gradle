@@ -82,12 +82,81 @@ subprojects {
         }
     }
 
-//    tasks.whenTaskAdded { task ->
-//        if (task.name.contains('signMavenJavaPublication')) {
-//            task.enabled = new File(project.property('signing.secretKeyRingFile') as String).isFile()
-//        }
-//    }
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains('signMavenJavaPublication')) {
+            task.enabled = new File(project.property('signing.secretKeyRingFile') as String).isFile()
+        }
+    }
 
 
+    publishing {
+        repositories {
+            maven {
+                def userName = System.getProperty("un")
+                def passWord = System.getProperty("ps")
+                def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+                def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
+                credentials {
+                    username userName
+                    password passWord
+                }
+            }
+        }
+        publications {
+
+            mavenJava(MavenPublication) {
+                from components.java
+
+                artifact sourcesJar
+                artifact javadocJar
+
+                pom {
+                    name = 'qiye-wecha'
+                    packaging 'jar'
+                    description = 'Enterprise WeChat development suite.'
+                    url = 'https://github.com/imhuzi/qiye-wecaht'
+
+                    scm {
+                        connection = 'scm:git@github.com:Codearte/gradle-nexus-staging-plugin.git'
+                        developerConnection = 'scm:git@github.com:Codearte/gradle-nexus-staging-plugin.git'
+                        url = 'https://github.com/imhuzi/qiye-wechat'
+                    }
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'imhuzi'
+                            name = 'Huzi Wang'
+                            email = 'imhuzi.wh@gamil.com'
+                        }
+                    }
+
+                    withXml {
+                        def root = asNode()
+                        root.dependencies.'*'.findAll {
+                            def d = it
+                            d.scope.text() == 'runtime' && project.configurations.findByName("implementation").allDependencies.find { dep ->
+                                dep.name == it.artifactId.text()
+                            }.each() {
+                                d.scope*.value = 'compile'
+                                d.appendNode('optional', true)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        signing {
+            sign publishing.publications.mavenJava
+        }
+    }
 }
