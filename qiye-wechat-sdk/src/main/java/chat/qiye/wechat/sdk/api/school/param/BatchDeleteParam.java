@@ -1,5 +1,9 @@
 package chat.qiye.wechat.sdk.api.school.param;
 
+import java.util.Set;
+
+import lombok.Data;
+
 /**
  *
  *
@@ -7,5 +11,7 @@ package chat.qiye.wechat.sdk.api.school.param;
  * @version : 1.0
  * @date  : 2021/7/3
  */
-public class ParentBatchDelParam {
+@Data
+public class BatchDeleteParam {
+  private Set<String> useridlist;
 }

@@ -21,5 +21,31 @@ public interface SchoolApiUris {
     String API_GET_SUBSCRIBE_MODEL= "GET /externalcontact/get_subscribe_mode";
 
     String API_EXTERNALCONTACT_GET = "GET /externalcontact/get";
+
     String API_EXTERNALCONTACT_LIST = "GET /externalcontact/list";
+
+    String API_SET_ARCH_SYNC_MODE= "POST /school/set_arch_sync_mode";
+
+    String API_STUDENT_CREATE= "POST /school/user/create_student";
+    String API_STUDENT_DELETE= "POST /school/user/delete_student";
+    String API_STUDENT_UPDATE= "POST /school/user/update_student";
+    String API_STUDENT_BATCH_CREATE= "POST /school/user/batch_create_student";
+    String API_STUDENT_BATCH_DELETE= "POST /school/user/batch_delete_student";
+    String API_STUDENT_BATCH_UPDATE= "POST /school/user/batch_update_student";
+    String API_PARENT_CREATE= "POST /school/user/create_parent";
+    String API_PARENT_DELETE= "POST /school/user/delete_parent";
+    String API_PARENT_UPDATE= "POST /school/user/update_parent";
+    String API_PARENT_BATCH_CREATE= "POST /school/user/batch_create_parent";
+    String API_PARENT_BATCH_DELETE= "POST /school/user/batch_delete_parent";
+    String API_PARENT_BATCH_UPDATE= "POST /school/user/batch_update_parent";
+    String API_USER_GET= "GET /school/user/get";
+    String API_STUDENT_LIST= "GET /school/user/list";
+    String API_PARENT_LIST= "GET /school/user/list_parent";
+
+    String API_DEPT_CREATE= "GET /school/department/create";
+    String API_DEPT_UPDATE= "GET /school/department/update";
+    String API_DEPT_DELETE= "GET /school/department/delete";
+    String API_DEPT_LIST= "GET /school/department/list";
+    String API_DEPT_LIST_PARENT= "GET /school/user/list_parent";
+    String API_DEPT_SET_UPGRADE_INFO= "GET /school/set_upgrade_info";
 }
