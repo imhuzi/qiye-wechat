@@ -58,6 +58,12 @@ public class CustomerGroupResp extends RespStatus implements Serializable {
         @JsonProperty("join_scene")
         private Long joinScene;
 
+        @JsonProperty("group_nickname")
+        private String groupNickname;
+
+        @JsonProperty("name")
+        private String name;
+
         private Integer type;
 
         private UserItem invitor;

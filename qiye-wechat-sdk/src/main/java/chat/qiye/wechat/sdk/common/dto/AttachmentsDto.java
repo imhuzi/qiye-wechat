@@ -44,4 +44,10 @@ public class AttachmentsDto {
    */
   @JsonProperty("video")
   private VideoDto video;
+
+  /**
+   * file
+   */
+  @JsonProperty("file")
+  private FileDto file;
 }

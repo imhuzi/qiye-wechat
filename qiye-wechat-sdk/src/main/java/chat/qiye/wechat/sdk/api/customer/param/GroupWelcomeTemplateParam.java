@@ -2,6 +2,7 @@ package chat.qiye.wechat.sdk.api.customer.param;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import chat.qiye.wechat.sdk.common.dto.FileDto;
 import chat.qiye.wechat.sdk.common.dto.ImageDto;
 import chat.qiye.wechat.sdk.common.dto.TextDto;
 import chat.qiye.wechat.sdk.common.dto.LinkDto;
@@ -49,6 +50,18 @@ public class GroupWelcomeTemplateParam {
    */
   @JsonProperty("miniprogram")
   private MiniprogramDto miniprogram;
+
+  /**
+   * file
+   */
+  @JsonProperty("file")
+  private FileDto file;
+
+  /**
+   * video
+   */
+  @JsonProperty("video")
+  private FileDto video;
 
   /**
    * agentid
