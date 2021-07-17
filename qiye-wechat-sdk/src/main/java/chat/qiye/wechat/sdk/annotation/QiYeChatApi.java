@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-public @interface WorkWeixinApi {
+public @interface QiYeChatApi {
   /**
    * @return an URL prefix for concatenating with relative path. It can be either
    * an absolute URL (e.g. https://postman-echo.com) or a placeholders (e.g. ${postman-echo.domain})

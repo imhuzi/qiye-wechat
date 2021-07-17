@@ -3,19 +3,26 @@ package chat.qiye.wechat.sdk.interceptor;
 import static feign.Util.checkNotNull;
 import static feign.Util.emptyToNull;
 
-import chat.qiye.wechat.sdk.service.TokenAndBaseUrlProvider;
+import java.lang.annotation.Annotation;
+
+import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.constant.Constant;
+import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
 import feign.Request;
 import feign.RequestTemplate;
 import feign.Target;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 动态 token 处理
+ *  api configuration target
  *
+ * @author : Hui.Wang [huzi.wh@gmail.com]
+ * @version : 1.0
+ * @date  : 2021/6/16
  * @param <T>
  */
 @Slf4j
-public class DynamicTokenTarget<T> implements Target<T> {
+public class ApiConfigurationTarget<T> implements Target<T> {
 
   private final Class<T> type;
 
@@ -23,14 +30,13 @@ public class DynamicTokenTarget<T> implements Target<T> {
 
   private final String url;
 
-  public DynamicTokenTarget(Class<T> clazz, TokenAndBaseUrlProvider provider) {
-    this(clazz, provider.getBaseUrl(),provider.getBaseUrl());
-  }
+  private final ApiConfigurationProvider config;
 
-  public DynamicTokenTarget(Class<T> type, String name, String url) {
-    this.type = checkNotNull(type, "type");
-    this.name = checkNotNull(emptyToNull(name), "name");
-    this.url = checkNotNull(emptyToNull(url), "url");
+  public ApiConfigurationTarget(Class<T> clazz, ApiConfigurationProvider provider) {
+    this.config = provider;
+    this.type = checkNotNull(clazz, "type");
+    this.name = checkNotNull(emptyToNull(provider.name()), "name");
+    this.url = checkNotNull(emptyToNull(provider.baseUrl()), "url");
   }
 
   @Override
@@ -78,15 +84,30 @@ public class DynamicTokenTarget<T> implements Target<T> {
       input.target(url());
     }
     //todo 动态 token 处理
-
+//    input.header("X-Auth-Token", urlAndToken.tokenId);
+//    input.header("X-Request-ID", requestIdProvider.get());
+    input.query(Constant.ACCESS_TOKEN_KEY, config.getToken());
     return input.request();
   }
 
+  /**
+   * 获取 注解信息
+   *
+   * @param template RequestTemplate
+   * @return QiYeChatApi annotation
+   */
+  private QiYeChatApi getAnnotation(RequestTemplate template) {
+    QiYeChatApi annotation = template.methodMetadata().method().getAnnotation(QiYeChatApi.class);
+    if (annotation == null) {
+      annotation = template.feignTarget().type().getInterfaces()[0].getAnnotation(QiYeChatApi.class);
+    }
+    return annotation;
+  }
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof DynamicTokenTarget) {
-      DynamicTokenTarget<?> other = (DynamicTokenTarget) obj;
+    if (obj instanceof ApiConfigurationTarget) {
+      ApiConfigurationTarget<?> other = (ApiConfigurationTarget) obj;
       return type.equals(other.type)
           && name.equals(other.name)
           && url.equals(other.url);

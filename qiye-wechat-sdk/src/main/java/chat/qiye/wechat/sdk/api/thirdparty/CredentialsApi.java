@@ -26,7 +26,7 @@ public interface CredentialsApi {
      * @param reqParam 请求参数
      * @return the corp token
      */
-    @RequestLine("/service/get_provider_token")
+    @RequestLine("POST /service/get_provider_token")
     ProviderAccessTokenResp getProviderTokenInfo( ProviderAccessTokenParam reqParam);
 
 
@@ -36,7 +36,7 @@ public interface CredentialsApi {
      * @param reqParam
      * @return the suite access token
      */
-    @RequestLine("/service/get_suite_token")
+    @RequestLine("POST /service/get_suite_token")
     SuiteAccessTokenResp getSuiteAccessTokenInfo( SuiteAccessTokenParam reqParam);
 
     /**
@@ -45,7 +45,7 @@ public interface CredentialsApi {
      * @param reqParam
      * @return the corp token
      */
-    @RequestLine("/service/get_corp_token")
+    @RequestLine("POST /service/get_corp_token")
     CorpAccessTokenResp getCorpTokenInfo( CorpAccessTokenParam reqParam);
 
 }
