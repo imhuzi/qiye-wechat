@@ -1,88 +1,116 @@
 package chat.qiye.wechat.sdk.service;
 
-import chat.qiye.wechat.sdk.constant.Constant;
+import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
+import chat.qiye.wechat.sdk.constant.ApiModel;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 
 /**
- *
- *  configuration provider interface
+ * configuration provider interface
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
- * @date  : 2021/6/16
+ * @date : 2021/6/16
  */
 public interface ApiConfigurationProvider {
-  default String name() {
-    return "QiYeChat";
-  }
-  /**
-   * get base url
-   * @return baseUrl
-   */
-  default String baseUrl() {
-    return "https://qyapi.weixin.qq.com/cgi-bin";
-  }
 
-  /**
-   * 是否支持重定向
-   *
-   * @return
-   */
-  default boolean followRedirects() {
-    return true;
-  }
+    default String name() {
+        return "QiYeChat";
+    }
 
-  /**
-   * 连接超时时间
-   *
-   * get connect timeout
-   *
-   * @return
-   */
-  default Integer getConnectTimeout() {
-    return 10;
-  }
+    /**
+     * get base url
+     *
+     * @return baseUrl
+     */
+    default String baseUrl() {
+        return "https://qyapi.weixin.qq.com/cgi-bin";
+    }
 
-  /**
-   * 响应超时时间
-   *
-   *  get read timeout SECONDS
-   *
-   * @return
-   */
-  default Integer getReadTimeout() {
-    return 60;
-  }
+    /**
+     * 是否支持重定向
+     *
+     * @return
+     */
+    default boolean followRedirects() {
+        return true;
+    }
 
-  /**
-   * 企业 内部 应用 api token
-   *
-   * @return access_token
-   */
-  String getToken();
+    /**
+     * 连接超时时间
+     * <p>
+     * get connect timeout
+     *
+     * @return
+     */
+    default Integer getConnectTimeout() {
+        return 10;
+    }
 
-  /**
-   * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
-   *
-   * @param  app    {@link Constant}
-   * @return access_token
-   */
-  String getSysAppToken(String app);
+    /**
+     * 响应超时时间
+     * <p>
+     * get read timeout SECONDS
+     *
+     * @return
+     */
+    default Integer getReadTimeout() {
+        return 60;
+    }
 
-  /**
-   * 第三方 企业 access_token
-   * @return access_token
-   */
-  String getCorpToken();
+    /**
+     * 获取 API 调用模式: inner->自建内部应用，third_party->第三方服务商应用
+     *
+     * @return
+     */
+    default String getApiModel() {
+        return QiyeWechatConfig.getApiModel();
+    }
 
-  /**
-   * 第三方  suite_access_token
-   * @return suite_access_token
-   */
-  String getSuiteToken();
+    /**
+     * 是否 是第三方
+     *
+     * @return true or false
+     */
+    default boolean isThirdApp() {
+        return ApiModel.API_MODEL_THIRD_PARTY.equals(getApiModel());
+    }
 
-  /**
-   * 服务商  access_token
-   * @return access_token
-   */
-  String getProviderToken();
+    /**
+     * 是否 是第三方
+     *
+     * @return true or false
+     */
+    default boolean isInnerApp() {
+        return ApiModel.API_MODEL_INNER.equals(getApiModel());
+    }
+
+    /**
+     * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
+     *
+     * @param appId {@link SysAppIdEnum}
+     * @return access_token
+     */
+    String getAppToken(String appId);
+
+    /**
+     * 第三方 企业 access_token
+     *
+     * @param appId {@link SysAppIdEnum}
+     * @return access_token
+     */
+    String getCorpToken(String appId);
+
+    /**
+     * 第三方  suite_access_token
+     *
+     * @return suite_access_token
+     */
+    String getSuiteToken(String appId);
+
+    /**
+     * 服务商  access_token
+     *
+     * @return access_token
+     */
+    String getProviderToken();
 }

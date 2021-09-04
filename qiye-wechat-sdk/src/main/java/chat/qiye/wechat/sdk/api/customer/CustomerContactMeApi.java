@@ -7,7 +7,6 @@ import chat.qiye.wechat.sdk.api.customer.resp.ContactWayGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.ContactWaySetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.FollowUserListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.RequestLine;
 
@@ -21,7 +20,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerContactMeApi extends BaseApi {
+public interface CustomerContactMeApi extends CustomerBaseApi {
   /**
    * 获取配置了客户联系功能的成员列表
    *

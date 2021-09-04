@@ -1,6 +1,8 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
 
+import chat.qiye.wechat.sdk.annotation.NoAccessToken;
+import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpAccessTokenParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.ProviderAccessTokenParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.SuiteAccessTokenParam;
@@ -17,7 +19,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @created on  : 2021/1/3
  */
-public interface CredentialsApi {
+public interface ThirdAccessTokenApi {
 
     /**
      * 获取服务商凭证 信息
@@ -27,7 +29,8 @@ public interface CredentialsApi {
      * @return the corp token
      */
     @RequestLine("POST /service/get_provider_token")
-    ProviderAccessTokenResp getProviderTokenInfo( ProviderAccessTokenParam reqParam);
+    @NoAccessToken
+    ProviderAccessTokenResp getProviderTokenInfo(ProviderAccessTokenParam reqParam);
 
 
     /**
@@ -37,7 +40,8 @@ public interface CredentialsApi {
      * @return the suite access token
      */
     @RequestLine("POST /service/get_suite_token")
-    SuiteAccessTokenResp getSuiteAccessTokenInfo( SuiteAccessTokenParam reqParam);
+    @NoAccessToken
+    SuiteAccessTokenResp getSuiteAccessTokenInfo(SuiteAccessTokenParam reqParam);
 
     /**
      * 获取企业凭证 信息
@@ -46,6 +50,7 @@ public interface CredentialsApi {
      * @return the corp token
      */
     @RequestLine("POST /service/get_corp_token")
-    CorpAccessTokenResp getCorpTokenInfo( CorpAccessTokenParam reqParam);
+    @SuiteAccessToken
+    CorpAccessTokenResp getCorpTokenInfo(CorpAccessTokenParam reqParam);
 
 }

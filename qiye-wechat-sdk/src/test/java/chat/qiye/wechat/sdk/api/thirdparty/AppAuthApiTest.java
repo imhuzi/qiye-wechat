@@ -1,15 +1,13 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
-import org.junit.Assert;
-
-import chat.qiye.wechat.sdk.ApiConfigurationDefaultProvider;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpPermanentCodeParam;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.CorpPermanentCodeResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.PreAuthCodeResp;
-import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
+import chat.qiye.wechat.sdk.service.ApiConfigurationDefaultProvider;
 import chat.qiye.wechat.sdk.service.ApiFactory;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
 
 @Slf4j
 public class AppAuthApiTest extends TestCase {

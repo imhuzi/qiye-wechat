@@ -8,7 +8,6 @@ import chat.qiye.wechat.sdk.api.contact.resp.TagMemberListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.TagVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.Param;
 import feign.RequestLine;
 
@@ -21,7 +20,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactTagApi extends BaseApi {
+public interface ContactTagApi extends ContactBaseApi {
 
   /**
    * 获取 标签列表

@@ -9,7 +9,7 @@ package chat.qiye.wechat.sdk.constant;
  */
 public interface BaseApiUris {
 
-    String API_GET_TOKEN = "GET /gettoken";
+    String API_GET_TOKEN = "GET /gettoken?corpid={corpid}&corpsecret={corpsecret}";
 
     //通讯录-> 部门管理
 
@@ -52,7 +52,7 @@ public interface BaseApiUris {
     String API_TAG_DELTAGUSERS = "POST /tag/deltagusers";
 
     // 应用管理
-    String API_AGENT_GET = "GET /agent/get";
+    String API_AGENT_GET = "GET /agent/get?agentid={agentid}";
     String API_AGENT_SET = "POST /agent/set";
     String API_AGENT_MENU_CREATE = "POST /menu/create";
     String API_AGENT_WORKBENCH_TEMPLATE_GET = "POST /agent/get_workbench_template";

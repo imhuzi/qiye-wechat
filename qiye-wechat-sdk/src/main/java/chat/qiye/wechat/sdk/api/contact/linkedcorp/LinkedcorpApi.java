@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.contact.linkedcorp;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.api.contact.ContactBaseApi;
 
 /**
  * https://work.weixin.qq.com/api/doc/90000/90135/93167
@@ -9,6 +9,6 @@ import chat.qiye.wechat.sdk.api.BaseApi;
  * @version : 1.0
  * @date  : 2021/6/18
  */
-public interface LinkedcorpApi extends BaseApi {
+public interface LinkedcorpApi extends ContactBaseApi {
 
 }

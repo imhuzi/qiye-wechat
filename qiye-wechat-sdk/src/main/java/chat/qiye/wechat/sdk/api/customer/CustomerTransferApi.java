@@ -8,7 +8,6 @@ import chat.qiye.wechat.sdk.api.customer.resp.CustomerTransferResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerTransferResultResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerUnassignedListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupChatTransferResp;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.RequestLine;
 
@@ -23,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerTransferApi extends BaseApi {
+public interface CustomerTransferApi extends CustomerBaseApi {
   /**
    * 分配在职成员的客户
    * 企业可通过此接口，转接在职成员的客户给其他成员。

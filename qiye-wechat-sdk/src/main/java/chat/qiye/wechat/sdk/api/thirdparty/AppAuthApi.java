@@ -1,6 +1,7 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
 
+import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
 import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.thirdparty.param.AdminListParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpAuthInfoParam;
@@ -9,8 +10,6 @@ import chat.qiye.wechat.sdk.api.thirdparty.resp.AppAdminListResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.CorpAuthInfoResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.CorpPermanentCodeResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.PreAuthCodeResp;
-import chat.qiye.wechat.sdk.exception.QyApiErrorException;
-import feign.Param;
 import feign.RequestLine;
 
 /**
@@ -22,7 +21,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @created : 2021/1/3
  */
-
+@SuiteAccessToken
 public interface AppAuthApi extends BaseApi {
     /**
      * <pre>
@@ -51,10 +50,9 @@ public interface AppAuthApi extends BaseApi {
      *
      * @param reqParam 请求参数
      * @return auth info
-     * @throws QyApiErrorException the wx error exception
      */
     @RequestLine("POST /service/get_auth_info")
-    CorpAuthInfoResp getAuthInfo(CorpAuthInfoParam reqParam) throws QyApiErrorException;
+    CorpAuthInfoResp getAuthInfo(CorpAuthInfoParam reqParam);
 
 
     /**
@@ -64,6 +62,6 @@ public interface AppAuthApi extends BaseApi {
      * @return
      */
     @RequestLine("POST /service/get_admin_list")
-    AppAdminListResp getAdminList( AdminListParam reqParam) throws QyApiErrorException;
+    AppAdminListResp getAdminList( AdminListParam reqParam);
 
 }

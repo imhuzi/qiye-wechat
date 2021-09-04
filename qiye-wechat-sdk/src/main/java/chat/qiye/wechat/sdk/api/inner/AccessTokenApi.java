@@ -1,6 +1,7 @@
 package chat.qiye.wechat.sdk.api.inner;
 
 
+import chat.qiye.wechat.sdk.annotation.NoAccessToken;
 import chat.qiye.wechat.sdk.api.inner.resp.AccessTokenResp;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.Param;
@@ -11,20 +12,12 @@ public interface AccessTokenApi {
     /**
      * 获取接口 的 accessToken
      *
-     * @param appId 应用id
+     * @param corpId     应用id
+     * @param corpsecret 应用的凭证密钥，获取方式参考：术语说明-secret
      * @return {@link AccessTokenResp}
      */
     @RequestLine(BaseApiUris.API_GET_TOKEN)
-    AccessTokenResp accessTokenInfo(@Param("appId") Integer appId);
-
-    /**
-     * 获取通讯录 接口 的 accessToken
-     *
-     * @param appId 应用id 为 corpId
-     * @return {@link AccessTokenResp}
-     */
-    @RequestLine(BaseApiUris.API_GET_TOKEN)
-    AccessTokenResp contactAccessTokenInfo(@Param("appId") Integer appId);
-
+    @NoAccessToken
+    AccessTokenResp accessTokenInfo(@Param("corpid") String corpId, @Param("corpsecret") String corpsecret);
 
 }

@@ -1,5 +1,7 @@
 package chat.qiye.wechat.sdk;
 
+import chat.qiye.wechat.sdk.service.ApiConfigurationDefaultProvider;
+import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
 import junit.framework.TestCase;
 
 /**
@@ -11,4 +13,11 @@ import junit.framework.TestCase;
  */
 public class BaseTest  extends TestCase {
 
+    protected ApiConfigurationProvider apiConfigurationProvider;
+
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
+        apiConfigurationProvider = new ApiConfigurationDefaultProvider();
+    }
 }

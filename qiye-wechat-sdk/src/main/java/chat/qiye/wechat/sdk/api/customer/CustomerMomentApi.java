@@ -21,7 +21,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerMomentApi extends BaseApi {
+public interface CustomerMomentApi extends CustomerBaseApi {
 
   /**
    * 获取企业全部的发表列表

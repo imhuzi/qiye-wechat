@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CredentialsApiTest extends TestCase {
+public class ThirdAccessTokenApiTest extends TestCase {
 
-    private CredentialsApi credentialsApi;
+    private ThirdAccessTokenApi thirdAccessTokenApi;
 
     @Override
     protected void setUp() throws Exception {

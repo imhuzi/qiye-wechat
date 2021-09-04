@@ -3,16 +3,15 @@ package chat.qiye.wechat.sdk.api.customer;
 
 import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupListParam;
-import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupResp;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupListResp;
+import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupResp;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.RequestLine;
 
 /**
  * 客户群 相关 接口
  */
-public interface CustomerGroupApi  extends BaseApi {
+public interface CustomerGroupApi  extends CustomerBaseApi {
 
     /**
      * 获取 客户 群列表

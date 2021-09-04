@@ -1,6 +1,5 @@
 package chat.qiye.wechat.sdk.api.customer;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerBatchByUserParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerListResp;
@@ -17,7 +16,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/6/3
  */
-public interface CustomerApi extends BaseApi {
+public interface CustomerApi extends CustomerBaseApi {
 
     /**
      * 企业可通过此接口，根据外部联系人的userid（如何获取?），拉取客户详情。

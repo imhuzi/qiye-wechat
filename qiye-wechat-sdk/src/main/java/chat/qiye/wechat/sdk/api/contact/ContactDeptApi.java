@@ -6,7 +6,6 @@ import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.Param;
 import feign.RequestLine;
 
@@ -19,7 +18,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactDeptApi extends BaseApi {
+public interface ContactDeptApi extends ContactBaseApi {
 
   /**
    * 获取 部门列表

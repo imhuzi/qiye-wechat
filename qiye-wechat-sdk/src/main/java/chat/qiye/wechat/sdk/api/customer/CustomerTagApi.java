@@ -22,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerTagApi extends BaseApi {
+public interface CustomerTagApi extends CustomerBaseApi {
   /**
    * 获取企业标签库
    * 企业可通过此接口获取企业客户标签详情。
