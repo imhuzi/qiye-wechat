@@ -36,6 +36,19 @@ public interface BaseApiUris {
     String API_GET_ACTIVE_STAT = "POST /user/get_active_stat";
     String API_OAUTH2_USER_INFO = "GET /user/getuserinfo";
 
+    // 通讯录 异步批量接口
+    String API_BATCH_SYNCUSER = "POST /batch/syncuser";
+    String API_BATCH_REPLACEUSER = "POST /batch/replaceuser";
+    String API_BATCH_REPLACEPARTY = "POST /batch/replaceparty";
+    String API_BATCH_GETRESULT = "GET /batch/getresult?jobid={jobid}";
+
+    // 通讯录 异步导出
+    String API_EXPORT_SIMPLE_USER = "POST /export/simple_user";
+    String API_EXPORT_USER = "POST /export/user";
+    String API_EXPORT_DEPARTMENT = "POST /export/department";
+    String API_EXPORT_TAGUSER = "POST /export/taguser";
+    String API_EXPORT_GET_RESULT = "GET /export/get_result";
+
     /**
      * 第三方应用 可调用
      */
