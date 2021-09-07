@@ -51,6 +51,14 @@ public interface BaseApiUris {
     String API_TAG_ADDTAGUSERS = "POST /tag/addtagusers";
     String API_TAG_DELTAGUSERS = "POST /tag/deltagusers";
 
+    // 互联企业
+    String API_LINKEDCORP_AGENT_GET_PERM_LIST = "POST /linkedcorp/agent/get_perm_list";
+    String API_LINKEDCORP_USER_GET = "POST /linkedcorp/user/get";
+    String API_LINKEDCORP_USER_SIMPLELIST = "POST /linkedcorp/user/simplelist";
+    String API_LINKEDCORP_USER_LIST = "POST /linkedcorp/user/list";
+    String API_LINKEDCORP_DEPARTMENT_LIST = "POST /linkedcorp/department/list";
+
+
     // 应用管理
     String API_AGENT_GET = "GET /agent/get?agentid={agentid}";
     String API_AGENT_SET = "POST /agent/set";
