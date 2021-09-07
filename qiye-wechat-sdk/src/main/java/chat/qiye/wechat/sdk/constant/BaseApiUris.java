@@ -13,26 +13,26 @@ public interface BaseApiUris {
 
     //通讯录-> 部门管理
 
-    String API_DEPT_LIST = "GET /department/list";
+    String API_DEPT_LIST = "GET /department/list?id={id}";
     String API_DEPT_CREATE = "POST /department/create";
     String API_DEPT_UPDATE = "POST /department/update";
-    String API_DEPT_DELETE = "GET /department/delete";
+    String API_DEPT_DELETE = "GET /department/delete?id={id}";
 
     //通讯录-> 成员管理
 
-    String API_USER_LIST = "GET /user/list";
-    String API_USER_SIMPLE_LIST = "GET /user/simplelist";
-    String API_USER_GET = "GET /user/get";
+    String API_USER_LIST = "GET /user/list?department_id={department_id}&fetch_child={fetch_child}";
+    String API_USER_SIMPLE_LIST = "GET /user/simplelist?department_id={department_id}&fetch_child={fetch_child}";
+    String API_USER_GET = "GET /user/get?userid={userid}";
     String API_USER_CREATE = "POST /user/create";
     String API_USER_UPDATE = "POST /user/update";
-    String API_USER_DELETE = "GET /user/delete";
+    String API_USER_DELETE = "GET /user/delete?userid={userid}";
 
     String API_USER_DELETE_BATCH = "POST /user/batchdelete";
     String API_USER_TO_OPENID = "POST /user/convert_to_openid";
     String API_USER_TO_USERID = "POST /user/convert_to_userid";
-    String API_USER_AUTHSUCC = "GET /user/authsucc";
+    String API_USER_AUTHSUCC = "GET /user/authsucc?userid={userid}";
     String API_USER_INVITE = "POST /batch/invite";
-    String API_GET_JOIN_QRCODE = "GET /corp/get_join_qrcode";
+    String API_GET_JOIN_QRCODE = "GET /corp/get_join_qrcode?size_type={size_type}";
     String API_GET_ACTIVE_STAT = "POST /user/get_active_stat";
     String API_OAUTH2_USER_INFO = "GET /user/getuserinfo";
 
@@ -46,8 +46,8 @@ public interface BaseApiUris {
     String API_TAG_LIST = "GET /tag/list";
     String API_TAG_CREATE = "POST /tag/create";
     String API_TAG_UPDATE = "POST /tag/update";
-    String API_TAG_DELETE = "GET /tag/delete";
-    String API_TAG_GET = "GET /tag/get";
+    String API_TAG_DELETE = "GET /tag/delete?tagid={tagid}";
+    String API_TAG_GET = "GET /tag/get?tagid={tagid}";
     String API_TAG_ADDTAGUSERS = "POST /tag/addtagusers";
     String API_TAG_DELTAGUSERS = "POST /tag/deltagusers";
 
@@ -61,8 +61,8 @@ public interface BaseApiUris {
     // 素材管理
     String API_MEDIA_UPLOAD = "POST /media/upload";
     String API_MEDIA_UPLOADIMG = "POST /media/uploadimg";
-    String API_MEDIA_GET = "GET /media/get";
-    String API_MEDIA_GET_JSSDK = "GET /media/get/jssdk";
+    String API_MEDIA_GET = "GET /media/get?media_id={media_id}";
+    String API_MEDIA_GET_JSSDK = "GET /media/get/jssdk?media_id={media_id}";
 
     //第三方应用->  应用授权相关接口 start
 

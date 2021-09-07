@@ -1,7 +1,8 @@
 package chat.qiye.wechat.sdk.service;
 
+import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
-import chat.qiye.wechat.sdk.constant.ApiModel;
+import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 
 /**
@@ -57,6 +58,11 @@ public interface ApiConfigurationProvider {
         return 60;
     }
 
+    default boolean neverNeedsRefreshToken(AccessTokenInfoVo prevToken) {
+
+        return prevToken.getFailureTime() < System.currentTimeMillis();
+    }
+
     /**
      * 获取 API 调用模式: inner->自建内部应用，third_party->第三方服务商应用
      *
@@ -72,7 +78,7 @@ public interface ApiConfigurationProvider {
      * @return true or false
      */
     default boolean isThirdApp() {
-        return ApiModel.API_MODEL_THIRD_PARTY.equals(getApiModel());
+        return Constant.API_MODEL_THIRD_PARTY.equals(getApiModel());
     }
 
     /**
@@ -81,7 +87,7 @@ public interface ApiConfigurationProvider {
      * @return true or false
      */
     default boolean isInnerApp() {
-        return ApiModel.API_MODEL_INNER.equals(getApiModel());
+        return Constant.API_MODEL_INNER.equals(getApiModel());
     }
 
     /**

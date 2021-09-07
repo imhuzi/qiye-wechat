@@ -9,6 +9,6 @@ package chat.qiye.wechat.sdk.api.contact;
  * @version : 1.0
  * @date  : 2021/6/18
  */
-public interface ContactBatchApi extends ContactBaseApi {
+public interface ContactSyncBatchApi extends ContactBaseApi {
 
 }

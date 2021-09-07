@@ -10,7 +10,7 @@ package chat.qiye.wechat.sdk.constant;
 public enum SysAppIdEnum {
 
     DEFAULT("app", 0, "自建应用"),
-    APP_CONTACT("connect", 1, "通讯录"),
+    APP_CONTACT("contact", 1, "通讯录"),
     APP_CUSTOMER("customer", 2, "客户关系"),
     APP_CUSTOMER_SERVICE("customer_service", 3, "微信客服"),
     APP_MEETING("meeting", 3010085, "会议"),
@@ -21,7 +21,8 @@ public enum SysAppIdEnum {
     APP_CHECK_IN("check_in", 3010011, "打卡"),
     APP_APPROVAL("approval", 3010040, "审批"),
     APP_REPORT("report", 3010041, "汇报"),
-    APP_MEETING_ROOM("meeting_room", 6, "会议室");
+    APP_MEETING_ROOM("meeting_room", 6, "会议室"),
+    APP_SCHOOL_CONTACT("school_contact", 8, "家校通讯录");
 
     private final String appId;
 

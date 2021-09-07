@@ -1,13 +1,13 @@
 package chat.qiye.wechat.sdk.api.school;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
 import chat.qiye.wechat.sdk.api.school.dto.ParentDto;
 import chat.qiye.wechat.sdk.api.school.dto.StudentDto;
+import chat.qiye.wechat.sdk.api.school.param.BatchDeleteParam;
 import chat.qiye.wechat.sdk.api.school.param.ParentBatchCreateParam;
 import chat.qiye.wechat.sdk.api.school.param.ParentBatchUpdateParam;
 import chat.qiye.wechat.sdk.api.school.param.ParentUpdateParam;
 import chat.qiye.wechat.sdk.api.school.param.StudentBatchCreateParam;
-import chat.qiye.wechat.sdk.api.school.param.BatchDeleteParam;
 import chat.qiye.wechat.sdk.api.school.param.StudentBatchUpdateParam;
 import chat.qiye.wechat.sdk.api.school.param.StudentUpdateParam;
 import chat.qiye.wechat.sdk.api.school.resp.ParentListResp;
@@ -16,18 +16,21 @@ import chat.qiye.wechat.sdk.api.school.resp.StudentListResp;
 import chat.qiye.wechat.sdk.api.school.resp.StudentOrParentGetResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.SchoolApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 
 /**
- *
+ * 家校通讯录 用户 相关接口
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
  * @date  : 2021/7/3
  */
-
-public interface SchoolUserApi  extends BaseApi {
+@Headers(value = {"Accept: application/json", "Content-Type: application/json"})
+@QiYeChatApi(appType = SysAppIdEnum.APP_SCHOOL_CONTACT)
+public interface SchoolUserApi {
   /**
    * 创建学生
    * 请求方式：POST（HTTPS）

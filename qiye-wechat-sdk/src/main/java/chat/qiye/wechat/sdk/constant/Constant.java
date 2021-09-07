@@ -24,4 +24,16 @@ public interface Constant {
     String SUITE_ACCESS_TOKEN = "suite_access_token";
 
     String PROVIDER_ACCESS_TOKEN = "provider_access_token";
+
+
+    /**
+     * 企业内部应用 自建应用
+     */
+    String API_MODEL_INNER = "inner";
+
+    /**
+     * 第三方应用(服务商应用)
+     */
+    String API_MODEL_THIRD_PARTY = "third_party";
+
 }

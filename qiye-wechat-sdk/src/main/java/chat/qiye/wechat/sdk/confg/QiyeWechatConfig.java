@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.confg;
 
-import chat.qiye.wechat.sdk.constant.ApiModel;
+import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.utils.AssertUtil;
 import chat.qiye.wechat.sdk.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -36,11 +36,6 @@ public class QiyeWechatConfig {
     public static final String QIYE_WECAHT_TEMPL_HOMEURL = "qiye.wecaht.%s.homeUrl";
     public static final String QIYE_WECAHT_TEMPL_EVENT_TOKEN = "qiye.wecaht.%s.eventToken";
     public static final String QIYE_WECAHT_TEMPL_EVENT_ENCODING_AESKEY = "qiye.wecaht.%s.eventEncodingAesKey";
-
-
-    private static void initialize() {
-        setConfig("csp.sentinel.charset", "UTF-8");
-    }
 
     private static void loadProps() {
         Properties properties = QiyeWechatConfigLoader.getProperties();
@@ -82,34 +77,15 @@ public class QiyeWechatConfig {
     /**
      * 获取 api Model 配置
      *
-     * @return String {@link ApiModel}
+     * @return String {@link Constant}
      */
     public static String getApiModel() {
         String apiModel = props.get(QIYE_WECAHT_API_MODEL);
         if (StringUtil.isBlank(apiModel)) {
-            log.warn("[QiyeWechatConfig] Parse {} fail, use default value: {}", QIYE_WECAHT_API_MODEL, ApiModel.API_MODEL_INNER);
-            apiModel = ApiModel.API_MODEL_INNER;
+            log.warn("[QiyeWechatConfig] Parse {} fail, use default value: {}", QIYE_WECAHT_API_MODEL, Constant.API_MODEL_INNER);
+            apiModel = Constant.API_MODEL_INNER;
         }
         return apiModel;
-    }
-
-    public static long singleMetricFileSize() {
-        try {
-            return Long.parseLong((String) props.get("csp.sentinel.metric.file.single.size"));
-        } catch (Throwable var1) {
-            log.warn("[QiyeWechatConfig] Parse singleMetricFileSize fail, use default value: 52428800", var1);
-            return 52428800L;
-        }
-    }
-
-
-    public static int totalMetricFileCount() {
-        try {
-            return Integer.parseInt((String) props.get("csp.sentinel.metric.file.total.count"));
-        } catch (Throwable var1) {
-            log.warn("[QiyeWechatConfig] Parse totalMetricFileCount fail, use default value: 6", var1);
-            return 6;
-        }
     }
 
     public static QiyeWechatConfigVo getAppConfig() {
@@ -141,6 +117,7 @@ public class QiyeWechatConfig {
             configVo.setHomeUrl(props.get(String.format(QIYE_WECAHT_TEMPL_HOMEURL, app)));
             configVo.setEventToken(props.get(String.format(QIYE_WECAHT_TEMPL_EVENT_TOKEN, app)));
             configVo.setEventEncodingAesKey(props.get(String.format(QIYE_WECAHT_TEMPL_EVENT_ENCODING_AESKEY, app)));
+            return configVo;
         } catch (Throwable var1) {
             log.warn("[QiyeWechatConfig] Parse coldFactor fail, use default value: 3", var1);
         }
@@ -156,7 +133,6 @@ public class QiyeWechatConfig {
 
     static {
         try {
-            initialize();
             loadProps();
             log.info("[QiyeWechatConfig] Application type resolved: ", new Object[0]);
         } catch (Throwable var1) {
