@@ -47,7 +47,7 @@ public interface BaseApiUris {
     String API_EXPORT_USER = "POST /export/user";
     String API_EXPORT_DEPARTMENT = "POST /export/department";
     String API_EXPORT_TAGUSER = "POST /export/taguser";
-    String API_EXPORT_GET_RESULT = "GET /export/get_result";
+    String API_EXPORT_GET_RESULT = "GET /export/get_result?jobid={jobid}";
 
     /**
      * 第三方应用 可调用
