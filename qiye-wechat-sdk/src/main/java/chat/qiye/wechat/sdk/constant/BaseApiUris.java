@@ -76,6 +76,8 @@ public interface BaseApiUris {
     String API_AGENT_GET = "GET /agent/get?agentid={agentid}";
     String API_AGENT_SET = "POST /agent/set";
     String API_AGENT_MENU_CREATE = "POST /menu/create";
+    String API_AGENT_MENU_GET = "POST /menu/get?agentid={agentid}";
+    String API_AGENT_MENU_DELETE = "GET /menu/delete?agentid={agentid}";
     String API_AGENT_WORKBENCH_TEMPLATE_GET = "POST /agent/get_workbench_template";
     String API_AGENT_WORKBENCH_TEMPLATE_SET = "POST /agent/set_workbench_template";
 

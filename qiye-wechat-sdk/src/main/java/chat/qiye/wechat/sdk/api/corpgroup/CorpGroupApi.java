@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.corpgroup;
 
+import chat.qiye.wechat.sdk.annotation.NoAccessToken;
 import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.corpgroup.param.GetCorpGroupListAppShareParam;
 import chat.qiye.wechat.sdk.api.corpgroup.param.GetCorpGroupMiniprogramSessionParam;
@@ -85,6 +86,7 @@ public interface CorpGroupApi extends BaseApi {
      * @return
      */
     @RequestLine(BaseApiUris.API_GET_CORPGROUP_MINIPROGRAM_SESSION)
+    @NoAccessToken
     CorpGroupMiniProgramSessionResp getMiniProgramSession(@Param("corpgroup_access_token") String accessToken, GetCorpGroupMiniprogramSessionParam param);
 
 }
