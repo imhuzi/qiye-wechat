@@ -85,6 +85,12 @@ public interface BaseApiUris {
     String API_MEDIA_GET = "GET /media/get?media_id={media_id}";
     String API_MEDIA_GET_JSSDK = "GET /media/get/jssdk?media_id={media_id}";
 
+    // 企业互联
+    String API_GET_CORPGROUP_LIST_APP_INFO = "POST /corpgroup/corp/list_app_share_info";
+    String API_GET_CORPGROUP_GETTOKEN = "POST /corpgroup/corp/gettoken";
+    String API_GET_CORPGROUP_MINIPROGRAM_SESSION = "POST /miniprogram/transfer_session?access_token={corpgroup_access_token}";
+
+
     //第三方应用->  应用授权相关接口 start
 
     String SERVICE_GET_PROVIDER_TOKEN = "/service/get_provider_token";
