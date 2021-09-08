@@ -80,6 +80,7 @@ public interface BaseApiUris {
     String API_AGENT_MENU_DELETE = "GET /menu/delete?agentid={agentid}";
     String API_AGENT_WORKBENCH_TEMPLATE_GET = "POST /agent/get_workbench_template";
     String API_AGENT_WORKBENCH_TEMPLATE_SET = "POST /agent/set_workbench_template";
+    String API_AGENT_WORKBENCH_SET_DATA = "POST /agent/set_workbench_data";
 
     // 素材管理
     String API_MEDIA_UPLOAD = "POST /media/upload";

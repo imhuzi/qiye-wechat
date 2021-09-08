@@ -3,9 +3,13 @@ package chat.qiye.wechat.sdk.api.app;
 
 import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.app.param.CreateAppMenuParam;
+import chat.qiye.wechat.sdk.api.app.param.GetWorkbenchTemplateParam;
 import chat.qiye.wechat.sdk.api.app.param.SetAppAgentParam;
+import chat.qiye.wechat.sdk.api.app.param.WorkbenchTemplateDataParam;
 import chat.qiye.wechat.sdk.api.app.resp.AppInfoResp;
 import chat.qiye.wechat.sdk.api.app.resp.GetAppMenuResp;
+import chat.qiye.wechat.sdk.api.app.resp.WorkbenchTemplateResp;
+import chat.qiye.wechat.sdk.api.app.vo.WorkbenchTemplate;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.Param;
@@ -79,6 +83,17 @@ public interface AppManageApi extends BaseApi {
      */
     @RequestLine(BaseApiUris.API_AGENT_MENU_CREATE)
     RespStatus createMenu(@Param("agentid") Integer agentid, CreateAppMenuParam menuParam);
+
+
+    @RequestLine(BaseApiUris.API_AGENT_WORKBENCH_TEMPLATE_SET)
+    RespStatus setWorkbenchTemplate(WorkbenchTemplate param);
+
+
+    @RequestLine(BaseApiUris.API_AGENT_WORKBENCH_TEMPLATE_GET)
+    WorkbenchTemplateResp getWorkbenchTemplate(GetWorkbenchTemplateParam param);
+
+    @RequestLine(BaseApiUris.API_AGENT_WORKBENCH_SET_DATA)
+    RespStatus setWorkbenchData(WorkbenchTemplateDataParam param);
 
 
 }
