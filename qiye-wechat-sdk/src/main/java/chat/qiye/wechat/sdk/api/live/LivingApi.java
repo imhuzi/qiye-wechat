@@ -75,6 +75,27 @@ public interface LivingApi {
     @RequestLine(API_LIVING_GET_WATCH_STAT)
     GetLivingWatchStatResp getWatchStat(GetLivingWatchStatParam param);
 
+    /**
+     * 获取跳转小程序商城的直播观众信息
+     *
+     * <p>
+     * 通过此接口，开发者可获取跳转小程序商城的直播间(“推广产品”直播)观众id、邀请人id及对应直播间id，以打通卖货直播的“人货场”信息闭环。
+     * <p>
+     * 请求方式：POST（HTTPS）
+     * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/living/get_living_share_info?access_token=ACCESS_TOKEN
+     * <p>
+     * 请求包体：
+     * <p>
+     * {
+     * "ww_share_code": "CODE"
+     * }
+     * 参数说明：
+     *
+     * @param param 参数	必须	说明
+     *              access_token	是	调用接口凭证
+     *              ww_share_code	是	“推广产品”直播观众跳转小程序商城时会在小程序path中带上ww_share_code=xxxxx参数
+     * @return
+     */
     @RequestLine(API_LIVING_GET_LIVING_SHARE_INFO)
     GetLivingShareInfoResp getShareInfo(GetLivingShareInfoParam param);
 
