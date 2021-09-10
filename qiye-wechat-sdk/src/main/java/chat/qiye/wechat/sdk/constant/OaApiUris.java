@@ -55,4 +55,25 @@ public interface OaApiUris {
     //OA 紧急通知应用 https://open.work.weixin.qq.com/api/doc/90000/90135/91623
     String API_PSTNCC_CALL = "POST /pstncc/call";
     String API_GET_PSTNCC_STATE = "POST /pstncc/getstates";
+
+    // 效率工具-日程
+    String API_CALENDAR_ADD = "POST /oa/calendar/add";
+    String API_CALENDAR_UPDATE = "POST /oa/calendar/update";
+    String API_CALENDAR_GET = "POST /oa/calendar/get";
+    String API_CALENDAR_DEL = "POST /oa/calendar/del";
+
+    String API_SCHEDULE_ADD = "POST /oa/schedule/add";
+    String API_SCHEDULE_UPDATE = "POST /oa/schedule/update";
+    String API_SCHEDULE_GET = "POST /oa/schedule/get";
+    String API_SCHEDULE_DEL = "POST /oa/schedule/del";
+    String API_SCHEDULE_GET_BY_CALENDAR = "POST /oa/schedule/get_by_calendar";
+
+    // 效率工具- 会议
+    String API_MEETING_CREATE = "POST /meeting/create";
+    String API_MEETING_UPDATE = "POST /meeting/update";
+    String API_MEETING_CANCEL = "POST /meeting/cancel";
+    String API_MEETING_GET_USER_MEETINGID = "POST /meeting/get_user_meetingid";
+    String API_MEETING_GET_DETAIL = "POST /meeting/get_info";
+
+
 }
