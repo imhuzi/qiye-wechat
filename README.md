@@ -1,10 +1,3 @@
 # 企业微信 Java SDK
 
-基于 forest http client 封装 http://forest.dtflyx.com/docs/
-
-### todo:
-自定义 注解 实现 第三方 应用和内部应用 的 各种 token 透传
-1. provider_access_token
-2. suite_access_token
-3. corp_access_token
-4. 内部应用 access_token
+qiye-wechat-sdk 基于 Figen 封装, 该函 企业微信 所有API
