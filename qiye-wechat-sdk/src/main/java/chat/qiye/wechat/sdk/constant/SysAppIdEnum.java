@@ -22,6 +22,7 @@ public enum SysAppIdEnum {
     APP_APPROVAL("approval", 3010040, "审批"),
     APP_REPORT("report", 3010041, "汇报"),
     APP_MEETING_ROOM("meeting_room", 6, "会议室"),
+    APP_PSTNCC("pstncc", 8, "紧急通知"),
     APP_SCHOOL_CONTACT("school_contact", 8, "家校通讯录");
 
     private final String appId;
