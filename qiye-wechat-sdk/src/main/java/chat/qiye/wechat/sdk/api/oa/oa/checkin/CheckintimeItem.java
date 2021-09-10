@@ -7,14 +7,14 @@ import lombok.Data;
 public class CheckintimeItem{
 
 	@JsonProperty("remind_work_sec")
-	private int remindWorkSec;
+	private Integer remindWorkSec;
 
 	@JsonProperty("off_work_sec")
-	private int offWorkSec;
+	private Integer offWorkSec;
 
 	@JsonProperty("work_sec")
-	private int workSec;
+	private Integer workSec;
 
 	@JsonProperty("remind_off_work_sec")
-	private int remindOffWorkSec;
+	private Integer remindOffWorkSec;
 }

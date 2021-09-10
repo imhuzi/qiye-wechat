@@ -15,5 +15,5 @@ public class CheckInLateRule {
 	private List<TimerulesItem> timerules;
 
 	@JsonProperty("allow_offwork_after_time")
-	private boolean allowOffworkAfterTime;
+	private Boolean allowOffworkAfterTime;
 }

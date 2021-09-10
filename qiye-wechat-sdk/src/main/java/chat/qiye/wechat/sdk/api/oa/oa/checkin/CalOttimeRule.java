@@ -15,9 +15,9 @@ public class CalOttimeRule{
 	public static class ItemsItem{
 
 		@JsonProperty("ot_time")
-		private int otTime;
+		private Integer otTime;
 
 		@JsonProperty("rest_time")
-		private int restTime;
+		private Integer restTime;
 	}
 }

@@ -13,10 +13,10 @@ public class ApprovalApplyEventParam{
 	private List<ApproverItem> approver;
 
 	@JsonProperty("notify_type")
-	private int notifyType;
+	private Integer notifyType;
 
 	@JsonProperty("choose_department")
-	private int chooseDepartment;
+	private Integer chooseDepartment;
 
 	@JsonProperty("apply_data")
 	private ApplyData applyData;
@@ -34,13 +34,13 @@ public class ApprovalApplyEventParam{
 	private List<SummaryListItem> summaryList;
 
 	@JsonProperty("use_template_approver")
-	private int useTemplateApprover;
+	private Integer useTemplateApprover;
 
 	@Data
 	public static class ApproverItem{
 
 		@JsonProperty("attr")
-		private int attr;
+		private Integer attr;
 
 		@JsonProperty("userid")
 		private List<String> userid;

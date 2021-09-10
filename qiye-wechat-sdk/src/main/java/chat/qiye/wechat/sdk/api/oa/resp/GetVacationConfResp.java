@@ -15,19 +15,19 @@ public class GetVacationConfResp{
 	public static class ListsItem{
 
 		@JsonProperty("perday_duration")
-		private int perdayDuration;
+		private Integer perdayDuration;
 
 		@JsonProperty("time_attr")
-		private int timeAttr;
+		private Integer timeAttr;
 
 		@JsonProperty("duration_type")
-		private int durationType;
+		private Integer durationType;
 
 		@JsonProperty("name")
 		private String name;
 
 		@JsonProperty("id")
-		private int id;
+		private Integer id;
 
 		@JsonProperty("quota_attr")
 		private QuotaAttr quotaAttr;
@@ -36,13 +36,13 @@ public class GetVacationConfResp{
 		public static class QuotaAttr{
 
 			@JsonProperty("autoreset_duration")
-			private int autoresetDuration;
+			private Integer autoresetDuration;
 
 			@JsonProperty("autoreset_time")
-			private int autoresetTime;
+			private Integer autoresetTime;
 
 			@JsonProperty("type")
-			private int type;
+			private Integer type;
 		}
 	}
 }

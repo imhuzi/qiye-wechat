@@ -15,17 +15,17 @@ public class CheckindateItem{
 	private List<Integer> workdays;
 
 	@JsonProperty("flex_on_duty_time")
-	private int flexOnDutyTime;
+	private Integer flexOnDutyTime;
 
 	@JsonProperty("limit_aheadtime")
-	private int limitAheadtime;
+	private Integer limitAheadtime;
 
 	@JsonProperty("flex_off_duty_time")
-	private int flexOffDutyTime;
+	private Integer flexOffDutyTime;
 
 	@JsonProperty("checkintime")
 	private List<CheckintimeItem> checkintime;
 
 	@JsonProperty("noneed_offwork")
-	private boolean noneedOffwork;
+	private Boolean noneedOffwork;
 }

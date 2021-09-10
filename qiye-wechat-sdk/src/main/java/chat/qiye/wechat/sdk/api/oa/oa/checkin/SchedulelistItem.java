@@ -12,38 +12,38 @@ import java.util.List;
 public class SchedulelistItem{
 
 	@JsonProperty("limit_offtime")
-	private int limitOfftime;
+	private Integer limitOfftime;
 
 	@JsonProperty("flex_on_duty_time")
-	private int flexOnDutyTime;
+	private Integer flexOnDutyTime;
 
 	@JsonProperty("time_section")
 	private List<TimeSectionItem> timeSection;
 
 	@JsonProperty("max_allow_arrive_early")
-	private int maxAllowArriveEarly;
+	private Integer maxAllowArriveEarly;
 
 	@JsonProperty("limit_aheadtime")
-	private int limitAheadtime;
+	private Integer limitAheadtime;
 
 	@JsonProperty("flex_off_duty_time")
-	private int flexOffDutyTime;
+	private Integer flexOffDutyTime;
 
 	@JsonProperty("late_rule")
 	private CheckInLateRule lateRule;
 
 	@JsonProperty("schedule_id")
-	private int scheduleId;
+	private Integer scheduleId;
 
 	@JsonProperty("schedule_name")
 	private String scheduleName;
 
 	@JsonProperty("max_allow_arrive_late")
-	private int maxAllowArriveLate;
+	private Integer maxAllowArriveLate;
 
 	@JsonProperty("noneed_offwork")
-	private boolean noneedOffwork;
+	private Boolean noneedOffwork;
 
 	@JsonProperty("allow_flex")
-	private boolean allowFlex;
+	private Boolean allowFlex;
 }

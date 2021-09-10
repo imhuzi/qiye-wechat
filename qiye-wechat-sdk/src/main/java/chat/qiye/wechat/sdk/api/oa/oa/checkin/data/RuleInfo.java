@@ -11,7 +11,7 @@ public class RuleInfo{
 	private String schedulename;
 
 	@JsonProperty("groupid")
-	private int groupid;
+	private Integer groupid;
 
 	@JsonProperty("groupname")
 	private String groupname;
@@ -20,5 +20,5 @@ public class RuleInfo{
 	private List<CheckintimeItem> checkintime;
 
 	@JsonProperty("scheduleid")
-	private int scheduleid;
+	private Integer scheduleid;
 }

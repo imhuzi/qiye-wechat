@@ -7,25 +7,25 @@ import lombok.Data;
 public class Otcheckinfo{
 
 	@JsonProperty("ot_workingday_time_start")
-	private int otWorkingdayTimeStart;
+	private Integer otWorkingdayTimeStart;
 
 	@JsonProperty("ot_nonworkingday_spanday_time")
-	private int otNonworkingdaySpandayTime;
+	private Integer otNonworkingdaySpandayTime;
 
 	@JsonProperty("ot_workingday_time_min")
-	private int otWorkingdayTimeMin;
+	private Integer otWorkingdayTimeMin;
 
 	@JsonProperty("ot_workingday_time_max")
-	private int otWorkingdayTimeMax;
+	private Integer otWorkingdayTimeMax;
 
 	@JsonProperty("ot_nonworkingday_restinfo")
 	private OtNonworkingdayRestinfo otNonworkingdayRestinfo;
 
 	@JsonProperty("ot_nonworkingday_time_max")
-	private int otNonworkingdayTimeMax;
+	private Integer otNonworkingdayTimeMax;
 
 	@JsonProperty("ot_nonworkingday_time_min")
-	private int otNonworkingdayTimeMin;
+	private Integer otNonworkingdayTimeMin;
 
 	@JsonProperty("ot_workingday_restinfo")
 	private OtWorkingdayRestinfo otWorkingdayRestinfo;

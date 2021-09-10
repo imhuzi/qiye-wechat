@@ -10,7 +10,7 @@ public class OtNonworkingdayRestinfo{
 	private FixTimeRule fixTimeRule;
 
 	@JsonProperty("type")
-	private int type;
+	private Integer type;
 
 	@JsonProperty("cal_ottime_rule")
 	private CalOttimeRule calOttimeRule;

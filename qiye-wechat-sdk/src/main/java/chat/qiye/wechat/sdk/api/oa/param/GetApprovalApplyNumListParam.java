@@ -9,10 +9,10 @@ import java.util.List;
 public class GetApprovalApplyNumListParam {
 
 	@JsonProperty("cursor")
-	private int cursor;
+	private Integer cursor;
 
 	@JsonProperty("size")
-	private int size;
+	private Integer size;
 
 	@JsonProperty("endtime")
 	private String endtime;

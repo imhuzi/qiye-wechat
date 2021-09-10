@@ -15,5 +15,5 @@ public class SpeWorkdaysItem{
 	private List<CheckintimeItem> checkintime;
 
 	@JsonProperty("timestamp")
-	private int timestamp;
+	private Integer timestamp;
 }

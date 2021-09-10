@@ -19,7 +19,7 @@ public class SelectorControl {
     private String type;
 
     @JsonProperty("exp_type")
-    private int expType;
+    private Integer expType;
 
     @Data
     public static class OptionsItem {

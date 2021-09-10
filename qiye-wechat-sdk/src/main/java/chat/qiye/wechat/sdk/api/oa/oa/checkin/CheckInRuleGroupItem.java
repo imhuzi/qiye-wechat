@@ -12,19 +12,19 @@ public class CheckInRuleGroupItem {
 	private String createUserid;
 
 	@JsonProperty("need_photo")
-	private boolean needPhoto;
+	private Boolean needPhoto;
 
 	@JsonProperty("reporterinfo")
 	private Reporterinfo reporterinfo;
 
 	@JsonProperty("option_out_range")
-	private int optionOutRange;
+	private Integer optionOutRange;
 
 	@JsonProperty("offwork_interval_time")
-	private int offworkIntervalTime;
+	private Integer offworkIntervalTime;
 
 	@JsonProperty("allow_apply_bk_cnt")
-	private int allowApplyBkCnt;
+	private Integer allowApplyBkCnt;
 
 	@JsonProperty("range")
 	private CheckInRuleRange range;
@@ -33,31 +33,31 @@ public class CheckInRuleGroupItem {
 	private List<SpeWorkdaysItem> speWorkdays;
 
 	@JsonProperty("sync_holidays")
-	private boolean syncHolidays;
+	private Boolean syncHolidays;
 
 	@JsonProperty("type")
-	private int type;
+	private Integer type;
 
 	@JsonProperty("allow_checkin_offworkday")
-	private boolean allowCheckinOffworkday;
+	private Boolean allowCheckinOffworkday;
 
 	@JsonProperty("allow_apply_bk_day_limit")
-	private int allowApplyBkDayLimit;
+	private Integer allowApplyBkDayLimit;
 
 	@JsonProperty("grouptype")
-	private int grouptype;
+	private Integer grouptype;
 
 	@JsonProperty("allow_apply_offworkday")
-	private boolean allowApplyOffworkday;
+	private Boolean allowApplyOffworkday;
 
 	@JsonProperty("note_can_use_local_pic")
-	private boolean noteCanUseLocalPic;
+	private Boolean noteCanUseLocalPic;
 
 	@JsonProperty("checkindate")
 	private List<CheckindateItem> checkindate;
 
 	@JsonProperty("create_time")
-	private int createTime;
+	private Integer createTime;
 
 	@JsonProperty("update_userid")
 	private String updateUserid;
@@ -72,13 +72,13 @@ public class CheckInRuleGroupItem {
 	private List<SchedulelistItem> schedulelist;
 
 	@JsonProperty("groupid")
-	private int groupid;
+	private Integer groupid;
 
 	@JsonProperty("loc_infos")
 	private List<LocInfosItem> locInfos;
 
 	@JsonProperty("use_face_detect")
-	private boolean useFaceDetect;
+	private Boolean useFaceDetect;
 
 	@JsonProperty("groupname")
 	private String groupname;

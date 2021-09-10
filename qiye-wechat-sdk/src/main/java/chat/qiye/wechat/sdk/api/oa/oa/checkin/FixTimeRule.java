@@ -7,8 +7,8 @@ import lombok.Data;
 public class FixTimeRule{
 
 	@JsonProperty("fix_time_begin_sec")
-	private int fixTimeBeginSec;
+	private Integer fixTimeBeginSec;
 
 	@JsonProperty("fix_time_end_sec")
-	private int fixTimeEndSec;
+	private Integer fixTimeEndSec;
 }

@@ -9,13 +9,13 @@ import java.util.List;
 public class ApprovalTemplateProperty {
 
 	@JsonProperty("un_print")
-	private int unPrint;
+	private Integer unPrint;
 
 	@JsonProperty("control")
 	private String control;
 
 	@JsonProperty("require")
-	private int require;
+	private Integer require;
 
 	@JsonProperty("id")
 	private String id;

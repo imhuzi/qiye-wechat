@@ -7,8 +7,8 @@ import lombok.Data;
 public class TimerulesItem{
 
 	@JsonProperty("offwork_after_time")
-	private int offworkAfterTime;
+	private Integer offworkAfterTime;
 
 	@JsonProperty("onwork_flex_time")
-	private int onworkFlexTime;
+	private Integer onworkFlexTime;
 }

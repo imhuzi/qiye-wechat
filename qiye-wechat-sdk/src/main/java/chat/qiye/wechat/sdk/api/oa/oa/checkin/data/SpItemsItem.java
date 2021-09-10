@@ -7,20 +7,20 @@ import lombok.Data;
 public class SpItemsItem{
 
 	@JsonProperty("duration")
-	private int duration;
+	private Integer duration;
 
 	@JsonProperty("time_type")
-	private int timeType;
+	private Integer timeType;
 
 	@JsonProperty("count")
-	private int count;
+	private Integer count;
 
 	@JsonProperty("name")
 	private String name;
 
 	@JsonProperty("vacation_id")
-	private int vacationId;
+	private Integer vacationId;
 
 	@JsonProperty("type")
-	private int type;
+	private Integer type;
 }

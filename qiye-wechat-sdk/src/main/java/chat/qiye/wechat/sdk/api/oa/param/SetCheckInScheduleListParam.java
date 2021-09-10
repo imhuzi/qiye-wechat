@@ -9,10 +9,10 @@ import java.util.List;
 public class SetCheckInScheduleListParam {
 
 	@JsonProperty("groupid")
-	private int groupid;
+	private Integer groupid;
 
 	@JsonProperty("yearmonth")
-	private int yearmonth;
+	private Integer yearmonth;
 
 	@JsonProperty("items")
 	private List<ItemsItem> items;
@@ -23,9 +23,9 @@ public class SetCheckInScheduleListParam {
         private String userid;
 
         @JsonProperty("day")
-        private int day;
+        private Integer day;
 
         @JsonProperty("schedule_id")
-        private int scheduleId;
+        private Integer scheduleId;
     }
 }

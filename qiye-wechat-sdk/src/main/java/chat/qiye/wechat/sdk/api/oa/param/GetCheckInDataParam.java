@@ -12,11 +12,11 @@ public class GetCheckInDataParam{
 	private List<String> useridlist;
 
 	@JsonProperty("endtime")
-	private int endtime;
+	private Integer endtime;
 
 	@JsonProperty("opencheckindatatype")
-	private int opencheckindatatype;
+	private Integer opencheckindatatype;
 
 	@JsonProperty("starttime")
-	private int starttime;
+	private Integer starttime;
 }

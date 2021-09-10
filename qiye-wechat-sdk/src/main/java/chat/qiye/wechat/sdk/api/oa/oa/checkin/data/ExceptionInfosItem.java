@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ExceptionInfosItem{
 
 	@JsonProperty("duration")
-	private int duration;
+	private Integer duration;
 
 	@JsonProperty("exception")
-	private int exception;
+	private Integer exception;
 
 	@JsonProperty("count")
-	private int count;
+	private Integer count;
 }

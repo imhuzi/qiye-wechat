@@ -10,14 +10,14 @@ public class LocInfosItem{
 	private String locTitle;
 
 	@JsonProperty("lng")
-	private int lng;
+	private Integer lng;
 
 	@JsonProperty("distance")
-	private int distance;
+	private Integer distance;
 
 	@JsonProperty("loc_detail")
 	private String locDetail;
 
 	@JsonProperty("lat")
-	private int lat;
+	private Integer lat;
 }

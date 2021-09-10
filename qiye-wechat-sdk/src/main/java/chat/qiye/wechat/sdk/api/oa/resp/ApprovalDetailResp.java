@@ -38,13 +38,13 @@ public class ApprovalDetailResp{
 		private String templateId;
 
 		@JsonProperty("apply_time")
-		private int applyTime;
+		private Integer applyTime;
 
 		@JsonProperty("sp_no")
 		private String spNo;
 
 		@JsonProperty("sp_status")
-		private int spStatus;
+		private Integer spStatus;
 
 		@Data
 		public static class Applyer {
@@ -63,10 +63,10 @@ public class ApprovalDetailResp{
 			private List<DetailsItem> details;
 
 			@JsonProperty("sp_status")
-			private int spStatus;
+			private Integer spStatus;
 
 			@JsonProperty("approverattr")
-			private int approverattr;
+			private Integer approverattr;
 
 			@Data
 			public static class DetailsItem{
@@ -78,13 +78,13 @@ public class ApprovalDetailResp{
 				private String speech;
 
 				@JsonProperty("sptime")
-				private int sptime;
+				private Integer sptime;
 
 				@JsonProperty("media_id")
 				private List<String> mediaId;
 
 				@JsonProperty("sp_status")
-				private int spStatus;
+				private Integer spStatus;
 			}
 		}
 
@@ -92,7 +92,7 @@ public class ApprovalDetailResp{
 		public static class CommentsItem{
 
 			@JsonProperty("commenttime")
-			private int commenttime;
+			private Integer commenttime;
 
 			@JsonProperty("commentcontent")
 			private String commentcontent;

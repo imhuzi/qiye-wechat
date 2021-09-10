@@ -7,13 +7,13 @@ import lombok.Data;
 public class Otapplyinfo{
 
 	@JsonProperty("ot_nonworkingday_spanday_time")
-	private int otNonworkingdaySpandayTime;
+	private Integer otNonworkingdaySpandayTime;
 
 	@JsonProperty("allow_ot_nonworkingday")
-	private boolean allowOtNonworkingday;
+	private Boolean allowOtNonworkingday;
 
 	@JsonProperty("allow_ot_workingday")
-	private boolean allowOtWorkingday;
+	private Boolean allowOtWorkingday;
 
 	@JsonProperty("ot_nonworkingday_restinfo")
 	private OtNonworkingdayRestinfo otNonworkingdayRestinfo;
@@ -22,5 +22,5 @@ public class Otapplyinfo{
 	private OtWorkingdayRestinfo otWorkingdayRestinfo;
 
 	@JsonProperty("uptime")
-	private int uptime;
+	private Integer uptime;
 }

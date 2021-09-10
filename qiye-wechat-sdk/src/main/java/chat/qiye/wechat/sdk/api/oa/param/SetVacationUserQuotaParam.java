@@ -7,16 +7,16 @@ import lombok.Data;
 public class SetVacationUserQuotaParam{
 
 	@JsonProperty("time_attr")
-	private int timeAttr;
+	private Integer timeAttr;
 
 	@JsonProperty("vacation_id")
-	private int vacationId;
+	private Integer vacationId;
 
 	@JsonProperty("userid")
 	private String userid;
 
 	@JsonProperty("leftduration")
-	private int leftduration;
+	private Integer leftduration;
 
 	@JsonProperty("remarks")
 	private String remarks;

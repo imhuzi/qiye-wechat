@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Data
 public class GetCheckInUserRuleParam {
-    private Integer datetime;
+    private Integereger datetime;
     private List<String> useridlist;
 }

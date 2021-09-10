@@ -7,29 +7,29 @@ import lombok.Data;
 public class TimeSectionItem{
 
 	@JsonProperty("id")
-	private int id;
+	private Integer id;
 
 	@JsonProperty("time_id")
-	private int timeId;
+	private Integer timeId;
 
 	@JsonProperty("remind_work_sec")
-	private int remindWorkSec;
+	private Integer remindWorkSec;
 
 	@JsonProperty("off_work_sec")
-	private int offWorkSec;
+	private Integer offWorkSec;
 
 	@JsonProperty("rest_begin_time")
-	private int restBeginTime;
+	private Integer restBeginTime;
 
 	@JsonProperty("work_sec")
-	private int workSec;
+	private Integer workSec;
 
 	@JsonProperty("remind_off_work_sec")
-	private int remindOffWorkSec;
+	private Integer remindOffWorkSec;
 
 	@JsonProperty("allow_rest")
-	private boolean allowRest;
+	private Boolean allowRest;
 
 	@JsonProperty("rest_end_time")
-	private int restEndTime;
+	private Integer restEndTime;
 }

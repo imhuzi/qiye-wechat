@@ -30,32 +30,32 @@ public class CheckInDayDataItemVo {
 	public static class SummaryInfo{
 
 		@JsonProperty("checkin_count")
-		private int checkinCount;
+		private Integer checkinCount;
 
 		@JsonProperty("earliest_time")
-		private int earliestTime;
+		private Integer earliestTime;
 
 		@JsonProperty("regular_work_sec")
-		private int regularWorkSec;
+		private Integer regularWorkSec;
 
 		@JsonProperty("lastest_time")
-		private int lastestTime;
+		private Integer lastestTime;
 
 		@JsonProperty("standard_work_sec")
-		private int standardWorkSec;
+		private Integer standardWorkSec;
 	}
 
 	@Data
 	public static class OtInfo{
 
 		@JsonProperty("ot_duration")
-		private int otDuration;
+		private Integer otDuration;
 
 		@JsonProperty("exception_duration")
 		private List<Integer> exceptionDuration;
 
 		@JsonProperty("ot_status")
-		private int otStatus;
+		private Integer otStatus;
 	}
 
 	@Data

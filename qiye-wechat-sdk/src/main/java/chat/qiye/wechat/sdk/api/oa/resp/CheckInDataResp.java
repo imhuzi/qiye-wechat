@@ -18,7 +18,7 @@ public class CheckInDataResp extends RespStatus {
     public static class CheckindataItem {
 
         @JsonProperty("checkin_time")
-        private int checkinTime;
+        private Integer checkinTime;
 
         @JsonProperty("wifiname")
         private String wifiname;
@@ -27,13 +27,13 @@ public class CheckInDataResp extends RespStatus {
         private String notes;
 
         @JsonProperty("lng")
-        private int lng;
+        private Integer lng;
 
         @JsonProperty("location_detail")
         private String locationDetail;
 
         @JsonProperty("groupid")
-        private int groupid;
+        private Integer groupid;
 
         @JsonProperty("userid")
         private String userid;
@@ -60,15 +60,15 @@ public class CheckInDataResp extends RespStatus {
         private List<String> mediaids;
 
         @JsonProperty("timeline_id")
-        private int timelineId;
+        private Integer timelineId;
 
         @JsonProperty("schedule_id")
-        private int scheduleId;
+        private Integer scheduleId;
 
         @JsonProperty("lat")
-        private int lat;
+        private Integer lat;
 
         @JsonProperty("sch_checkin_time")
-        private int schCheckinTime;
+        private Integer schCheckinTime;
     }
 }

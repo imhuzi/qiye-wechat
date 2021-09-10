@@ -24,7 +24,7 @@ public class AttendanceControl {
     private DateRange dateRange;
 
     // 1-请假，3-出差，4-外出，5-加班
-    private int type;
+    private Integer type;
 
 
     @Data

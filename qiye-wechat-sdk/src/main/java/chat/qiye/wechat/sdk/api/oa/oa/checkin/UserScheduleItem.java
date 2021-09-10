@@ -10,10 +10,10 @@ public class UserScheduleItem {
 	private UserSchedule schedule;
 
 	@JsonProperty("groupid")
-	private int groupid;
+	private Integer groupid;
 
 	@JsonProperty("yearmonth")
-	private int yearmonth;
+	private Integer yearmonth;
 
 	@JsonProperty("userid")
 	private String userid;

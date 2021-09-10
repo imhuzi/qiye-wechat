@@ -7,10 +7,10 @@ import lombok.Data;
 public class BaseInfo{
 
 	@JsonProperty("date")
-	private int date;
+	private Integer date;
 
 	@JsonProperty("day_type")
-	private int dayType;
+	private Integer dayType;
 
 	@JsonProperty("name_ex")
 	private String nameEx;
@@ -28,5 +28,5 @@ public class BaseInfo{
 	private String acctid;
 
 	@JsonProperty("record_type")
-	private int recordType;
+	private Integer recordType;
 }

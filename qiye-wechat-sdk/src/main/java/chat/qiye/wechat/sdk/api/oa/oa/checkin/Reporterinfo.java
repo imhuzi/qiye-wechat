@@ -12,5 +12,5 @@ public class Reporterinfo{
 	private List<ReportersItem> reporters;
 
 	@JsonProperty("updatetime")
-	private int updatetime;
+	private Integer updatetime;
 }

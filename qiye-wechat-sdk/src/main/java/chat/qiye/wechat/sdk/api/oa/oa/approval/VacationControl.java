@@ -20,7 +20,7 @@ public class VacationControl {
     public static class Item {
 
         @JsonProperty("id")
-        private int id;
+        private Integer id;
 
         @JsonProperty("name")
         private List<TitleItem> name;

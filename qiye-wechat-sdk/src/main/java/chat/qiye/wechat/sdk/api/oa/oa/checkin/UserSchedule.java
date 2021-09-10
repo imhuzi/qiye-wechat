@@ -1,6 +1,5 @@
 package chat.qiye.wechat.sdk.api.oa.oa.checkin;
 
-import chat.qiye.wechat.sdk.api.oa.oa.checkin.TimeSectionItem;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -24,7 +23,7 @@ public class UserSchedule {
 		private ScheduleInfo scheduleInfo;
 
 		@JsonProperty("day")
-		private int day;
+		private Integer day;
 
 		@Data
 		public static class ScheduleInfo{
@@ -33,7 +32,7 @@ public class UserSchedule {
 			private List<TimeSectionItem> timeSection;
 
 			@JsonProperty("schedule_id")
-			private int scheduleId;
+			private Integer scheduleId;
 
 			@JsonProperty("schedule_name")
 			private String scheduleName;
