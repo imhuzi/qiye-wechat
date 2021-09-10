@@ -1,8 +1,8 @@
 package chat.qiye.wechat.sdk.api.oa.resp;
 
-import chat.qiye.wechat.sdk.api.oa.oa.approval.ApprovalTemplateConfig;
-import chat.qiye.wechat.sdk.api.oa.oa.approval.ApprovalTemplateProperty;
-import chat.qiye.wechat.sdk.api.oa.oa.approval.TitleItem;
+import chat.qiye.wechat.sdk.api.oa.vo.approval.ApprovalTemplateConfig;
+import chat.qiye.wechat.sdk.api.oa.vo.approval.ApprovalTemplateProperty;
+import chat.qiye.wechat.sdk.api.oa.vo.approval.TitleItem;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

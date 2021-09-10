@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa.resp;
 
-import chat.qiye.wechat.sdk.api.oa.oa.checkin.UserCheckInRuleItem;
+import chat.qiye.wechat.sdk.api.oa.vo.checkin.UserCheckInRuleItem;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

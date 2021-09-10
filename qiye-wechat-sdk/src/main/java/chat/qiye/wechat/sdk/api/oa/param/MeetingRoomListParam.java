@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa.param;
 
-import chat.qiye.wechat.sdk.api.oa.oa.MeetingRoomEquipment;
+import chat.qiye.wechat.sdk.api.oa.vo.MeetingRoomEquipment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 

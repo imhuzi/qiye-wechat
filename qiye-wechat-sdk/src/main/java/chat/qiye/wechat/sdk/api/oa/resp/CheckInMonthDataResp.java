@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa.resp;
 
-import chat.qiye.wechat.sdk.api.oa.oa.checkin.data.CheckInMonthDataItemVo;
+import chat.qiye.wechat.sdk.api.oa.vo.checkin.data.CheckInMonthDataItemVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

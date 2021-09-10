@@ -1,7 +1,7 @@
 package chat.qiye.wechat.sdk.api.oa.resp;
 
-import chat.qiye.wechat.sdk.api.oa.oa.DeptIdItem;
-import chat.qiye.wechat.sdk.api.oa.oa.UserIdItem;
+import chat.qiye.wechat.sdk.api.oa.vo.DeptIdItem;
+import chat.qiye.wechat.sdk.api.oa.vo.UserIdItem;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

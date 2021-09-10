@@ -1,7 +1,7 @@
 package chat.qiye.wechat.sdk.api.oa;
 
 import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
-import chat.qiye.wechat.sdk.api.oa.oa.MeetingRoom;
+import chat.qiye.wechat.sdk.api.oa.vo.MeetingRoom;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingRoomBookingParam;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingRoomCancelBookingParam;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingRoomDelParam;

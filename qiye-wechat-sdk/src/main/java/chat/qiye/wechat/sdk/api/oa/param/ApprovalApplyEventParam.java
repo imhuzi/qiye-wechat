@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa.param;
 
-import chat.qiye.wechat.sdk.api.oa.oa.approval.TitleItem;
+import chat.qiye.wechat.sdk.api.oa.vo.approval.TitleItem;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
