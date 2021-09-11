@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.CalendarSaveParam;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingCancelParam;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingGetUserMeetingidParam;
@@ -22,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeChatApi(appType = SysAppIdEnum.APP_MEETING)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_MEETING)
 public interface OaMeetingApi {
 
     @RequestLine(OaApiUris.API_MEETING_CREATE)

@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.customer;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.Headers;
 
@@ -10,7 +10,7 @@ import feign.Headers;
  * @date : 2021/9/1
  */
 @Headers(value = {"Accept: application/json", "Content-Type: application/json"})
-@QiYeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
 public interface CustomerBaseApi {
 
 }

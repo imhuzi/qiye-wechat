@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.ApprovalApplyEventParam;
 import chat.qiye.wechat.sdk.api.oa.param.GetApprovalApplyNumListParam;
 import chat.qiye.wechat.sdk.api.oa.param.GetApprovalDetailParam;
@@ -26,7 +26,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/8
  */
-@QiYeChatApi(appType = SysAppIdEnum.APP_APPROVAL)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_APPROVAL)
 public interface OaApprovalApi {
     /**
      * 获取审批模板详情

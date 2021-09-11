@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.wedrive;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.wedrive.param.WeDriveSpaceIdParam;
 import chat.qiye.wechat.sdk.api.wedrive.param.WeDriveSpaceRenameParam;
 import chat.qiye.wechat.sdk.api.wedrive.resp.WeDriveSpaceInfoResp;
@@ -17,7 +17,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeChatApi(appType = SysAppIdEnum.APP_LIVING)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_LIVING)
 public interface WeDriveApi {
     // 空间管理
     String API_SPACE_CREATE = "POST /wedrive/space_create";

@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.school;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.school.dto.ParentDto;
 import chat.qiye.wechat.sdk.api.school.dto.StudentDto;
 import chat.qiye.wechat.sdk.api.school.param.BatchDeleteParam;
@@ -29,7 +29,7 @@ import feign.RequestLine;
  * @date  : 2021/7/3
  */
 @Headers(value = {"Accept: application/json", "Content-Type: application/json"})
-@QiYeChatApi(appType = SysAppIdEnum.APP_SCHOOL_CONTACT)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_SCHOOL_CONTACT)
 public interface SchoolUserApi {
   /**
    * 创建学生

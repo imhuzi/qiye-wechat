@@ -2,7 +2,7 @@ package chat.qiye.wechat.sdk.interceptor;
 
 import chat.qiye.wechat.sdk.annotation.NoAccessToken;
 import chat.qiye.wechat.sdk.annotation.ProviderAccessToken;
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
 import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
@@ -97,10 +97,10 @@ public class ApiConfigurationTarget<T> implements Target<T> {
      * @param template RequestTemplate
      * @return QiYeChatApi annotation
      */
-    private QiYeChatApi getAnnotation(RequestTemplate template) {
-        QiYeChatApi annotation = template.methodMetadata().method().getAnnotation(QiYeChatApi.class);
+    private QiYeWeChatApi getAnnotation(RequestTemplate template) {
+        QiYeWeChatApi annotation = template.methodMetadata().method().getAnnotation(QiYeWeChatApi.class);
         if (annotation == null) {
-            annotation = template.feignTarget().type().getInterfaces()[0].getAnnotation(QiYeChatApi.class);
+            annotation = template.feignTarget().type().getInterfaces()[0].getAnnotation(QiYeWeChatApi.class);
         }
         return annotation;
     }
@@ -147,7 +147,7 @@ public class ApiConfigurationTarget<T> implements Target<T> {
         if (isNoAccessToken(template)) {
             return;
         }
-        QiYeChatApi apiAnno =  getAnnotation(template);
+        QiYeWeChatApi apiAnno =  getAnnotation(template);
         String app = apiAnno.appType().getAppId();
         // 企业内部应用
         if (config.isInnerApp()) {

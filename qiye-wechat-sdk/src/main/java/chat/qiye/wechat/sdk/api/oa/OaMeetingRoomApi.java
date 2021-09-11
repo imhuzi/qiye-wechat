@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.vo.MeetingRoom;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingRoomBookingParam;
 import chat.qiye.wechat.sdk.api.oa.param.MeetingRoomCancelBookingParam;
@@ -24,7 +24,7 @@ import feign.RequestLine;
  * @date : 2021/9/8
  */
 
-@QiYeChatApi(appType = SysAppIdEnum.APP_MEETING_ROOM)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_MEETING_ROOM)
 public interface OaMeetingRoomApi {
 
     @RequestLine(OaApiUris.API_ADD_MEETING_ROOM)

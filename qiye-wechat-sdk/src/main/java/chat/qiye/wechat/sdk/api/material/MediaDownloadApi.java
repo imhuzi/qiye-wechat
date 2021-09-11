@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.material;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
@@ -17,7 +17,7 @@ import feign.Response;
  * @date  : 2021/6/26
  */
 
-@QiYeChatApi(isFile = true)
+@QiYeWeChatApi(isFile = true)
 public interface MediaDownloadApi {
   /**
    * 获取临时素材

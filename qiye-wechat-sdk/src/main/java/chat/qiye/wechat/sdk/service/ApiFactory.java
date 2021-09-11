@@ -37,6 +37,11 @@ public class ApiFactory {
                 .target(new ApiConfigurationTarget<>(cls, provider));
     }
 
+
+    public static ObjectMapper getObjectMaper() {
+        return ApiInstance.MAPPER;
+    }
+
     /**
      * 线程安全，不影响系统性能 的单例模式
      */

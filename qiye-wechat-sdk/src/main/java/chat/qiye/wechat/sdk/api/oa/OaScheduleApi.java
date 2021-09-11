@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleDelParam;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleGetByCalendarParam;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleGetListParam;
@@ -22,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeChatApi(appType = SysAppIdEnum.APP_SCHEDULE)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_SCHEDULE)
 public interface OaScheduleApi {
 
     @RequestLine(OaApiUris.API_SCHEDULE_ADD)

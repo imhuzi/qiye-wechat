@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import feign.Headers;
 
 /**
@@ -11,7 +11,7 @@ import feign.Headers;
  * @date  : 2021/6/16
  */
 @Headers(value = {"Accept: application/json", "Content-Type: application/json"})
-@QiYeChatApi
+@QiYeWeChatApi
 public interface BaseApi {
 
 }

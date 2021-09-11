@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.annotation.QiYeChatApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.AddCheckInUserFaceParam;
 import chat.qiye.wechat.sdk.api.oa.param.GetCheckInDataParam;
 import chat.qiye.wechat.sdk.api.oa.param.GetCheckInUserRuleParam;
@@ -25,7 +25,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/8
  */
-@QiYeChatApi(appType = SysAppIdEnum.APP_CHECK_IN)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CHECK_IN)
 public interface OaCheckInApi {
     /**
      * 获取企业所有打卡规则
