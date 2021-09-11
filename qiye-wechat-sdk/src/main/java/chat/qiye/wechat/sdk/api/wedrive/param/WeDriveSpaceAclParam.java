@@ -7,10 +7,11 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class WeDriveSpaceCreateParam {
-    @JsonProperty("space_name")
-    private String spaceName;
+public class WeDriveSpaceAclParam {
+    @JsonProperty("spaceid")
+    private String spaceid;
+    private String userid;
+
     @JsonProperty("auth_info")
     private List<AuthInfoItem> authInfo;
-    private String userid;
 }
