@@ -5,4 +5,4 @@
  * @version : 1.0
  * @date  : 2021/7/4
  */
-package chat.qiye.wechat;
+package chat.qiye.wechat.starter;
