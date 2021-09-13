@@ -1,7 +1,10 @@
 package chat.qiye.wechat.sdk.constant;
 
 /**
- * 系统应用 标识
+ * 系统应用 ID
+ * <p>
+ * 系统应用 默认是 没有ID 但是 系统应用有单独的 secret,
+ * 为了能够识别 系统应用的 secret 特此 对系统应用的id 进行统一定义，在配置文件中 配置时，需遵守
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
