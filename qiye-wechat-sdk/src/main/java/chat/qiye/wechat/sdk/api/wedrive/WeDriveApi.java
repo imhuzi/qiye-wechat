@@ -23,7 +23,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_LIVING)
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_WX_DRIVE)
 public interface WeDriveApi {
     // 空间管理
     String API_SPACE_CREATE = "POST /wedrive/space_create";
