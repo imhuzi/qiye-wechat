@@ -52,9 +52,7 @@ public @interface QiYeWeChatApi {
     String client() default "";
 
     /**
-     * api  分类: 通讯录，客户关系等
+     * 系统 APP Id: 通讯录，客户关系等
      */
     SysAppIdEnum appType() default SysAppIdEnum.DEFAULT;
-
-    boolean isFile() default false;
 }
