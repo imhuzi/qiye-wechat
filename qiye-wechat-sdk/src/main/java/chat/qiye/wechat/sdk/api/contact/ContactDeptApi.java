@@ -30,10 +30,10 @@ public interface ContactDeptApi extends ContactBaseApi {
   ContactDeptListResp list(@Param("id") Integer id);
 
   @RequestLine(BaseApiUris.API_DEPT_CREATE)
-  ContactDeptCreateResp create(ContactDeptVo deptResp);
+  ContactDeptCreateResp create(ContactDeptVo param);
 
   @RequestLine(BaseApiUris.API_DEPT_UPDATE)
-  RespStatus update(ContactDeptVo deptResp);
+  RespStatus update(ContactDeptVo param);
 
   @RequestLine(BaseApiUris.API_DEPT_DELETE)
   RespStatus delete(@Param("id") Integer id);

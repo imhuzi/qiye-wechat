@@ -17,7 +17,7 @@ import feign.Response;
  * @date  : 2021/6/26
  */
 
-@QiYeWeChatApi(isFile = true)
+@QiYeWeChatApi
 public interface MediaDownloadApi {
   /**
    * 获取临时素材

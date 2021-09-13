@@ -19,7 +19,7 @@ import feign.RequestLine;
  * @date  : 2021/6/26
  */
 
-@QiYeWeChatApi(isFile = true)
+@QiYeWeChatApi
 public interface MediaUploadApi {
 
   @Headers("Content-Type: multipart/form-data")
