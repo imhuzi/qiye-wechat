@@ -19,7 +19,7 @@ public class QiyeWechatConfig {
     private static final ConcurrentHashMap<String, String> props = new ConcurrentHashMap<>();
     public static final String QIYE_WECAHT_API_MODEL = "qiye.wecaht.api.model";
 
-    public static final String QIYE_WECAHT_NAME = "qiye.wecaht.appId";
+    public static final String QIYE_WECAHT_NAME = "qiye.wecaht.name";
     public static final String QIYE_WECAHT_APPID = "qiye.wecaht.appId";
     public static final String QIYE_WECAHT_AGENTID = "qiye.wecaht.agentId";
     public static final String QIYE_WECAHT_APPSECRET = "qiye.wecaht.secret";
@@ -117,9 +117,13 @@ public class QiyeWechatConfig {
             configVo.setHomeUrl(props.get(String.format(QIYE_WECAHT_TEMPL_HOMEURL, app)));
             configVo.setEventToken(props.get(String.format(QIYE_WECAHT_TEMPL_EVENT_TOKEN, app)));
             configVo.setEventEncodingAesKey(props.get(String.format(QIYE_WECAHT_TEMPL_EVENT_ENCODING_AESKEY, app)));
+
+            if (StringUtil.isEmpty(configVo.getCorpId())) {
+                configVo.setCorpId(props.get(QIYE_WECAHT_CORPID));
+            }
             return configVo;
         } catch (Throwable var1) {
-            log.warn("[QiyeWechatConfig] Parse coldFactor fail, use default value: 3", var1);
+            log.info("[QiyeWechatConfig] Parse fail", var1);
         }
         return null;
     }

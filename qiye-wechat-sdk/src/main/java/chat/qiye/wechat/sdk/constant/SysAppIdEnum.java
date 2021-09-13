@@ -15,7 +15,7 @@ public enum SysAppIdEnum {
     DEFAULT("app", "自建应用"),
     APP_CONTACT("contact", "通讯录"),
     APP_CUSTOMER("customer", "客户关系"),
-    APP_CUSTOMER_SERVICE("customer_service", "微信客服"),
+    APP_KF("kf", "微信客服"),
     APP_MEETING("meeting", "会议"),
     APP_SCHEDULE("schedule", "日程"),
     APP_PUBLIC_PHONE("public_phone", "公费电话"),

@@ -53,7 +53,7 @@ qiye.wecaht.eventEncodingAesKey=sddd
 # qiye.wecaht.系统应用ID.appId=contact
 # qiye.wecaht.系统应用ID.agentId=88
 # qiye.wecaht.系统应用ID.secret=okDLF2M1tkQRGfAQ2cENzNUxfLd3c-_vn60etURj0SY
-# qiye.wecaht.系统应用ID.corpId=ww5f09c98e13dfce02
+# qiye.wecaht.系统应用ID.corpId=ww5f09c98e13dfce02   # 可选,未配置使用  qiye.wecaht.corpId
 # qiye.wecaht.系统应用ID.homeUrl=http://baidu.com
 # qiye.wecaht.系统应用ID.eventToken=ss
 # qiye.wecaht.系统应用ID.eventEncodingAesKey=sddd
@@ -75,7 +75,7 @@ public class MainClass {
         // 获取Api实例， 所有封装的Api 都在 chat.qiye.wechat.sdk.api 包下，并以Api结尾
         ContactDeptApi contactDeptApi = ApiFactory.getApiBean(ContactDeptApi.class, new ApiConfigurationDefaultProvider());
         // 查询 通讯录 部门列表
-        List<ContactDeptVo> deptVoList = contactDeptApi.listDept(0).getDepartment();
+        List<ContactDeptVo> deptVoList = contactDeptApi.list(0).getDepartment();
         System.out.println("DeptList:" + deptVoList);
         // 创建部门
         ContactDeptVo contactDeptVo = new ContactDeptVo();
@@ -103,7 +103,7 @@ public class MainClass {
 
 
 ## 系统应用ID
-
+系统应用 默认是 没有应用ID 但是 系统应用有单独的 secret,为了能够识别 系统应用的 secret 特此 对系统应用的id 进行统一定义，在配置文件中 配置时，需遵守如下名称
 ```java
  DEFAULT("app", "自建应用"),
  APP_CONTACT("contact", "通讯录"),

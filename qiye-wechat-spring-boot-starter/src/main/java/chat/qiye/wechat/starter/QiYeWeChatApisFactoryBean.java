@@ -1,8 +1,6 @@
 package chat.qiye.wechat.starter;
 
 import chat.qiye.wechat.starter.config.QiYeWeChatConfigProperties;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import feign.Client;
 import feign.Feign;
 import feign.Request;
@@ -12,6 +10,8 @@ import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.codec.ErrorDecoder;
 import feign.slf4j.Slf4jLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
