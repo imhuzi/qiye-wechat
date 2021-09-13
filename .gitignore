@@ -103,7 +103,7 @@ hs_err_pid*
 **/build/
 !qiye-wechat-sdk/src/**/build/
 /build
-/target
+target
 
 # Ignore Gradle GUI config
 gradle-app.setting
