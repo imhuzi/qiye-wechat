@@ -6,14 +6,14 @@ import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupListParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupResp;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
  * 客户群 相关 接口
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
 public interface CustomerGroupApi {
 
     /**

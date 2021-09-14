@@ -5,8 +5,8 @@ import chat.qiye.wechat.sdk.api.oa.param.PstnccCallParam;
 import chat.qiye.wechat.sdk.api.oa.param.PstnccGetCallStateParam;
 import chat.qiye.wechat.sdk.api.oa.resp.PstnccCallResp;
 import chat.qiye.wechat.sdk.api.oa.resp.PstnccCallResultStateResp;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -18,7 +18,7 @@ import feign.RequestLine;
  * @date : 2021/9/8
  */
 
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_PSTNCC)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_PSTNCC)
 public interface OaPstnccApi {
 
     @RequestLine(OaApiUris.API_PSTNCC_CALL)

@@ -5,7 +5,7 @@ import chat.qiye.wechat.sdk.api.contact.param.BatchSyncDeptParam;
 import chat.qiye.wechat.sdk.api.contact.param.BatchSyncUserParam;
 import chat.qiye.wechat.sdk.api.contact.resp.BatchSyncResp;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -18,7 +18,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/6/18
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_CONTACT)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
 public interface ContactSyncBatchApi {
 
     /**

@@ -10,7 +10,7 @@ import chat.qiye.wechat.sdk.api.oa.resp.MeetingGetUserMeetingResp;
 import chat.qiye.wechat.sdk.api.oa.vo.MeetingVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -22,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_MEETING)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_MEETING)
 public interface OaMeetingApi {
 
     @RequestLine(OaApiUris.API_MEETING_CREATE)

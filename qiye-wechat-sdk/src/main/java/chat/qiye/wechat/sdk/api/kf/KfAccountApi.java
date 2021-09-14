@@ -8,7 +8,7 @@ import chat.qiye.wechat.sdk.api.kf.resp.KfAccountListResp;
 import chat.qiye.wechat.sdk.api.kf.resp.KfAddContactWayResp;
 import chat.qiye.wechat.sdk.api.kf.vo.KfAccountVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -20,7 +20,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/13
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_KF)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_KF)
 public interface KfAccountApi {
     String KF_ACCOUNT_ADD = "POST /kf/account/add";
     String KF_ACCOUNT_DEL = "POST /kf/account/del";

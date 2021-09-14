@@ -8,7 +8,7 @@ import chat.qiye.wechat.sdk.api.oa.resp.GetJournalDetailResp;
 import chat.qiye.wechat.sdk.api.oa.resp.GetJournalRecordListResp;
 import chat.qiye.wechat.sdk.api.oa.resp.GetJournalStatListResp;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -20,7 +20,7 @@ import feign.RequestLine;
  * @date : 2021/9/8
  */
 
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_REPORT)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_REPORT)
 public interface OaReportApi {
 
     @RequestLine(OaApiUris.API_GET_JOURNAL_RECORD_LIST)

@@ -9,8 +9,8 @@ import chat.qiye.wechat.sdk.api.customer.param.CustomerTagMarkParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerTagGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerTagListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -23,7 +23,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
 public interface CustomerTagApi {
   /**
    * 获取企业标签库

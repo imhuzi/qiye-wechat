@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.annotation;
 
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -54,5 +54,5 @@ public @interface QiYeWeChatApi {
     /**
      * 系统 APP Id: 通讯录，客户关系等
      */
-    SysAppIdEnum appType() default SysAppIdEnum.DEFAULT;
+    AppTypeEnum appType() default AppTypeEnum.DEFAULT;
 }

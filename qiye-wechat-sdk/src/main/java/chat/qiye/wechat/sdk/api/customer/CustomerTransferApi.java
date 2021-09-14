@@ -10,7 +10,7 @@ import chat.qiye.wechat.sdk.api.customer.resp.CustomerTransferResultResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerUnassignedListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupChatTransferResp;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -24,7 +24,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
 public interface CustomerTransferApi {
   /**
    * 分配在职成员的客户

@@ -22,7 +22,7 @@ import chat.qiye.wechat.sdk.api.contact.resp.GetJoinQrcodeResp;
 import chat.qiye.wechat.sdk.api.contact.resp.GetUserIdResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -32,7 +32,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-@QiYeWeChatApi(appType = SysAppIdEnum.APP_CONTACT)
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
 public interface ContactUserApi {
 
   /**

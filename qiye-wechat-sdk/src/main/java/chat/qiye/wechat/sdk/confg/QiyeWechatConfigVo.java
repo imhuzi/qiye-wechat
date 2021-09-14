@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.confg;
 
+import chat.qiye.wechat.sdk.constant.Constant;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,8 @@ public class QiyeWechatConfigVo {
      * 应用名称
      */
     private String name;
+
+    private String appType = Constant.DEFAULT;
 
     /**
      * 平台应用id
@@ -39,15 +42,6 @@ public class QiyeWechatConfigVo {
      */
     private String corpId;
 
-    /**
-     * 应用套件access_token
-     */
-    private String accessToken;
-
-    /**
-     * 应用套件access_token 更新时间
-     */
-    private LocalDateTime accessTokenAt;
 
     /**
      * 应用主页(前端)

@@ -6,18 +6,8 @@ package chat.qiye.wechat.sdk.constant;
  * @date : 2021/7/18
  */
 public interface Constant {
-    /**
-     * 客户关系
-     */
-    String SYS_APP_CUSTOMER = "customer";
-    /**
-     * 内部通讯录
-     */
-    String SYS_APP_CONTACT = "contact";
-    /**
-     * 家校通讯录
-     */
-    String SYS_APP_SCHOOL = "school";
+
+    String DEFAULT = "default";
 
     String ACCESS_TOKEN_KEY = "access_token";
 

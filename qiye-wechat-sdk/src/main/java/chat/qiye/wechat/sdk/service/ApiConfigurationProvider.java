@@ -2,8 +2,10 @@ package chat.qiye.wechat.sdk.service;
 
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
+import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.constant.Constant;
-import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
+import chat.qiye.wechat.sdk.utils.StringUtil;
 
 /**
  * configuration provider interface
@@ -64,6 +66,16 @@ public interface ApiConfigurationProvider {
     }
 
     /**
+     * get config by app type
+     *
+     * @param appType app type
+     * @return {@link QiyeWechatConfigVo}
+     */
+    default QiyeWechatConfigVo getConfigByAppType(String appType) {
+        return (StringUtil.isBlank(appType) || AppTypeEnum.DEFAULT.getAppId().equals(appType)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appType);
+    }
+
+    /**
      * 获取 API 调用模式: inner->自建内部应用，third_party->第三方服务商应用
      *
      * @return
@@ -93,7 +105,7 @@ public interface ApiConfigurationProvider {
     /**
      * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
      *
-     * @param appId {@link SysAppIdEnum}
+     * @param appId {@link AppTypeEnum}
      * @return access_token
      */
     String getAppToken(String appId);
@@ -101,7 +113,7 @@ public interface ApiConfigurationProvider {
     /**
      * 第三方 企业 access_token
      *
-     * @param appId {@link SysAppIdEnum}
+     * @param appId {@link AppTypeEnum}
      * @return access_token
      */
     String getCorpToken(String appId);

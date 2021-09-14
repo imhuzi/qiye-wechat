@@ -100,7 +100,7 @@ public class ApiDynamicTokenTarget<T> implements Target<T> {
     private QiYeWeChatApi getAnnotation(RequestTemplate template) {
         QiYeWeChatApi annotation = template.methodMetadata().method().getAnnotation(QiYeWeChatApi.class);
         if (annotation == null) {
-            annotation = template.feignTarget().type().getInterfaces()[0].getAnnotation(QiYeWeChatApi.class);
+            annotation = template.feignTarget().type().getAnnotation(QiYeWeChatApi.class);
         }
         return annotation;
     }
@@ -148,18 +148,18 @@ public class ApiDynamicTokenTarget<T> implements Target<T> {
             return;
         }
         QiYeWeChatApi apiAnno =  getAnnotation(template);
-        String app = apiAnno.appType().getAppId();
+        String appType = apiAnno.appType().getAppId();
         // 企业内部应用
         if (config.isInnerApp()) {
-            template.query(Constant.ACCESS_TOKEN_KEY, config.getAppToken(app));
+            template.query(Constant.ACCESS_TOKEN_KEY, config.getAppToken(appType));
         } else { // 第三方 服务商应用
             // suite access token
             if (isSuiteAccessToken(template)) {
-                template.query(Constant.SUITE_ACCESS_TOKEN, config.getSuiteToken(app));
+                template.query(Constant.SUITE_ACCESS_TOKEN, config.getSuiteToken(appType));
             } else if (isProviderAccessToken(template)) {
                 template.query(Constant.PROVIDER_ACCESS_TOKEN, config.getProviderToken());
             } else {
-                template.query(Constant.ACCESS_TOKEN_KEY, config.getCorpToken(app));
+                template.query(Constant.ACCESS_TOKEN_KEY, config.getCorpToken(appType));
             }
         }
     }
