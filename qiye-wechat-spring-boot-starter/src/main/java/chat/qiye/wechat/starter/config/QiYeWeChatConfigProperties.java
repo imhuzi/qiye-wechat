@@ -1,5 +1,9 @@
 package chat.qiye.wechat.starter.config;
 
+import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.constant.Constant;
+import chat.qiye.wechat.sdk.utils.AssertUtil;
+import chat.qiye.wechat.sdk.utils.StringUtil;
 import chat.qiye.wechat.starter.FeignLoggerType;
 import feign.Logger;
 import feign.RequestInterceptor;
@@ -28,12 +32,13 @@ public class QiYeWeChatConfigProperties {
      */
     private String basePackages = "chat.qiye.wechat.sdk.api";
 
+    private String apiModel = Constant.API_MODEL_INNER;
+
     /**
      * http options
      */
     private FeignConfig feignConfig;
 
-    private String baseUrl;
 
     /**
      * corp id
@@ -41,17 +46,13 @@ public class QiYeWeChatConfigProperties {
     private String corpId;
 
     /**
-     * corp secret
-     */
-    private String secret;
-
-    /**
      * apps config
      */
-    private List<ConfigItem> apps;
+    private List<QiyeWechatConfigVo> apps;
 
     @Data
     public static class FeignConfig {
+        private String baseUrl = "https://qyapi.weixin.qq.com/cgi-bin";
         private Logger.Level loggerLevel = Logger.Level.BASIC;
         private FeignLoggerType loggerType = FeignLoggerType.SYSTEM_ERR;
         private Integer connectTimeout = 10;
@@ -65,47 +66,40 @@ public class QiYeWeChatConfigProperties {
         private Boolean decode404;
     }
 
-    @Data
-    public static class ConfigItem {
-        /**
-         * app name
-         */
-        private String name;
-
-        /**
-         * app id
-         */
-        private String appId;
-
-        /**
-         * app agentId
-         */
-        private Integer agentId;
-
-        /**
-         * app secret
-         */
-        private String secret;
-
-        /**
-         * corp id
-         */
-        private String corpId;
-
-        /**
-         * 应用主页(前端)
-         */
-        private String homeUrl;
-
-        /**
-         * 事件 token
-         */
-        private String eventToken;
-
-        /**
-         * 事件 加密
-         */
-        private String eventEncodingAesKey;
-
+    /**
+     * get config by app type
+     *
+     * @param appType app type
+     * @return {@link QiyeWechatConfigVo}
+     */
+    public QiyeWechatConfigVo getConfig(String appType) {
+        AssertUtil.notNull(apps, "Not Apps config");
+        final QiyeWechatConfigVo[] configVo = new QiyeWechatConfigVo[1];
+        apps.stream().filter(item -> appType.equals(item.getAppType())).findFirst().ifPresent(item -> {
+            configVo[0] = item;
+        });
+        if (configVo[0] != null && StringUtil.isEmpty(configVo[0].getCorpId())) {
+            configVo[0].setCorpId(getCorpId());
+        }
+        return configVo[0];
     }
+
+    /**
+     * get config by appId
+     *
+     * @param appId app type
+     * @return {@link QiyeWechatConfigVo}
+     */
+    public QiyeWechatConfigVo getConfigByAppId(String appId) {
+        AssertUtil.notNull(apps, "Not Apps config");
+        final QiyeWechatConfigVo[] configVo = new QiyeWechatConfigVo[1];
+        apps.stream().filter(item -> appId.equals(item.getAppId())).findFirst().ifPresent(item -> {
+            configVo[0] = item;
+        });
+        if (configVo[0] != null && StringUtil.isEmpty(configVo[0].getCorpId())) {
+            configVo[0].setCorpId(getCorpId());
+        }
+        return configVo[0];
+    }
+
 }

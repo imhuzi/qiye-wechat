@@ -1,5 +1,7 @@
 package chat.qiye.wechat.starter;
 
+import chat.qiye.wechat.sdk.interceptor.ApiDynamicTokenTarget;
+import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
 import chat.qiye.wechat.starter.config.QiYeWeChatConfigProperties;
 import feign.Client;
 import feign.Feign;
@@ -43,13 +45,8 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
     private Environment environment;
 
     private Class<T> apiType;
-    private String url;
+
     private ApplicationContext applicationContext;
-
-    private int readTimeoutMillis;
-
-    private int connectTimeoutMillis;
-
 
     private Map<String, Object> attributes;
 
@@ -57,28 +54,24 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
     private Client feignClient;
 
     @Autowired
-    private Encoder feignEncoder;
+    private Encoder qiYeWechatEncoder;
 
     @Autowired
-    private Decoder feignDecoder;
+    private Decoder qiYeWechatDecoder;
 
     @Autowired
-    private ErrorDecoder feignErrorDecoder;
+    private ApiConfigurationProvider apiConfigurationProvider;
 
-    @Autowired
     private QiYeWeChatConfigProperties properties;
 
-    public QiYeWeChatApisFactoryBean() {
-        this.readTimeoutMillis = (new Request.Options()).readTimeoutMillis();
-        this.connectTimeoutMillis = (new Request.Options()).connectTimeoutMillis();
+    public QiYeWeChatApisFactoryBean(QiYeWeChatConfigProperties properties) {
+        this.properties = properties;
     }
 
 
     @Override
     public Object getObject() throws Exception {
-        Object r = feignBuild();
-        log.debug("{} QiYeWeChat Api  feign client: instance is {}, url is {}", apiType, r, getUrl());
-        return r;
+        return feignBuild();
     }
 
     /**
@@ -89,35 +82,11 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
     private T feignBuild() {
         Feign.Builder builder = Feign.builder();
         builder.client(feignClient);
-        builder.encoder(feignEncoder);
-        builder.decoder(feignDecoder);
-        feign.Logger logger = resolveLogger();
-        log.debug("{} QiYeWeChat Api  feign client {}: logger is {}", apiType, logger);
-        if (logger != null) {
-            builder.logger(logger);
-        }
+        builder.encoder(qiYeWechatEncoder);
+        builder.decoder(qiYeWechatDecoder);
         configureUsingProperties(properties.getFeignConfig(), builder);
-        return builder.target(apiType, getUrl());
+        return builder.target(new ApiDynamicTokenTarget<>(apiType, apiConfigurationProvider));
     }
-
-    public feign.Logger resolveLogger() {
-        switch (properties.getFeignConfig().getLoggerType()) {
-            case SYSTEM_ERR:
-                return new feign.Logger.ErrorLogger();
-            case JUL:
-                return new feign.Logger.JavaLogger(apiType);
-            case NO_OP:
-                return new feign.Logger.NoOpLogger();
-            case SLF4J:
-                return new Slf4jLogger(apiType);
-        }
-        return null;
-    }
-
-    public String getUrl() {
-        return resolveAttribute((String) attributes.get("url"));
-    }
-
 
     @Override
     public Class<?> getObjectType() {
@@ -130,10 +99,12 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
             if (config.getLoggerLevel() != null) {
                 builder.logLevel(config.getLoggerLevel());
             }
-
-            this.connectTimeoutMillis = config.getConnectTimeout() != null ? config.getConnectTimeout() : this.connectTimeoutMillis;
-            this.readTimeoutMillis = config.getReadTimeout() != null ? config.getReadTimeout() : this.readTimeoutMillis;
-            builder.options(new Request.Options((long) this.connectTimeoutMillis, TimeUnit.MILLISECONDS, (long) this.readTimeoutMillis, TimeUnit.MILLISECONDS, true));
+            feign.Logger logger = resolveLogger();
+            log.debug("QiYeWeChat Api  feign client {} Build: logger is {}", apiType, logger);
+            if (logger != null) {
+                builder.logger(logger);
+            }
+            builder.options(new Request.Options((long) config.getConnectTimeout(), TimeUnit.MILLISECONDS, (long) config.getReadTimeout(), TimeUnit.MILLISECONDS, config.isFollowRedirects()));
             if (config.getRetryer() != null) {
                 Retryer retryer = this.getOrInstantiate(config.getRetryer());
                 builder.retryer(retryer);
@@ -145,7 +116,6 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
             }
 
             if (config.getRequestInterceptors() != null && !config.getRequestInterceptors().isEmpty()) {
-
                 for (Class<RequestInterceptor> requestInterceptorClass : config.getRequestInterceptors()) {
                     RequestInterceptor interceptor = (RequestInterceptor) this.getOrInstantiate((Class) requestInterceptorClass);
                     builder.requestInterceptor(interceptor);
@@ -170,12 +140,28 @@ public class QiYeWeChatApisFactoryBean<T> implements FactoryBean<Object>, Initia
         }
     }
 
+
     private <T> T getOrInstantiate(Class<T> tClass) {
         try {
             return this.beanFactory != null ? this.beanFactory.getBean(tClass) : this.applicationContext.getBean(tClass);
         } catch (NoSuchBeanDefinitionException var3) {
             return BeanUtils.instantiateClass(tClass);
         }
+    }
+
+
+    public feign.Logger resolveLogger() {
+        switch (properties.getFeignConfig().getLoggerType()) {
+            case SYSTEM_ERR:
+                return new feign.Logger.ErrorLogger();
+            case JUL:
+                return new feign.Logger.JavaLogger(apiType);
+            case NO_OP:
+                return new feign.Logger.NoOpLogger();
+            case SLF4J:
+                return new Slf4jLogger(apiType);
+        }
+        return null;
     }
 
 

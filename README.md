@@ -5,7 +5,49 @@
 
 
 ### Spring Boot 项目
+Spring Boot 项目 使用步骤如下:
+1. 引入maven依赖
+```xml
+ <dependency>
+    <groupId>chat.qiye.wechat</groupId>
+    <artifactId>qiye-wechat-spring-boot-starter</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+ </dependency>
+```
+2. 在 application.yaml 中加入 如下配置
+```yaml
+qiye:
+  wechat:
+    base-packages: chat.qiye.wechat.sdk.api
+    corp-id: ww5f09c98e13dfce02
+    apps:
+      - app-id: 1000015
+        agent-id: 1000015
+        app-type: app
+        secret: VYa3q7u-XkhQno-ROferY3mD16eFy_-h62pHJ0qM58I
+      - app-id: contact
+        agent-id: 88
+        app-type: contact
+        secret: okDLF2MXt3QRGfAQ2cENzNUxfLd3c-_vn60etURj0SY
 
+```
+3. 使用 相关 Api Bean 
+
+```java
+
+@RestController
+public class DeptController {
+
+    @Resource
+    ContactDeptApi contactDeptApi;
+
+    @GetMapping("/list")
+    public ContactDeptListResp list(@RequestParam(defaultValue = "0") Integer id) {
+        return contactDeptApi.list(id);
+    }
+}
+
+```
 
 ### 普通java项目 配置
 普通 的Java 项目使用步骤如下： 
@@ -49,7 +91,7 @@ qiye.wecaht.homeUrl=http://baidu.com
 qiye.wecaht.eventToken=ss
 qiye.wecaht.eventEncodingAesKey=sddd
 
-# 系统 应用配置格式, 系统应用ID参考 chat.qiye.wechat.sdk.constant.SysAppIdEnum
+# 系统 应用配置格式, 系统应用ID参考 chat.qiye.wechat.sdk.constant.AppTypeEnum
 # qiye.wecaht.系统应用ID.appId=contact
 # qiye.wecaht.系统应用ID.agentId=88
 # qiye.wecaht.系统应用ID.secret=okDLF2M1tkQRGfAQ2cENzNUxfLd3c-_vn60etURj0SY
