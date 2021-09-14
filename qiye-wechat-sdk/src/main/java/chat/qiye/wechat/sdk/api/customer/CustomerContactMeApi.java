@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.customer;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.dto.ContactWayDto;
 import chat.qiye.wechat.sdk.api.customer.param.CloseTempChatParam;
 import chat.qiye.wechat.sdk.api.customer.param.ContactWayConfigIdParam;
@@ -7,8 +8,8 @@ import chat.qiye.wechat.sdk.api.customer.resp.ContactWayGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.ContactWaySetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.FollowUserListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -21,7 +22,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerContactMeApi extends BaseApi {
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
+public interface CustomerContactMeApi {
   /**
    * 获取配置了客户联系功能的成员列表
    *

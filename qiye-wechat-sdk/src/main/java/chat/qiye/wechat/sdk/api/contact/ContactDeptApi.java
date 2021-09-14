@@ -1,12 +1,13 @@
 package chat.qiye.wechat.sdk.api.contact;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptCreateResp;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -19,7 +20,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactDeptApi extends BaseApi {
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
+public interface ContactDeptApi{
 
   /**
    * 获取 部门列表
@@ -31,10 +33,10 @@ public interface ContactDeptApi extends BaseApi {
   ContactDeptListResp list(@Param("id") Integer id);
 
   @RequestLine(BaseApiUris.API_DEPT_CREATE)
-  ContactDeptCreateResp create(ContactDeptVo deptResp);
+  ContactDeptCreateResp create(ContactDeptVo param);
 
   @RequestLine(BaseApiUris.API_DEPT_UPDATE)
-  RespStatus update(ContactDeptVo deptResp);
+  RespStatus update(ContactDeptVo param);
 
   @RequestLine(BaseApiUris.API_DEPT_DELETE)
   RespStatus delete(@Param("id") Integer id);

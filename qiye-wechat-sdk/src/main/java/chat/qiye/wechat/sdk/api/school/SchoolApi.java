@@ -1,7 +1,8 @@
 package chat.qiye.wechat.sdk.api.school;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.CustomerApi;
+import chat.qiye.wechat.sdk.api.school.param.SchoolContactSyncModelSetParam;
 import chat.qiye.wechat.sdk.api.school.param.SubscribeModelSetParam;
 import chat.qiye.wechat.sdk.api.school.resp.ExternalContactDetailResp;
 import chat.qiye.wechat.sdk.api.school.resp.ExternalcontactListResp;
@@ -19,7 +20,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/7/3
  */
-public interface SchoolApi extends BaseApi {
+@QiYeWeChatApi
+public interface SchoolApi {
   /**
    * 获取「学校通知」二维码
    * 学校可通过此接口获取「学校通知」二维码，家长可通过扫描此二维码关注「学校通知」并接收学校推送的消息。
@@ -46,6 +48,32 @@ public interface SchoolApi extends BaseApi {
    */
   @RequestLine(SchoolApiUris.API_GET_SUBSCRIBE_MODEL)
   SubscribeModelGetResp getSubscribeModel();
+
+  /**
+   * https://open.work.weixin.qq.com/api/doc/90000/90135/92345
+   *
+   * 设置家校通讯录自动同步模式
+   * 企业和第三方可通过此接口修改家校通讯录与班级标签之间的自动同步模式，注意，一旦设置禁止自动同步，将无法再次开启。
+   *
+   * 请求方式：POST（HTTPS）
+   * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/school/set_arch_sync_mode?access_token=ACCESS_TOKEN
+   *
+   * 请求参数：
+   *
+   * {
+   *    "arch_sync_mode":1,
+   * }
+   * 参数说明：
+   *
+   * 参数	必须	说明
+   * access_token	是	调用接口凭证
+   * arch_sync_mode	是	家校通讯录同步模式：1-禁止将标签同步至家校通讯录，2-禁止将家校通讯录同步至标签，3-禁止家校通讯录和标签相互同步
+   *
+   * @param param
+   * @return
+   */
+  @RequestLine(SchoolApiUris.API_SET_ARCH_SYNC_MODE)
+  RespStatus setArchSyncMode(SchoolContactSyncModelSetParam param);
 
   /**
    * 获取外部联系人详情

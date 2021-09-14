@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.material;
 
-import chat.qiye.wechat.sdk.annotation.WorkWeixinApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import chat.qiye.wechat.sdk.api.material.resp.UploadImgResp;
 import chat.qiye.wechat.sdk.api.material.resp.UploadResp;
@@ -19,7 +19,7 @@ import feign.RequestLine;
  * @date  : 2021/6/26
  */
 
-@WorkWeixinApi(isFile = true)
+@QiYeWeChatApi
 public interface MediaUploadApi {
 
   @Headers("Content-Type: multipart/form-data")

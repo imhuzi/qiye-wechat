@@ -1,6 +1,8 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
+import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
 import chat.qiye.wechat.sdk.api.thirdparty.param.AdminListParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpAuthInfoParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpPermanentCodeParam;
@@ -8,8 +10,6 @@ import chat.qiye.wechat.sdk.api.thirdparty.resp.AppAdminListResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.CorpAuthInfoResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.CorpPermanentCodeResp;
 import chat.qiye.wechat.sdk.api.thirdparty.resp.PreAuthCodeResp;
-import chat.qiye.wechat.sdk.exception.QyApiErrorException;
-import feign.Param;
 import feign.RequestLine;
 
 /**
@@ -21,40 +21,39 @@ import feign.RequestLine;
  * @version : 1.0
  * @created : 2021/1/3
  */
-
+@SuiteAccessToken
+@QiYeWeChatApi
 public interface AppAuthApi {
     /**
      * <pre>
      *   获取预授权码
-     *   @Link https://work.weixin.qq.com/api/doc/90001/90143/90601
+     *   @link https://work.weixin.qq.com/api/doc/90001/90143/90601
      * </pre>
      *
      * @return pre auth url
      */
-    @RequestLine("/service/get_pre_auth_code")
-    PreAuthCodeResp getPreAuthCode(@Param String appId);
+    @RequestLine("GET /service/get_pre_auth_code")
+    PreAuthCodeResp getPreAuthCode();
 
     /**
      * 获取企业永久授权码信息, 包含 企业授权信息
      *
-     * @param appId    以ww或wx开头应用id（对应于旧的以tj开头的套件id）
      * @param reqParam the auth code
      * @return permanent code info
      * @author yuan
      * @since 2020 -03-18
      */
-    @RequestLine("/service/get_permanent_code")
-    CorpPermanentCodeResp getPermanentCodeInfo(@Param String appId,  CorpPermanentCodeParam reqParam);
+    @RequestLine("POST /service/get_permanent_code")
+    CorpPermanentCodeResp getPermanentCodeInfo(CorpPermanentCodeParam reqParam);
 
     /**
      * 获取企业的授权信息
      *
      * @param reqParam 请求参数
      * @return auth info
-     * @throws QyApiErrorException the wx error exception
      */
-    @RequestLine("/service/get_auth_info")
-    CorpAuthInfoResp getAuthInfo( CorpAuthInfoParam reqParam) throws QyApiErrorException;
+    @RequestLine("POST /service/get_auth_info")
+    CorpAuthInfoResp getAuthInfo(CorpAuthInfoParam reqParam);
 
 
     /**
@@ -63,7 +62,7 @@ public interface AppAuthApi {
      * @param reqParam
      * @return
      */
-    @RequestLine("/service/get_admin_list")
-    AppAdminListResp getAdminList( AdminListParam reqParam) throws QyApiErrorException;
+    @RequestLine("POST /service/get_admin_list")
+    AppAdminListResp getAdminList( AdminListParam reqParam);
 
 }

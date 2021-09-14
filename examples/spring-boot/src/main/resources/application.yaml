@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ExampleApp
+qiye:
+  wechat:
+    base-packages: chat.qiye.wechat.sdk.api
+    corp-id: ww5f09c98e13dfce00
+    apps:
+      - app-id: 1000015
+        agent-id: 1000015
+        secret: VYa3q7u-XkhQno-ROferY3mUD6eFy_-h62pHJ0qM58I
+      - app-id: contact
+        agent-id: 88
+        secret: okDLF2MXtkQRGfAQ2cENzNUxfLd3c-_vn60etURj0SY

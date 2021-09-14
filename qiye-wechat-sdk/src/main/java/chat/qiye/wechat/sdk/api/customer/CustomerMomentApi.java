@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.customer;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.MomentCommentGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.MomentGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.MomentListParam;
@@ -7,8 +8,8 @@ import chat.qiye.wechat.sdk.api.customer.resp.MomentCommentsResp;
 import chat.qiye.wechat.sdk.api.customer.resp.MomentListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.MomentTaskStatusResp;
 import chat.qiye.wechat.sdk.api.customer.resp.MomentViewCustomerResp;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -21,7 +22,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerMomentApi extends BaseApi {
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
+public interface CustomerMomentApi {
 
   /**
    * 获取企业全部的发表列表

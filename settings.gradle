@@ -1,4 +1,0 @@
-rootProject.name = 'qiye-wechat'
-include 'qiye-wechat-sdk'
-include 'qiye-wechat-spring-boot-starter'
-

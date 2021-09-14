@@ -12,8 +12,8 @@ public interface CustomerApiUris {
   /**
    * 客户管理
    */
-  String API_CUSTOMER_LIST = "GET /externalcontact/list";
-  String API_CUSTOMER_GET = "GET /externalcontact/get";
+  String API_CUSTOMER_LIST = "GET /externalcontact/list?userid={userid}";
+  String API_CUSTOMER_GET = "GET /externalcontact/get?external_userid={external_userid}&cursor={cursor}";
   String API_CUSTOMER_BATCH = "POST /externalcontact/batch/get_by_user";
   String API_CUSTOMER_REMARK_UPDATE = "POST /externalcontact/remark";
 

@@ -16,7 +16,7 @@ public interface MessageApiUris {
      */
     String API_APP_CHAT_CREATE = "POST /appchat/create";
     String API_APP_CHAT_UPDATE = "POST /appchat/update";
-    String API_APP_CHAT_GET = "GET /appchat/get";
+    String API_APP_CHAT_GET = "GET /appchat/get?chatid={chatid}";
     String API_APP_CHAT_SEND_MESSAGE = "POST /appchat/send";
 
     String API_APP_SEND_MESSAGE = "POST /message/send";

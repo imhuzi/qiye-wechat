@@ -1,9 +1,9 @@
 package chat.qiye.wechat.sdk.api.message;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.message.dto.school.SchoolMessageDto;
 import chat.qiye.wechat.sdk.api.message.resp.SchoolMessageSendResp;
 import chat.qiye.wechat.sdk.constant.MessageApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.RequestLine;
 
 /**
@@ -15,7 +15,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/7/1
  */
-public interface SchoolMessageApi extends BaseApi {
+@QiYeWeChatApi
+public interface SchoolMessageApi {
   /**
    * 发送「学校通知」
    *

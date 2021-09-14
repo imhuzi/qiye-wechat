@@ -1,5 +1,7 @@
 package chat.qiye.wechat.sdk.api.customer;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
+import chat.qiye.wechat.sdk.api.customer.dto.SentWelcomeMsgParam;
 import chat.qiye.wechat.sdk.api.customer.param.AddMsgTemplateParam;
 import chat.qiye.wechat.sdk.api.customer.param.GroupMsgListV2Param;
 import chat.qiye.wechat.sdk.api.customer.param.GroupMsgSentResultGetParam;
@@ -14,8 +16,7 @@ import chat.qiye.wechat.sdk.api.customer.resp.GroupMsgTaskGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupWelcomeTemplateAddResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupWelcomeTemplateGetResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.api.BaseApi;
-import chat.qiye.wechat.sdk.api.customer.dto.SentWelcomeMsgParam;
+import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.RequestLine;
 
@@ -29,7 +30,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerMessageApi extends BaseApi {
+@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
+public interface CustomerMessageApi {
 
   /**
    *  创建企业群发

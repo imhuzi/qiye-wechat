@@ -1,6 +1,8 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
+
 /**
  * js api 相关接口
  * <p>
@@ -9,6 +11,7 @@ package chat.qiye.wechat.sdk.api.thirdparty;
  * @version : 1.0
  * @created : 2021/1/3
  */
+@QiYeWeChatApi
 public interface JsSdkApi {
 
     /**
