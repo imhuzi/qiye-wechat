@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.school;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.CustomerApi;
 import chat.qiye.wechat.sdk.api.school.param.SchoolContactSyncModelSetParam;
 import chat.qiye.wechat.sdk.api.school.param.SubscribeModelSetParam;
@@ -20,7 +20,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/7/3
  */
-public interface SchoolApi extends BaseApi {
+@QiYeWeChatApi
+public interface SchoolApi {
   /**
    * 获取「学校通知」二维码
    * 学校可通过此接口获取「学校通知」二维码，家长可通过扫描此二维码关注「学校通知」并接收学校推送的消息。

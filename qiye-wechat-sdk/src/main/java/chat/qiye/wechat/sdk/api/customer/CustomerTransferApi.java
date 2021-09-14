@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.customer;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerTransferParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerTransferResultGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerUnassignedListParam;
@@ -9,6 +10,7 @@ import chat.qiye.wechat.sdk.api.customer.resp.CustomerTransferResultResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerUnassignedListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupChatTransferResp;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -22,7 +24,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerTransferApi extends CustomerBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+public interface CustomerTransferApi {
   /**
    * 分配在职成员的客户
    * 企业可通过此接口，转接在职成员的客户给其他成员。

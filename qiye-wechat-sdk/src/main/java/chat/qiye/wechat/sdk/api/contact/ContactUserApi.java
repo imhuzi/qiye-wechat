@@ -1,6 +1,7 @@
 package chat.qiye.wechat.sdk.api.contact;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.contact.param.AuthMemberListParam;
 import chat.qiye.wechat.sdk.api.contact.param.CheckMemberAuthParam;
 import chat.qiye.wechat.sdk.api.contact.param.ContactInviteParam;
@@ -21,6 +22,7 @@ import chat.qiye.wechat.sdk.api.contact.resp.GetJoinQrcodeResp;
 import chat.qiye.wechat.sdk.api.contact.resp.GetUserIdResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -30,7 +32,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactUserApi extends ContactBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CONTACT)
+public interface ContactUserApi {
 
   /**
    * 获取 获取部门成员列表详情

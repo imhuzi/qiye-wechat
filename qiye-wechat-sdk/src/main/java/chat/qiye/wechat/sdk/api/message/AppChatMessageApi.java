@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.message;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.message.dto.MessageDto;
 import chat.qiye.wechat.sdk.api.message.param.AppChatCreateParam;
 import chat.qiye.wechat.sdk.api.message.param.AppChatUpdateParam;
@@ -7,7 +8,6 @@ import chat.qiye.wechat.sdk.api.message.resp.AppChatCreateResp;
 import chat.qiye.wechat.sdk.api.message.resp.AppChatGetResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.MessageApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.Param;
 import feign.RequestLine;
 
@@ -18,7 +18,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/7/1
  */
-public interface AppChatMessageApi extends BaseApi {
+@QiYeWeChatApi
+public interface AppChatMessageApi {
   /**
    * 创建群聊会话
    *

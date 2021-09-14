@@ -23,7 +23,7 @@ import static feign.Util.emptyToNull;
  * @date : 2021/6/16
  */
 @Slf4j
-public class ApiConfigurationTarget<T> implements Target<T> {
+public class ApiDynamicTokenTarget<T> implements Target<T> {
 
     private final Class<T> type;
 
@@ -33,7 +33,7 @@ public class ApiConfigurationTarget<T> implements Target<T> {
 
     private final ApiConfigurationProvider config;
 
-    public ApiConfigurationTarget(Class<T> clazz, ApiConfigurationProvider provider) {
+    public ApiDynamicTokenTarget(Class<T> clazz, ApiConfigurationProvider provider) {
         this.config = provider;
         this.type = checkNotNull(clazz, "type");
         this.name = checkNotNull(emptyToNull(provider.name()), "name");
@@ -166,8 +166,8 @@ public class ApiConfigurationTarget<T> implements Target<T> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof ApiConfigurationTarget) {
-            ApiConfigurationTarget<?> other = (ApiConfigurationTarget) obj;
+        if (obj instanceof ApiDynamicTokenTarget) {
+            ApiDynamicTokenTarget<?> other = (ApiDynamicTokenTarget) obj;
             return type.equals(other.type)
                     && name.equals(other.name)
                     && url.equals(other.url);

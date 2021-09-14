@@ -1,11 +1,13 @@
 package chat.qiye.wechat.sdk.api.contact;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptCreateResp;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -18,7 +20,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactDeptApi extends ContactBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CONTACT)
+public interface ContactDeptApi{
 
   /**
    * 获取 部门列表

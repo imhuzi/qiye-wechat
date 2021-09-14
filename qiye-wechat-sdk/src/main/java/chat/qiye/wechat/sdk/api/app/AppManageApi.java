@@ -1,7 +1,7 @@
 package chat.qiye.wechat.sdk.api.app;
 
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.app.param.CreateAppMenuParam;
 import chat.qiye.wechat.sdk.api.app.param.GetWorkbenchTemplateParam;
 import chat.qiye.wechat.sdk.api.app.param.SetAppAgentParam;
@@ -24,7 +24,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/6/6
  */
-public interface AppManageApi extends BaseApi {
+@QiYeWeChatApi
+public interface AppManageApi {
     /**
      * 获取指定的应用详情
      * <p>

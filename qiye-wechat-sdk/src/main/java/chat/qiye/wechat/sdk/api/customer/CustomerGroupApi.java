@@ -1,17 +1,20 @@
 package chat.qiye.wechat.sdk.api.customer;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupGetParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerGroupListParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupListResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGroupResp;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
  * 客户群 相关 接口
  */
-public interface CustomerGroupApi  extends CustomerBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+public interface CustomerGroupApi {
 
     /**
      * 获取 客户 群列表

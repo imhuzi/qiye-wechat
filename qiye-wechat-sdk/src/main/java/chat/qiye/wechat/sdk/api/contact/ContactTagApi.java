@@ -1,6 +1,7 @@
 package chat.qiye.wechat.sdk.api.contact;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.contact.param.TagMemberUpdateParam;
 import chat.qiye.wechat.sdk.api.contact.resp.TagCreateResp;
 import chat.qiye.wechat.sdk.api.contact.resp.TagListResp;
@@ -8,6 +9,7 @@ import chat.qiye.wechat.sdk.api.contact.resp.TagMemberListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.TagVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -20,7 +22,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-public interface ContactTagApi extends ContactBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CONTACT)
+public interface ContactTagApi {
 
   /**
    * 获取 标签列表

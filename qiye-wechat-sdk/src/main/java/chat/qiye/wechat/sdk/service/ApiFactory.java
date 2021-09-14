@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.service;
 
-import chat.qiye.wechat.sdk.interceptor.ApiConfigurationTarget;
+import chat.qiye.wechat.sdk.interceptor.ApiDynamicTokenTarget;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -34,7 +34,7 @@ public class ApiFactory {
                 .decoder(new JacksonDecoder(ApiInstance.getObjectMaper()))
                 .options(new Request.Options(provider.getConnectTimeout(), TimeUnit.SECONDS, provider.getReadTimeout(),
                         TimeUnit.SECONDS, provider.followRedirects()))
-                .target(new ApiConfigurationTarget<>(cls, provider));
+                .target(new ApiDynamicTokenTarget<>(cls, provider));
     }
 
 

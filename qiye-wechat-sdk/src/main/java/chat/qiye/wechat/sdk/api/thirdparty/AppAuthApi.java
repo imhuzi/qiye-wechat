@@ -1,8 +1,8 @@
 package chat.qiye.wechat.sdk.api.thirdparty;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.api.thirdparty.param.AdminListParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpAuthInfoParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpPermanentCodeParam;
@@ -22,7 +22,8 @@ import feign.RequestLine;
  * @created : 2021/1/3
  */
 @SuiteAccessToken
-public interface AppAuthApi extends BaseApi {
+@QiYeWeChatApi
+public interface AppAuthApi {
     /**
      * <pre>
      *   获取预授权码

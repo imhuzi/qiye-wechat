@@ -2,11 +2,13 @@ package chat.qiye.wechat.sdk.api.inner;
 
 
 import chat.qiye.wechat.sdk.annotation.NoAccessToken;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.inner.resp.AccessTokenResp;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
 
+@QiYeWeChatApi
 public interface AccessTokenApi {
 
     /**

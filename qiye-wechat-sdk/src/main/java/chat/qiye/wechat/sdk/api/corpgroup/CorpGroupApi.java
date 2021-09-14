@@ -1,7 +1,7 @@
 package chat.qiye.wechat.sdk.api.corpgroup;
 
 import chat.qiye.wechat.sdk.annotation.NoAccessToken;
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.corpgroup.param.GetCorpGroupListAppShareParam;
 import chat.qiye.wechat.sdk.api.corpgroup.param.GetCorpGroupMiniprogramSessionParam;
 import chat.qiye.wechat.sdk.api.corpgroup.param.GetCorpGroupTokenParam;
@@ -20,7 +20,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/7
  */
-public interface CorpGroupApi extends BaseApi {
+@QiYeWeChatApi
+public interface CorpGroupApi {
     /**
      * 获取应用共享信息
      * 上级企业通过该接口获取某个应用分享给的所有企业列表。

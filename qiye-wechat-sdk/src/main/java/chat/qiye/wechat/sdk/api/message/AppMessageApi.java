@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.message;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.message.dto.app.AppMessageDto;
 import chat.qiye.wechat.sdk.api.message.dto.linkedcorp.LinkedCorpMessageDto;
 import chat.qiye.wechat.sdk.api.message.param.AppTaskCardMessageUpdateParm;
@@ -9,7 +10,6 @@ import chat.qiye.wechat.sdk.api.message.resp.AppTaskCardMessageUpdateResp;
 import chat.qiye.wechat.sdk.api.message.resp.LinkedCorpMessageSendResp;
 import chat.qiye.wechat.sdk.api.message.resp.MessageStatGetResp;
 import chat.qiye.wechat.sdk.constant.MessageApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.RequestLine;
 
 /**
@@ -23,7 +23,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/7/1
  */
-public interface AppMessageApi  extends BaseApi {
+@QiYeWeChatApi
+public interface AppMessageApi {
   /**
    * 发送应用消息
    * 应用支持推送文本、图片、视频、文件、图文等类型。

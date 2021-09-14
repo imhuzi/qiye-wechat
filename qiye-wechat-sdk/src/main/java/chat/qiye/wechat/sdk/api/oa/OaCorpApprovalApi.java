@@ -1,6 +1,6 @@
 package chat.qiye.wechat.sdk.api.oa;
 
-import chat.qiye.wechat.sdk.api.BaseApi;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.CorpApprovalDataQueryParam;
 import chat.qiye.wechat.sdk.api.oa.resp.CorpApprovalDataQueryResp;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
@@ -15,7 +15,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/9
  */
-public interface OaCorpApprovalApi extends BaseApi {
+@QiYeWeChatApi
+public interface OaCorpApprovalApi {
 
     @RequestLine(OaApiUris.API_GET_CORP_APPROVAL_DATA)
     CorpApprovalDataQueryResp getTemplate(CorpApprovalDataQueryParam param);

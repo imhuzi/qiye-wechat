@@ -1,5 +1,6 @@
 package chat.qiye.wechat.sdk.api.customer;
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerTagAddParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerTagDelParam;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerTagEditParam;
@@ -8,8 +9,8 @@ import chat.qiye.wechat.sdk.api.customer.param.CustomerTagMarkParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerTagGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerTagListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
+import chat.qiye.wechat.sdk.constant.SysAppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -22,7 +23,8 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-public interface CustomerTagApi extends CustomerBaseApi {
+@QiYeWeChatApi(appType = SysAppIdEnum.APP_CUSTOMER)
+public interface CustomerTagApi {
   /**
    * 获取企业标签库
    * 企业可通过此接口获取企业客户标签详情。

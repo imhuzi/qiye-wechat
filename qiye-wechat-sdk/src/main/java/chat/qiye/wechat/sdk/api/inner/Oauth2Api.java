@@ -1,13 +1,14 @@
 package chat.qiye.wechat.sdk.api.inner;
 
 
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.inner.resp.Oauth2UserInfoResp;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.api.BaseApi;
 import feign.Param;
 import feign.RequestLine;
 
-public interface Oauth2Api extends BaseApi {
+@QiYeWeChatApi
+public interface Oauth2Api {
 
   String OAUTH2_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
   String OAUTH2_QR_URL = "https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=%s&agentid=%s&redirect_uri=%s&state=STATE";

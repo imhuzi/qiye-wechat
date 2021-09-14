@@ -2,6 +2,7 @@ package chat.qiye.wechat.sdk.api.thirdparty;
 
 
 import chat.qiye.wechat.sdk.annotation.NoAccessToken;
+import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.annotation.SuiteAccessToken;
 import chat.qiye.wechat.sdk.api.thirdparty.param.CorpAccessTokenParam;
 import chat.qiye.wechat.sdk.api.thirdparty.param.ProviderAccessTokenParam;
@@ -19,6 +20,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @created on  : 2021/1/3
  */
+@QiYeWeChatApi
 public interface ThirdAccessTokenApi {
 
     /**
