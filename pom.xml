@@ -85,6 +85,17 @@
         <artifactId>feign-slf4j</artifactId>
         <version>${feign.version}</version>
       </dependency>
+      <dependency>
+        <groupId>io.github.openfeign</groupId>
+        <artifactId>feign-hystrix</artifactId>
+        <version>${feign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.openfeign</groupId>
+        <artifactId>feign-okhttp</artifactId>
+        <version>${feign.version}</version>
+        <optional>true</optional>
+      </dependency>
 
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>

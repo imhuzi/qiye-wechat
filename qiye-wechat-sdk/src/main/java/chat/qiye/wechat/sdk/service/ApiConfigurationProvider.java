@@ -1,5 +1,7 @@
 package chat.qiye.wechat.sdk.service;
 
+import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
+import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
@@ -74,6 +76,11 @@ public interface ApiConfigurationProvider {
     default QiyeWechatConfigVo getConfigByAppType(String appType) {
         return (StringUtil.isBlank(appType) || AppTypeEnum.DEFAULT.getAppId().equals(appType)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appType);
     }
+
+    AccessTokenApi getAccessTokenApi();
+
+    ThirdAccessTokenApi getThirdAccessTokenApi();
+
 
     /**
      * 获取 API 调用模式: inner->自建内部应用，third_party->第三方服务商应用

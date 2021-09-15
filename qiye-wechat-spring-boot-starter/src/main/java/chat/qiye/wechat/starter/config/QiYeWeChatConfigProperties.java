@@ -32,13 +32,12 @@ public class QiYeWeChatConfigProperties {
      */
     private String basePackages = "chat.qiye.wechat.sdk.api";
 
-    private String apiModel = Constant.API_MODEL_INNER;
+    private String model = Constant.API_MODEL_INNER;
 
     /**
      * http options
      */
-    private FeignConfig feignConfig;
-
+    private FeignConfig feignConfig = new FeignConfig();
 
     /**
      * corp id
@@ -53,17 +52,17 @@ public class QiYeWeChatConfigProperties {
     @Data
     public static class FeignConfig {
         private String baseUrl = "https://qyapi.weixin.qq.com/cgi-bin";
-        private Logger.Level loggerLevel = Logger.Level.BASIC;
+        private Logger.Level loggerLevel = Logger.Level.FULL;
         private FeignLoggerType loggerType = FeignLoggerType.SYSTEM_ERR;
-        private Integer connectTimeout = 10;
-        private Integer readTimeout = 60;
+        private Integer connectTimeout = 1000;
+        private Integer readTimeout = 2000;
         private boolean followRedirects = true;
-        private Class<Retryer> retryer;
-        private Class<ErrorDecoder> errorDecoder;
-        private List<Class<RequestInterceptor>> requestInterceptors;
         private Map<String, Collection<String>> defaultRequestHeaders;
         private Map<String, Collection<String>> defaultQueryParameters;
         private Boolean decode404;
+        private Boolean httpclientEnabled;
+        private Boolean okhttpEnabled;
+        private String contract;
     }
 
     /**

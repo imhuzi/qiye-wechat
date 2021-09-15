@@ -7,7 +7,7 @@ package chat.qiye.wechat.sdk.constant;
  */
 public interface Constant {
 
-    String DEFAULT = "default";
+    String DEFAULT = "app";
     String DEFAULT_BASE_API_URL = "https://qyapi.weixin.qq.com/cgi-bin";
 
     String ACCESS_TOKEN_KEY = "access_token";

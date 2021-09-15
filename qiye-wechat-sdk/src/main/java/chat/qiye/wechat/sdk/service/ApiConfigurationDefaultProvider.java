@@ -33,17 +33,13 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
 
     final LoadingCache<String, AccessTokenInfoVo> APP_TOKEN_CACHE;
 
-    final AccessTokenApi accessTokenApi;
-    final ThirdAccessTokenApi thirdAccessTokenApi;
     final ExecutorService executor;
 
     public ApiConfigurationDefaultProvider() {
+
         executor = new ThreadPoolExecutor(3, 5,
                 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>());
-
-        this.accessTokenApi = ApiFactory.getApiBean(AccessTokenApi.class, this);
-        this.thirdAccessTokenApi = ApiFactory.getApiBean(ThirdAccessTokenApi.class, this);
         APP_TOKEN_CACHE = CacheBuilder.newBuilder()
                 .maximumSize(1000)
                 .refreshAfterWrite(1, TimeUnit.MINUTES)
@@ -65,6 +61,15 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
                 });
     }
 
+    @Override
+    public AccessTokenApi getAccessTokenApi() {
+        return ApiFactory.getApiBean(AccessTokenApi.class, this);
+    }
+
+    @Override
+    public ThirdAccessTokenApi getThirdAccessTokenApi() {
+        return ApiFactory.getApiBean(ThirdAccessTokenApi.class, this);
+    }
 
     /**
      * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
@@ -83,7 +88,7 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
         AssertUtil.notNull(configVo, "app config is null");
         AssertUtil.notNull(configVo.getCorpId(), "corpId config is null");
         AssertUtil.notNull(configVo.getSecret(), "app Secret config is null");
-        AccessTokenResp resp = accessTokenApi.accessTokenInfo(configVo.getCorpId(), configVo.getSecret());
+        AccessTokenResp resp = getAccessTokenApi().accessTokenInfo(configVo.getCorpId(), configVo.getSecret());
         if (!resp.success()) {
             log.error("AccessToken Error:{},{},{}", resp.getErrcode(), resp.getErrmsg(), configVo);
         }

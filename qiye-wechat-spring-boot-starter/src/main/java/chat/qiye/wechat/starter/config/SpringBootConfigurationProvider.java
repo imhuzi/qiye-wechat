@@ -1,8 +1,12 @@
 package chat.qiye.wechat.starter.config;
 
+import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
+import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.service.ApiConfigurationDefaultProvider;
-import org.springframework.beans.factory.annotation.Autowired;
+import chat.qiye.wechat.sdk.utils.StringUtil;
+import chat.qiye.wechat.starter.SpringContextUtil;
 
 /**
  * spring 方式 的配置
@@ -13,8 +17,21 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class SpringBootConfigurationProvider extends ApiConfigurationDefaultProvider {
 
-    @Autowired
-    QiYeWeChatConfigProperties properties;
+    final QiYeWeChatConfigProperties properties;
+
+    public SpringBootConfigurationProvider(QiYeWeChatConfigProperties properties) {
+        this.properties = properties;
+    }
+
+    @Override
+    public AccessTokenApi getAccessTokenApi() {
+        return SpringContextUtil.getBean(AccessTokenApi.class);
+    }
+
+    @Override
+    public ThirdAccessTokenApi getThirdAccessTokenApi() {
+        return SpringContextUtil.getBean(ThirdAccessTokenApi.class);
+    }
 
     /**
      * get base url
@@ -23,7 +40,7 @@ public class SpringBootConfigurationProvider extends ApiConfigurationDefaultProv
      */
     @Override
     public String baseUrl() {
-        return properties.getFeignConfig().getBaseUrl();
+        return StringUtil.isEmpty(properties.getFeignConfig().getBaseUrl()) ? Constant.DEFAULT_BASE_API_URL : properties.getFeignConfig().getBaseUrl();
     }
 
     /**
@@ -67,7 +84,7 @@ public class SpringBootConfigurationProvider extends ApiConfigurationDefaultProv
      */
     @Override
     public String getApiModel() {
-        return properties.getApiModel();
+        return properties.getModel();
     }
 
     /**

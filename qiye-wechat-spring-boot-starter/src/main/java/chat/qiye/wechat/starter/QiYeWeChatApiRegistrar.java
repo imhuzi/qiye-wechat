@@ -1,6 +1,7 @@
 package chat.qiye.wechat.starter;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -18,11 +19,11 @@ import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.ClassMetadata;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.util.ClassUtils;
+import org.springframework.util.StringUtils;
 
 import java.beans.Introspector;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -34,8 +35,10 @@ import java.util.Optional;
  * @version : 1.0
  * @date : 2021/9/11
  */
-public class QiYeWeChatApisRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
+@Slf4j
+public class QiYeWeChatApiRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
     private static final String BASE_PACKAGES_KEY = "qiye.wechat.base-packages";
+    private static final String DEFAULT_BASE_PACKAGES = "chat.qiye.wechat.sdk.api";
 
     private Environment environment;
     private ResourceLoader resourceLoader;
@@ -49,20 +52,21 @@ public class QiYeWeChatApisRegistrar implements ImportBeanDefinitionRegistrar, R
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
-        registerQiYeWeChatApis(registry);
+        registerQiYeWeChatApis(metadata, registry);
     }
 
     /**
      * Scan all interfaces declared with &#64; QiYeWeChatApi and collect className, attributes, and logLevel.
      */
-    public void registerQiYeWeChatApis(BeanDefinitionRegistry registry) {
+    public void registerQiYeWeChatApis(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
         ClassPathScanningCandidateComponentProvider scanner = getScanner();
         scanner.setResourceLoader(resourceLoader);
 
         AnnotationTypeFilter annotationTypeFilter = new AnnotationTypeFilter(QiYeWeChatApi.class);
         scanner.addIncludeFilter(annotationTypeFilter);
-        List<String> basePackages = Optional.ofNullable(environment.getProperty(BASE_PACKAGES_KEY))
-                .map(s -> Arrays.asList(s.split(","))).orElse(Collections.emptyList());
+        List<String> basePackages = Arrays.asList(Optional.ofNullable(environment.getProperty(BASE_PACKAGES_KEY))
+                .orElse(DEFAULT_BASE_PACKAGES)
+                .split(","));
 
         basePackages.stream()
                 .map(scanner::findCandidateComponents)
@@ -81,8 +85,8 @@ public class QiYeWeChatApisRegistrar implements ImportBeanDefinitionRegistrar, R
      * Register generated QiYeWeChat Api feign clients as singletons.
      *
      * @param registry   registry.
-     * @param className  class name of the interface which declared with &#64;FeignClient.
-     * @param attributes attributes of the &#64;FeignClient annotation.
+     * @param className  class name of the interface which declared with &#64;QiYeWeChatApi.
+     * @param attributes attributes of the &#64;QiYeWeChatApi annotation.
      */
     private void registerQiYeWeChatApi(BeanDefinitionRegistry registry, String className, Map<String, Object> attributes) {
         String shortClassName = ClassUtils.getShortName(className);
@@ -92,10 +96,10 @@ public class QiYeWeChatApisRegistrar implements ImportBeanDefinitionRegistrar, R
         try {
             apiType = Class.forName(className);
         } catch (Exception e) {
-
+            log.error("{} Class Not Found", className, e);
         }
 
-        BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(QiYeWeChatApisFactoryBean.class);
+        BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(QiYeWeChatApiFactoryBean.class);
 
         definition.addPropertyValue("apiType", apiType);
         definition.addPropertyValue("attributes", attributes);
