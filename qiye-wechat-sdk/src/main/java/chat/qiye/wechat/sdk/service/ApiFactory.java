@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import feign.Feign;
 import feign.Request;
-import feign.httpclient.ApacheHttpClient;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 
@@ -29,7 +28,6 @@ public class ApiFactory {
 
     public static <T> T getApiBean(Class<T> cls, ApiConfigurationProvider provider) {
         return Feign.builder()
-                .client(new ApacheHttpClient())
                 .encoder(new JacksonEncoder(ApiInstance.getObjectMaper()))
                 .decoder(new JacksonDecoder(ApiInstance.getObjectMaper()))
                 .options(new Request.Options(provider.getConnectTimeout(), TimeUnit.SECONDS, provider.getReadTimeout(),

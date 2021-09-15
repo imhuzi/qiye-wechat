@@ -26,7 +26,7 @@ public interface ApiConfigurationProvider {
      * @return baseUrl
      */
     default String baseUrl() {
-        return "https://qyapi.weixin.qq.com/cgi-bin";
+        return QiyeWechatConfig.getApiBaseUrl();
     }
 
     /**
