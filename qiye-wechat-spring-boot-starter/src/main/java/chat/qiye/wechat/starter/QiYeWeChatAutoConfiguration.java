@@ -60,7 +60,7 @@ public class QiYeWeChatAutoConfiguration {
 
     @Bean
     @Scope("prototype")
-    @ConditionalOnMissingBean
+    @ConditionalOnMissingBean(ApiConfigurationProvider.class)
     ApiConfigurationProvider apiConfigurationProvider(QiYeWeChatConfigProperties properties) {
         return new SpringBootConfigurationProvider(properties);
     }
