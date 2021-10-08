@@ -2,7 +2,7 @@ package chat.qiye.wechat.starter.config;
 
 import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
 import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
-import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
 import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.service.ApiConfigurationDefaultProvider;
 import chat.qiye.wechat.sdk.utils.StringUtil;
@@ -91,10 +91,15 @@ public class SpringBootConfigurationProvider extends ApiConfigurationDefaultProv
      * get config by app type
      *
      * @param appType app type
-     * @return {@link QiyeWechatConfigVo}
+     * @return {@link QiyeWechatAppVo}
      */
     @Override
-    public QiyeWechatConfigVo getConfigByAppType(String appType) {
+    public QiyeWechatAppVo getConfigByAppType(String appType) {
         return properties.getConfig(appType);
+    }
+
+    @Override
+    public QiyeWechatAppVo getConfigByAppId(String appId) {
+        return properties.getConfigByAppId(appId);
     }
 }

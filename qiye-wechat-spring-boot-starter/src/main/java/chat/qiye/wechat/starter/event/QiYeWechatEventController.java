@@ -3,7 +3,9 @@ package chat.qiye.wechat.starter.event;
 import chat.qiye.wechat.common.crypt.WXBizMsgCrypt;
 import chat.qiye.wechat.common.exception.AesException;
 import chat.qiye.wechat.common.utils.XmlUtils;
+import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
 import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
+import chat.qiye.wechat.starter.event.handler.EventHandalerRunnable;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.concurrent.Executor;
 
 /**
  * 企业微信 事件通知 controller
@@ -31,6 +34,11 @@ public class QiYeWechatEventController {
     @Resource
     ApiConfigurationProvider apiConfigurationProvider;
 
+
+    @Resource
+    private Executor qiYeWeChatThreadPoolExecutor;
+
+
     /**
      * 事件  回调 服务器验证
      *
@@ -38,20 +46,20 @@ public class QiYeWechatEventController {
      * @param msg_signature 消息签名
      * @param timestamp     时间戳
      * @param nonce         随机字符串
-     * @param echostr
+     * @param echostr       加密的字符串。需要解密得到消息内容明文，解密后有random、msg_len、msg、receiveid四个字段，其中msg即为消息内容明文
      * @return
      * @throws AesException
      */
     @GetMapping(path = "/event")
     @ResponseBody
-    public String eventGet(@RequestParam(name = "app") Long appId,
+    public String eventGet(@RequestParam(name = "app") String appId,
                            @RequestParam String msg_signature,
                            @RequestParam String timestamp,
                            @RequestParam String nonce,
-                           @RequestParam(required = false) String echostr) throws AesException {
+                           @RequestParam String echostr) throws AesException {
 
         // appId 必须 是系统中有的才可以 进入
-        QywxApp qywxApp = qywxAppService.getById(appId);
+        QiyeWechatAppVo qywxApp = apiConfigurationProvider.getConfigByAppId(appId);
         if (qywxApp == null) {
             log.error("illegalNoAppInfo:{}", appId);
             return "error";
@@ -77,14 +85,14 @@ public class QiYeWechatEventController {
      */
     @PostMapping(path = "/event")
     @ResponseBody
-    public String eventPost(@RequestParam(name = "app") Long appId,
+    public String eventPost(@RequestParam(name = "app") String appId,
                             @RequestParam String msg_signature,
                             @RequestParam String timestamp,
                             @RequestParam String nonce,
                             @RequestBody(required = false) String rawXmlStr) throws AesException {
 
         // appId 必须 是系统中有的才可以 进入
-        apiConfigurationProvider qywxApp = apiConfigurationProvider.getConfigByAppType(appId);
+        QiyeWechatAppVo qywxApp = apiConfigurationProvider.getConfigByAppId(appId);
         if (qywxApp == null) {
             log.error("illegalNoAppInfo:{}", appId);
             return "error";
@@ -96,8 +104,8 @@ public class QiYeWechatEventController {
         WXBizMsgCrypt wxBizMsgCrypt = new WXBizMsgCrypt(qywxApp.getEventToken(), qywxApp.getEventEncodingAesKey(), received);
         // 解码后的数据
         String decryptData = wxBizMsgCrypt.DecryptMsg(msg_signature, timestamp, nonce, rawXmlStr);
-//             异步 处理 回调事件
-        threadPoolBizExecutor.execute(new EventHandalerRunnable(decryptData, qywxApp, MDC.get("requestId")));
+        // 异步 处理 回调事件
+        qiYeWeChatThreadPoolExecutor.execute(new EventHandalerRunnable(decryptData, qywxApp, MDC.get("requestId")));
         log.info("返回给企业微信服务器 \"success\"字符串");
         return "success";
 

@@ -1,14 +1,11 @@
 package chat.qiye.wechat.starter.config;
 
-import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
 import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.utils.AssertUtil;
 import chat.qiye.wechat.sdk.utils.StringUtil;
 import chat.qiye.wechat.starter.FeignLoggerType;
 import feign.Logger;
-import feign.RequestInterceptor;
-import feign.Retryer;
-import feign.codec.ErrorDecoder;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -47,7 +44,7 @@ public class QiYeWeChatConfigProperties {
     /**
      * apps config
      */
-    private List<QiyeWechatConfigVo> apps;
+    private List<QiyeWechatAppVo> apps;
 
     @Data
     public static class FeignConfig {
@@ -69,11 +66,11 @@ public class QiYeWeChatConfigProperties {
      * get config by app type
      *
      * @param appType app type
-     * @return {@link QiyeWechatConfigVo}
+     * @return {@link QiyeWechatAppVo}
      */
-    public QiyeWechatConfigVo getConfig(String appType) {
+    public QiyeWechatAppVo getConfig(String appType) {
         AssertUtil.notNull(apps, "Not Apps config");
-        final QiyeWechatConfigVo[] configVo = new QiyeWechatConfigVo[1];
+        final QiyeWechatAppVo[] configVo = new QiyeWechatAppVo[1];
         apps.stream().filter(item -> appType.equals(item.getAppType())).findFirst().ifPresent(item -> {
             configVo[0] = item;
         });
@@ -87,11 +84,11 @@ public class QiYeWeChatConfigProperties {
      * get config by appId
      *
      * @param appId app type
-     * @return {@link QiyeWechatConfigVo}
+     * @return {@link QiyeWechatAppVo}
      */
-    public QiyeWechatConfigVo getConfigByAppId(String appId) {
+    public QiyeWechatAppVo getConfigByAppId(String appId) {
         AssertUtil.notNull(apps, "Not Apps config");
-        final QiyeWechatConfigVo[] configVo = new QiyeWechatConfigVo[1];
+        final QiyeWechatAppVo[] configVo = new QiyeWechatAppVo[1];
         apps.stream().filter(item -> appId.equals(item.getAppId())).findFirst().ifPresent(item -> {
             configVo[0] = item;
         });
