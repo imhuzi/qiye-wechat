@@ -1,5 +1,8 @@
 package chat.qiye.wechat.starter.event;
 
+import chat.qiye.wechat.common.crypt.WXBizMsgCrypt;
+import chat.qiye.wechat.common.exception.AesException;
+import chat.qiye.wechat.common.utils.XmlUtils;
 import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -29,6 +32,40 @@ public class QiYeWechatEventController {
     ApiConfigurationProvider apiConfigurationProvider;
 
     /**
+     * 事件  回调 服务器验证
+     *
+     * @param appId         应用id
+     * @param msg_signature 消息签名
+     * @param timestamp     时间戳
+     * @param nonce         随机字符串
+     * @param echostr
+     * @return
+     * @throws AesException
+     */
+    @GetMapping(path = "/event")
+    @ResponseBody
+    public String eventGet(@RequestParam(name = "app") Long appId,
+                           @RequestParam String msg_signature,
+                           @RequestParam String timestamp,
+                           @RequestParam String nonce,
+                           @RequestParam(required = false) String echostr) throws AesException {
+
+        // appId 必须 是系统中有的才可以 进入
+        QywxApp qywxApp = qywxAppService.getById(appId);
+        if (qywxApp == null) {
+            log.error("illegalNoAppInfo:{}", appId);
+            return "error";
+        }
+        log.info("企业微信回调验证[事件回调]接口,appid:{},msg_signature:{},timestamp:{},nonce:{},echostr:{}", appId, msg_signature, timestamp, nonce, echostr);
+        WXBizMsgCrypt wxBizMsgCrypt = new WXBizMsgCrypt(qywxApp.getEventToken(), qywxApp.getEventEncodingAesKey(), qywxApp.getCorpId());
+        // get 请求,是企业微信服务器测试我们配置的回调地址使用的
+        log.info("get 请求");
+        String verifyURL = wxBizMsgCrypt.VerifyURL(msg_signature, timestamp, nonce, echostr);
+        log.info("接受到的数据:{}", verifyURL);
+        return verifyURL;
+    }
+
+    /**
      * 通讯录 事件 回调处理
      *
      * @param appId
@@ -41,10 +78,10 @@ public class QiYeWechatEventController {
     @PostMapping(path = "/event")
     @ResponseBody
     public String eventPost(@RequestParam(name = "app") Long appId,
-                                    @RequestParam String msg_signature,
-                                    @RequestParam String timestamp,
-                                    @RequestParam String nonce,
-                                    @RequestBody(required = false) String rawXmlStr) throws AesException {
+                            @RequestParam String msg_signature,
+                            @RequestParam String timestamp,
+                            @RequestParam String nonce,
+                            @RequestBody(required = false) String rawXmlStr) throws AesException {
 
         // appId 必须 是系统中有的才可以 进入
         apiConfigurationProvider qywxApp = apiConfigurationProvider.getConfigByAppType(appId);
@@ -64,28 +101,5 @@ public class QiYeWechatEventController {
         log.info("返回给企业微信服务器 \"success\"字符串");
         return "success";
 
-    }
-
-    @GetMapping(path = "/event")
-    @ResponseBody
-    public String eventGet(@RequestParam(name = "app") Long appId,
-                                   @RequestParam String msg_signature,
-                                   @RequestParam String timestamp,
-                                   @RequestParam String nonce,
-                                   @RequestParam(required = false) String echostr) throws AesException {
-
-        // appId 必须 是系统中有的才可以 进入
-        QywxApp qywxApp = qywxAppService.getById(appId);
-        if (qywxApp == null) {
-            log.error("illegalNoAppInfo:{}", appId);
-            return "error";
-        }
-        log.info("企业微信回调验证[事件回调]接口,appid:{},msg_signature:{},timestamp:{},nonce:{},echostr:{}", appId, msg_signature, timestamp, nonce, echostr);
-        WXBizMsgCrypt wxBizMsgCrypt = new WXBizMsgCrypt(qywxApp.getEventToken(), qywxApp.getEventEncodingAesKey(), qywxApp.getCorpId());
-        // get 请求,是企业微信服务器测试我们配置的回调地址使用的
-        log.info("get 请求");
-        String verifyURL = wxBizMsgCrypt.VerifyURL(msg_signature, timestamp, nonce, echostr);
-        log.info("接受到的数据:{}", verifyURL);
-        return verifyURL;
     }
 }
