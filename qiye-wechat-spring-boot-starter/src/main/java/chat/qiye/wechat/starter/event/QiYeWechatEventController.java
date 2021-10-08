@@ -1,14 +1,13 @@
 package chat.qiye.wechat.starter.event;
 
 import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +22,7 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("${qiye.wechat.event-prefix:/qiyewechat}")
+@Slf4j
 public class QiYeWechatEventController {
 
     @Resource
@@ -87,6 +87,5 @@ public class QiYeWechatEventController {
         String verifyURL = wxBizMsgCrypt.VerifyURL(msg_signature, timestamp, nonce, echostr);
         log.info("接受到的数据:{}", verifyURL);
         return verifyURL;
-
     }
 }
