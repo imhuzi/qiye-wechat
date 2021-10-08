@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * @date : 2021/8/31
  */
 @Data
-public class QiyeWechatConfigVo {
+public class QiyeWechatAppVo {
 
     /**
      * 应用名称

@@ -98,9 +98,9 @@ public class QiyeWechatConfig {
     }
 
 
-    public static QiyeWechatConfigVo getAppConfig() {
+    public static QiyeWechatAppVo getAppConfig() {
         try {
-            QiyeWechatConfigVo configVo = new QiyeWechatConfigVo();
+            QiyeWechatAppVo configVo = new QiyeWechatAppVo();
             configVo.setName(props.get(QIYE_WECAHT_NAME));
             configVo.setAppId(props.get(QIYE_WECAHT_APPID));
             configVo.setAgentId(Integer.parseInt(props.get(QIYE_WECAHT_AGENTID)));
@@ -116,9 +116,9 @@ public class QiyeWechatConfig {
         return null;
     }
 
-    public static QiyeWechatConfigVo getSysAppConfig(String app) {
+    public static QiyeWechatAppVo getSysAppConfig(String app) {
         try {
-            QiyeWechatConfigVo configVo = new QiyeWechatConfigVo();
+            QiyeWechatAppVo configVo = new QiyeWechatAppVo();
             configVo.setName(props.get(String.format(QIYE_WECAHT_TEMPL_NAME, app)));
             configVo.setAppId(props.get(String.format(QIYE_WECAHT_TEMPL_APPID, app)));
             configVo.setAgentId(Integer.parseInt(props.get(String.format(QIYE_WECAHT_TEMPL_AGENTID, app))));

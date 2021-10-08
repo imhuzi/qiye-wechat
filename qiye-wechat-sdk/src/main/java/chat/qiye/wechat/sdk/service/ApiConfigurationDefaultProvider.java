@@ -4,11 +4,9 @@ import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
 import chat.qiye.wechat.sdk.api.inner.resp.AccessTokenResp;
 import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
-import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
-import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
 import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import chat.qiye.wechat.sdk.utils.AssertUtil;
-import chat.qiye.wechat.sdk.utils.StringUtil;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -84,7 +82,7 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
     }
 
     public AccessTokenInfoVo loadAppToken(String appType) {
-        QiyeWechatConfigVo configVo = getConfigByAppType(appType);
+        QiyeWechatAppVo configVo = getConfigByAppType(appType);
         AssertUtil.notNull(configVo, "app config is null");
         AssertUtil.notNull(configVo.getCorpId(), "corpId config is null");
         AssertUtil.notNull(configVo.getSecret(), "app Secret config is null");
