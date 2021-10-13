@@ -83,9 +83,7 @@ public class ApiDynamicTokenTarget<T> implements Target<T> {
      */
     @Override
     public Request apply(RequestTemplate requestTemplate) {
-        if (requestTemplate.url().indexOf("http") != 0) {
-            requestTemplate.target(url());
-        }
+        requestTemplate.target(getRealUrl(requestTemplate));
         // 动态 注入 token
         injectToken(requestTemplate);
         return requestTemplate.request();
@@ -103,6 +101,17 @@ public class ApiDynamicTokenTarget<T> implements Target<T> {
             annotation = template.feignTarget().type().getAnnotation(QiYeWeChatApi.class);
         }
         return annotation;
+    }
+
+    /**
+     * 优先 使用 注解中的 url, 其次是 配置文件, 最后使用默认
+     *
+     * @param template RequestTemplate
+     * @return base Url
+     */
+    private String getRealUrl(RequestTemplate template) {
+        QiYeWeChatApi annotation = getAnnotation(template);
+        return emptyToNull(annotation.url()) != null ? annotation.url() : url();
     }
 
     /**
@@ -147,7 +156,7 @@ public class ApiDynamicTokenTarget<T> implements Target<T> {
         if (isNoAccessToken(template)) {
             return;
         }
-        QiYeWeChatApi apiAnno =  getAnnotation(template);
+        QiYeWeChatApi apiAnno = getAnnotation(template);
         String appType = apiAnno.appType().getAppId();
         // 企业内部应用
         if (config.isInnerApp()) {

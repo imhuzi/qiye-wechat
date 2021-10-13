@@ -22,6 +22,11 @@ import java.lang.annotation.Target;
 @Documented
 public @interface QiYeWeChatApi {
     /**
+     * bean name
+     */
+    String name() default "";
+
+    /**
      * @return an URL prefix for concatenating with relative path. It can be either
      * an absolute URL (e.g. https://postman-echo.com) or a placeholders (e.g. ${postman-echo.domain})
      */

@@ -18,7 +18,6 @@ Spring Boot 项目 使用步骤如下:
 ```yaml
 qiye:
   wechat:
-    base-packages: chat.qiye.wechat.sdk.api
     corp-id: ww5f09c98e13dfce02
     apps:
       - app-id: 1000015

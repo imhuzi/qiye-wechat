@@ -17,8 +17,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class QiyeWechatConfig {
     private static final ConcurrentHashMap<String, String> props = new ConcurrentHashMap<>();
-    public static final String QIYE_WECAHT_API_MODEL = "qiye.wecaht.api.model";
+    public static final String QIYE_WECAHT_API_MODEL = "qiye.wecaht.model";
 
+    public static final String QIYE_WECAHT_BASE_URL = "qiye.wecaht.baseUrl";
     public static final String QIYE_WECAHT_NAME = "qiye.wecaht.name";
     public static final String QIYE_WECAHT_APPID = "qiye.wecaht.appId";
     public static final String QIYE_WECAHT_AGENTID = "qiye.wecaht.agentId";
@@ -30,7 +31,7 @@ public class QiyeWechatConfig {
 
     public static final String QIYE_WECAHT_TEMPL_NAME = "qiye.wecaht.%s.name";
     public static final String QIYE_WECAHT_TEMPL_APPID = "qiye.wecaht.%s.appId";
-    public static final String QIYE_WECAHT_TEMPL_AGENTID= "qiye.wecaht.%s.agentId";
+    public static final String QIYE_WECAHT_TEMPL_AGENTID = "qiye.wecaht.%s.agentId";
     public static final String QIYE_WECAHT_TEMPL_APPSECRET = "qiye.wecaht.%s.secret";
     public static final String QIYE_WECAHT_TEMPL_CORPID = "qiye.wecaht.%s.corpId";
     public static final String QIYE_WECAHT_TEMPL_HOMEURL = "qiye.wecaht.%s.homeUrl";
@@ -88,6 +89,15 @@ public class QiyeWechatConfig {
         return apiModel;
     }
 
+    public static String getApiBaseUrl() {
+        String baseUrl = props.get(QIYE_WECAHT_BASE_URL);
+        if (StringUtil.isBlank(baseUrl)) {
+            baseUrl = Constant.DEFAULT_BASE_API_URL;
+        }
+        return baseUrl;
+    }
+
+
     public static QiyeWechatConfigVo getAppConfig() {
         try {
             QiyeWechatConfigVo configVo = new QiyeWechatConfigVo();
@@ -128,17 +138,13 @@ public class QiyeWechatConfig {
         return null;
     }
 
-    private static String toEnvKey(String propKey) {
-        return propKey.toUpperCase().replace('.', '_');
-    }
-
     private QiyeWechatConfig() {
     }
 
     static {
         try {
             loadProps();
-            log.info("[QiyeWechatConfig] Application type resolved: ", new Object[0]);
+            log.info("[QiyeWechatConfig] properties config resolved: {}", props);
         } catch (Throwable var1) {
             log.warn("[QiyeWechatConfig] Failed to initialize", var1);
             var1.printStackTrace();

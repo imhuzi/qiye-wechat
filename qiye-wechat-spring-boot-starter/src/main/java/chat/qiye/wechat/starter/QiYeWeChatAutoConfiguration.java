@@ -1,25 +1,23 @@
 package chat.qiye.wechat.starter;
 
+import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
+import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.service.ApiConfigurationDefaultProvider;
 import chat.qiye.wechat.sdk.service.ApiConfigurationProvider;
 import chat.qiye.wechat.sdk.service.ApiFactory;
 import chat.qiye.wechat.starter.config.QiYeWeChatConfigProperties;
 import chat.qiye.wechat.starter.config.SpringBootConfigurationProvider;
+import com.netflix.hystrix.HystrixCommand;
 import feign.Client;
+import feign.Feign;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.httpclient.ApacheHttpClient;
+import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
+import feign.okhttp.OkHttpClient;
 import org.apache.http.client.HttpClient;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustStrategy;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContexts;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -28,9 +26,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-import javax.net.ssl.SSLContext;
-import java.security.cert.X509Certificate;
+import org.springframework.context.annotation.Scope;
 
 /**
  * @author : Hui.Wang [huzi.wh@gmail.com]
@@ -38,26 +34,51 @@ import java.security.cert.X509Certificate;
  * @date : 2021/9/11
  */
 @Configuration(proxyBeanMethods = false)
-@Import({QiYeWeChatApisRegistrar.class, SpringBootConfigurationProvider.class})
 @EnableConfigurationProperties(QiYeWeChatConfigProperties.class)
+@Import({QiYeWeChatApiRegistrar.class, SpringContextUtil.class})
 public class QiYeWeChatAutoConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean
-    ApiConfigurationProvider apiConfigurationProvider() {
-        return new ApiConfigurationDefaultProvider();
+    @Configuration
+    @ConditionalOnClass({HystrixCommand.class, HystrixFeign.class})
+    protected static class HystrixFeignConfiguration {
+        @Bean
+        @Scope("prototype")
+        @ConditionalOnMissingBean
+        @ConditionalOnProperty(name = "qiye.wechat.feign-config.hystrix-enabled", matchIfMissing = true)
+        public Feign.Builder feignHystrixBuilder() {
+
+            return HystrixFeign.builder();
+        }
     }
 
     @Bean
+    @Scope("prototype")
     @ConditionalOnMissingBean
-    Encoder qiYeWechatEncoder() {
-        return new JacksonEncoder(ApiFactory.getObjectMaper());
+    public Feign.Builder feignBuilder() {
+        return Feign.builder();
     }
 
     @Bean
+    @Scope("prototype")
     @ConditionalOnMissingBean
-    Decoder qiYeWechatDecoder() {
-        return new JacksonDecoder(ApiFactory.getObjectMaper());
+    ApiConfigurationProvider apiConfigurationProvider(QiYeWeChatConfigProperties properties) {
+        return new SpringBootConfigurationProvider(properties);
+    }
+
+    @Configuration
+    @ConditionalOnClass({JacksonDecoder.class, JacksonEncoder.class})
+    protected static class JacksonFeignConfiguration {
+        @Bean
+        @ConditionalOnMissingBean
+        Encoder qiYeWechatEncoder() {
+            return new JacksonEncoder(ApiFactory.getObjectMaper());
+        }
+
+        @Bean
+        @ConditionalOnMissingBean
+        Decoder qiYeWechatDecoder() {
+            return new JacksonDecoder(ApiFactory.getObjectMaper());
+        }
     }
 
     /**
@@ -65,7 +86,7 @@ public class QiYeWeChatAutoConfiguration {
      */
     @Configuration
     @ConditionalOnClass(ApacheHttpClient.class)
-    @ConditionalOnProperty(value = "qiye.wechat.feign-config.httpclient.enabled", matchIfMissing = true)
+    @ConditionalOnProperty(value = "qiye.wechat.feign-config.httpclient-enabled", matchIfMissing = true)
     protected static class HttpClientFeignConfiguration {
         @Autowired(required = false)
         private HttpClient httpClient;
@@ -79,5 +100,23 @@ public class QiYeWeChatAutoConfiguration {
             return new ApacheHttpClient();
         }
     }
+
+    @Configuration
+    @ConditionalOnClass(okhttp3.OkHttpClient.class)
+    @ConditionalOnProperty(value = "qiye.wechat.feign-config.okhttp-enabled", matchIfMissing = true)
+    protected static class OkHttpFeignConfiguration {
+        @Autowired(required = false)
+        private okhttp3.OkHttpClient okHttpClient;
+
+        @Bean
+        @ConditionalOnMissingBean(Client.class)
+        public Client feignClient() {
+            if (this.okHttpClient != null) {
+                return new OkHttpClient(this.okHttpClient);
+            }
+            return new OkHttpClient();
+        }
+    }
+
 
 }

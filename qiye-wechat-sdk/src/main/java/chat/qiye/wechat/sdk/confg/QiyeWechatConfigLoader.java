@@ -38,7 +38,7 @@ public class QiyeWechatConfigLoader {
 
         Properties p = ConfigUtil.loadProperties(fileName);
         if (p != null && !p.isEmpty()) {
-            log.info("[QiyeWechatConfigLoader] Loading Sentinel config from {}", fileName);
+            log.info("[QiyeWechatConfigLoader] Loading QiYe WeChat config from {}", fileName);
             properties.putAll(p);
         }
 
