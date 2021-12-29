@@ -64,7 +64,7 @@ public interface ApiConfigurationProvider {
 
     default boolean neverNeedsRefreshToken(AccessTokenInfoVo prevToken) {
 
-        return prevToken.getFailureTime() < System.currentTimeMillis();
+        return prevToken.getFailureTime() >= System.currentTimeMillis();
     }
 
     /**
