@@ -11,7 +11,6 @@
   <modules>
     <module>qiye-wechat-sdk</module>
     <module>qiye-wechat-spring-boot-starter</module>
-    <module>qiye-wechat-common</module>
   </modules>
 
   <properties>
