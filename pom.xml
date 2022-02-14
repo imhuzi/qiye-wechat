@@ -27,7 +27,6 @@
     <deploy.skip>false</deploy.skip>
   </properties>
   <name>QiYe WeChat SDK for Java</name>
-  <url>https://github.com/my-dlq/swagger-kubernetes</url>
   <description>This is a java sdk to use QiYe WeChat api.</description>
 
   <licenses>
