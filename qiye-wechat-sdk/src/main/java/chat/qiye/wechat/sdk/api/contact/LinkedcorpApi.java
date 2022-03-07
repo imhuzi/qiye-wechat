@@ -9,7 +9,7 @@ import chat.qiye.wechat.sdk.api.contact.resp.LinkedcorpDeptListResp;
 import chat.qiye.wechat.sdk.api.contact.resp.LinkedcorpUserGetResp;
 import chat.qiye.wechat.sdk.api.contact.resp.LinkedcorpUserListResp;
 import chat.qiye.wechat.sdk.api.contact.resp.LinkedcorpUserSimpleListResp;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.RequestLine;
 
@@ -23,7 +23,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/6/18
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CONTACT)
 public interface LinkedcorpApi {
 
     /**

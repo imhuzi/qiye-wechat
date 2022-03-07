@@ -10,7 +10,7 @@ package chat.qiye.wechat.sdk.constant;
  * @version : 1.0
  * @date : 2021/8/31
  */
-public enum AppTypeEnum {
+public enum AppIdEnum {
 
     DEFAULT("app", "自建应用"),
     APP_CONTACT("contact", "通讯录"),
@@ -32,7 +32,7 @@ public enum AppTypeEnum {
 
     private final String desc;
 
-    AppTypeEnum(String appId, String desc) {
+    AppIdEnum(String appId, String desc) {
         this.appId = appId;
         this.desc = desc;
     }

@@ -3,7 +3,7 @@ package chat.qiye.wechat.sdk.api.oa;
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.oa.param.PublicTelPhoneGetDialRecordParam;
 import chat.qiye.wechat.sdk.api.oa.resp.PublicTelPhoneGetDialRecordResp;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -15,7 +15,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/13
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_PUBLIC_PHONE)
+@QiYeWeChatApi(appType = AppIdEnum.APP_PUBLIC_PHONE)
 public interface PublicTelPhoneApi {
     String DIAL_GET_RECORD = "POST /dial/get_dial_record";
 

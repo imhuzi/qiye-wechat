@@ -4,7 +4,7 @@ import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerBatchByUserParam;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerListResp;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.Param;
 import feign.RequestLine;
@@ -18,7 +18,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/6/3
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CUSTOMER)
 public interface CustomerApi {
 
     /**

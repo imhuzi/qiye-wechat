@@ -73,6 +73,7 @@ public interface BaseApiUris {
 
 
     // 应用管理
+    String API_GET_DOMAIN_IP = "GET /get_api_domain_ip";
     String API_AGENT_GET = "GET /agent/get?agentid={agentid}";
     String API_AGENT_SET = "POST /agent/set";
     String API_AGENT_MENU_CREATE = "POST /menu/create?agentid={agentid}";

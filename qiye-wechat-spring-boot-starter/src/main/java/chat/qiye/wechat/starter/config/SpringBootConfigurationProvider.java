@@ -94,7 +94,7 @@ public class SpringBootConfigurationProvider extends ApiConfigurationDefaultProv
      * @return {@link QiyeWechatConfigVo}
      */
     @Override
-    public QiyeWechatConfigVo getConfigByAppType(String appType) {
+    public QiyeWechatConfigVo getConfigByAppId(String appType) {
         return properties.getConfig(appType);
     }
 }

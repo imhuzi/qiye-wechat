@@ -1,7 +1,7 @@
 package chat.qiye.wechat.sdk.api.kf;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 
 /**
  * 客服 账号管理
@@ -12,7 +12,7 @@ import chat.qiye.wechat.sdk.constant.AppTypeEnum;
  * @version : 1.0
  * @date : 2021/9/13
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_KF)
+@QiYeWeChatApi(appType = AppIdEnum.APP_KF)
 public interface KfCustomerApi {
 
 }

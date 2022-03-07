@@ -15,7 +15,7 @@ import chat.qiye.wechat.sdk.api.live.resp.GetUserAllLivingIdResp;
 import chat.qiye.wechat.sdk.api.live.resp.LivingCreateResp;
 import chat.qiye.wechat.sdk.api.live.resp.LivingDetailResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -29,7 +29,7 @@ import feign.RequestLine;
  * @date : 2021/9/10
  */
 
-@QiYeWeChatApi(appType = AppTypeEnum.APP_LIVING)
+@QiYeWeChatApi(appType = AppIdEnum.APP_LIVING)
 public interface LivingApi {
     // 创建预约直播
     String API_LIVING_CREATE = "POST /living/create";

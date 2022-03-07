@@ -8,7 +8,7 @@ import chat.qiye.wechat.sdk.api.oa.resp.ScheduleAddResp;
 import chat.qiye.wechat.sdk.api.oa.resp.ScheduleGetListResp;
 import chat.qiye.wechat.sdk.api.oa.vo.ScheduleVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
 import feign.RequestLine;
 
@@ -22,7 +22,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_SCHEDULE)
+@QiYeWeChatApi(appType = AppIdEnum.APP_SCHEDULE)
 public interface OaScheduleApi {
 
     @RequestLine(OaApiUris.API_SCHEDULE_ADD)

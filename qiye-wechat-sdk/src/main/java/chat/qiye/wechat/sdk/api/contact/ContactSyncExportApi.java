@@ -5,7 +5,7 @@ import chat.qiye.wechat.sdk.api.contact.param.ExportContactParam;
 import chat.qiye.wechat.sdk.api.contact.param.ExportTagUserParam;
 import chat.qiye.wechat.sdk.api.contact.resp.ExportResultResp;
 import chat.qiye.wechat.sdk.api.contact.resp.ExportSyncResp;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
 import feign.Param;
 import feign.RequestLine;
@@ -19,7 +19,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/18
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CONTACT)
 public interface ContactSyncExportApi {
     /**
      * 导出成员
