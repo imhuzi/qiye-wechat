@@ -55,6 +55,7 @@ public interface BaseApiUris {
     String API_USER_GET_USERID = "POST /user/getuserid";
     String API_USER_AUTH_MEMBER_LIST = "GET /user/list_member_auth";
     String API_USER_CHECK_MEMBER_AUTH = "GET /user/check_member_auth";
+    String API_LIST_SELECTED_TICKET_USER = "POST /user/list_selected_ticket_user";
     // 通讯录-标签管理
     String API_TAG_LIST = "GET /tag/list";
     String API_TAG_CREATE = "POST /tag/create";
