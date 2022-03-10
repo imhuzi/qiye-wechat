@@ -34,6 +34,12 @@ public interface CustomerApiUris {
     String API_CUSTOMER_STRATEGY_EDIT = "POST /externalcontact/customer_strategy/edit";
     String API_CUSTOMER_STRATEGY_DEL = "POST /externalcontact/customer_strategy/del";
 
+    String API_CUSTOMER_STRATEGY_TAG_LIST = "POST /externalcontact/get_strategy_tag_list";
+    String API_CUSTOMER_STRATEGY_TAG_ADD = "POST /externalcontact/add_strategy_tag";
+    String API_CUSTOMER_STRATEGY_TAG_EDIT = "POST /externalcontact/edit_strategy_tag";
+    String API_CUSTOMER_STRATEGY_TAG_DEL = "POST /externalcontact/del_strategy_tag";
+
+
     /**
      * 客户-标签管理
      */

@@ -1,10 +1,10 @@
 package chat.qiye.wechat.sdk.api.customer;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
-import chat.qiye.wechat.sdk.api.customer.param.StrategyCreateParam;
-import chat.qiye.wechat.sdk.api.customer.param.StrategyEditParam;
-import chat.qiye.wechat.sdk.api.customer.param.StrategyIdParam;
-import chat.qiye.wechat.sdk.api.customer.param.StrategyGetRangeParam;
+import chat.qiye.wechat.sdk.api.customer.param.strategy.StrategyCreateParam;
+import chat.qiye.wechat.sdk.api.customer.param.strategy.StrategyEditParam;
+import chat.qiye.wechat.sdk.api.customer.param.strategy.StrategyIdParam;
+import chat.qiye.wechat.sdk.api.customer.param.strategy.StrategyGetRangeParam;
 import chat.qiye.wechat.sdk.api.customer.resp.strategy.GetStrategyRangeResp;
 import chat.qiye.wechat.sdk.api.customer.resp.strategy.StrategyDetailResp;
 import chat.qiye.wechat.sdk.api.customer.resp.strategy.StrategyListResp;
@@ -23,6 +23,10 @@ import feign.RequestLine;
  * 权限说明:
  * <p>
  * 仅可使用“客户联系”secret获取的accesstoken来调用（accesstoken如何获取？）
+ *
+ * @author : Hui.Wang [huzi.wh@gmail.com]
+ * @version : 1.0
+ * @date  : 2022/3/8
  */
 
 @QiYeWeChatApi(appType = AppIdEnum.APP_CUSTOMER)

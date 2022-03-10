@@ -1,4 +1,4 @@
-package chat.qiye.wechat.sdk.api.customer.param;
+package chat.qiye.wechat.sdk.api.customer.param.strategy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

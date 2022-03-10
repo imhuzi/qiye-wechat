@@ -1,11 +1,11 @@
-package chat.qiye.wechat.sdk.api.customer.param;
-
-import java.io.Serializable;
-import java.util.List;
+package chat.qiye.wechat.sdk.api.customer.param.strategy;
 
 import chat.qiye.wechat.sdk.api.customer.dto.StrategyRangeItemDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 编辑规则 参数
@@ -15,17 +15,14 @@ import lombok.Data;
  * @date : 2022/3/8
  */
 @Data
-public class StrategyEditParam implements Serializable {
+public class StrategyCreateParam implements Serializable {
 
 
 	@JsonProperty("strategy_id")
 	private int strategyId;
 
-	@JsonProperty("range_del")
-	private List<StrategyRangeItemDto> rangeDel;
-
-	@JsonProperty("range_add")
-	private List<StrategyRangeItemDto> rangeAdd;
+	@JsonProperty("range")
+	private List<StrategyRangeItemDto> range;
 
 	@JsonProperty("privilege")
 	private Privilege privilege;
