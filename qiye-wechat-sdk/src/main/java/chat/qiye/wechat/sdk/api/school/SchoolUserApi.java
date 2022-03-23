@@ -15,7 +15,6 @@ import chat.qiye.wechat.sdk.api.school.resp.StudentBatchOperationResp;
 import chat.qiye.wechat.sdk.api.school.resp.StudentListResp;
 import chat.qiye.wechat.sdk.api.school.resp.StudentOrParentGetResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.SchoolApiUris;
 import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.Headers;
 import feign.Param;

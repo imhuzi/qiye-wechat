@@ -26,7 +26,10 @@ public enum AppIdEnum {
     APP_REPORT("report", "汇报"),
     APP_MEETING_ROOM("meeting_room", "会议室"),
     APP_PSTNCC("pstncc", "紧急通知"),
-    APP_SCHOOL_CONTACT("school_contact", "家校通讯录");
+    APP_HEALTH("health", "健康上报"),
+    APP_SCHOOL_CONTACT("school_contact", "家校通讯录"),
+    APP_SCHOOL_HEALTH_CODE("school_health_code", "复学码"),
+    APP_SCHOOL_PAYMENT("school_payment", "班级收款");
 
     private final String appId;
 

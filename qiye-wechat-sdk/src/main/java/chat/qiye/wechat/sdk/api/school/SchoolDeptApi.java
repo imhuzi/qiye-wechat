@@ -7,7 +7,6 @@ import chat.qiye.wechat.sdk.api.school.resp.SchoolDeptCreateResp;
 import chat.qiye.wechat.sdk.api.school.resp.SchoolDeptListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.AppIdEnum;
-import chat.qiye.wechat.sdk.constant.SchoolApiUris;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
