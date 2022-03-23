@@ -25,7 +25,7 @@ public class ConfigUtil {
             if (absolutePathStart(fileName)) {
                 return loadPropertiesFromAbsoluteFile(fileName);
             } else {
-                return fileName.startsWith("classpath:") ? loadPropertiesFromClasspathFile(fileName) : loadPropertiesFromRelativeFile(fileName);
+                return fileName.startsWith(CLASSPATH_FILE_FLAG) ? loadPropertiesFromClasspathFile(fileName) : loadPropertiesFromRelativeFile(fileName);
             }
         } else {
             return null;
@@ -87,7 +87,7 @@ public class ConfigUtil {
     }
 
     private static Properties loadPropertiesFromClasspathFile(String fileName) {
-        fileName = fileName.substring("classpath:".length()).trim();
+        fileName = fileName.substring(CLASSPATH_FILE_FLAG.length()).trim();
         ArrayList list = new ArrayList();
 
         try {
@@ -160,7 +160,7 @@ public class ConfigUtil {
     }
 
     private static Charset getCharset() {
-        return Charset.forName(System.getProperty("csp.sentinel.charset", StandardCharsets.UTF_8.name()));
+        return Charset.forName(System.getProperty("qiye.wecaht.charset", StandardCharsets.UTF_8.name()));
     }
 
     public static String addSeparator(String dir) {
