@@ -18,9 +18,9 @@ import java.util.concurrent.CopyOnWriteArraySet;
  */
 @Slf4j
 public class QiyeWechatConfigLoader {
-    public static final String SENTINEL_CONFIG_ENV_KEY = "QIYE_WECHAT_CONFIG_FILE";
-    public static final String SENTINEL_CONFIG_PROPERTY_KEY = "qiye.wechat.config.file";
-    private static final String DEFAULT_SENTINEL_CONFIG_FILE = "classpath:qiye-wechat.properties";
+    public static final String QIYE_WECHAT_CONFIG_ENV_KEY = "QIYE_WECHAT_CONFIG_FILE";
+    public static final String QIYE_WECHAT_CONFIG_PROPERTY_KEY = "qiye.wechat.config.file";
+    private static final String DEFAULT_QIYE_WECHAT_CONFIG_FILE = "classpath:qiye-wechat.properties";
     private static final Properties properties = new Properties();
 
 
@@ -28,11 +28,11 @@ public class QiyeWechatConfigLoader {
     }
 
     private static void load() {
-        String fileName = System.getProperty(SENTINEL_CONFIG_PROPERTY_KEY);
+        String fileName = System.getProperty(QIYE_WECHAT_CONFIG_PROPERTY_KEY);
         if (StringUtil.isBlank(fileName)) {
-            fileName = System.getenv(SENTINEL_CONFIG_ENV_KEY);
+            fileName = System.getenv(QIYE_WECHAT_CONFIG_ENV_KEY);
             if (StringUtil.isBlank(fileName)) {
-                fileName = DEFAULT_SENTINEL_CONFIG_FILE;
+                fileName = DEFAULT_QIYE_WECHAT_CONFIG_FILE;
             }
         }
 

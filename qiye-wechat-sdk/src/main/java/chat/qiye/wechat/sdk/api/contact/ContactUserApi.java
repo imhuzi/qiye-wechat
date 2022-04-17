@@ -2,27 +2,11 @@ package chat.qiye.wechat.sdk.api.contact;
 
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
-import chat.qiye.wechat.sdk.api.contact.param.AuthMemberListParam;
-import chat.qiye.wechat.sdk.api.contact.param.CheckMemberAuthParam;
-import chat.qiye.wechat.sdk.api.contact.param.ContactInviteParam;
-import chat.qiye.wechat.sdk.api.contact.param.ContactToOpenIdParam;
-import chat.qiye.wechat.sdk.api.contact.param.ContactToUserIdParam;
-import chat.qiye.wechat.sdk.api.contact.param.ContactUserBatchDeleteParam;
-import chat.qiye.wechat.sdk.api.contact.param.ContactUserParam;
-import chat.qiye.wechat.sdk.api.contact.param.GetActiveStatParam;
-import chat.qiye.wechat.sdk.api.contact.param.GetUserIdParam;
-import chat.qiye.wechat.sdk.api.contact.resp.AuthMemberListResp;
-import chat.qiye.wechat.sdk.api.contact.resp.CheckMemberAuthResp;
-import chat.qiye.wechat.sdk.api.contact.resp.ContactToOpenIdResp;
-import chat.qiye.wechat.sdk.api.contact.resp.ContactToUserIdResp;
-import chat.qiye.wechat.sdk.api.contact.resp.ContactUserGetResp;
-import chat.qiye.wechat.sdk.api.contact.resp.ContactUserListResp;
-import chat.qiye.wechat.sdk.api.contact.resp.GetActiveStatResp;
-import chat.qiye.wechat.sdk.api.contact.resp.GetJoinQrcodeResp;
-import chat.qiye.wechat.sdk.api.contact.resp.GetUserIdResp;
+import chat.qiye.wechat.sdk.api.contact.param.*;
+import chat.qiye.wechat.sdk.api.contact.resp.*;
 import chat.qiye.wechat.sdk.common.RespStatus;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.Param;
 import feign.RequestLine;
 
@@ -32,7 +16,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/3
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CONTACT)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CONTACT)
 public interface ContactUserApi {
 
     /**
@@ -193,4 +177,31 @@ public interface ContactUserApi {
      */
     @RequestLine(BaseApiUris.API_USER_CHECK_MEMBER_AUTH)
     CheckMemberAuthResp checkMemberAuth(CheckMemberAuthParam param);
+
+    /**
+     *  第三方 专属接口
+     *
+     * 获取选人ticket对应的用户
+     * 当企业以成员授权的方式安装了第三方应用，成员在企业微信终端通过选人jsapi选择通讯录，应用获取到selectedTicket后，可调用该接口获取SelectedTicket对应的用户open_userid列表。
+     *
+     * 请求方式：POST（HTTPS）
+     * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/user/list_selected_ticket_user?access_token=ACCESS_TOKEN
+     *
+     * 请求包体：
+     *
+     * {
+     * 	"selected_ticket": "xxxx"
+     * }
+     * 参数说明：
+     *
+     * 参数	必须	说明
+     * access_token	是	调用接口凭证
+     * selected_ticket	是	选人jsapi返回的selectedTicket
+     *
+     * @param param
+     * @return
+     */
+    @RequestLine(BaseApiUris.API_LIST_SELECTED_TICKET_USER)
+    ListSelectedTicketUserResp listSelectedTicketUser(ListSelectedTicketUserParam param);
+
 }

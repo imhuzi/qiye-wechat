@@ -7,7 +7,7 @@ import chat.qiye.wechat.sdk.api.customer.resp.GroupChatStatByDayResp;
 import chat.qiye.wechat.sdk.api.customer.resp.GroupChatStatByOwnerResp;
 import chat.qiye.wechat.sdk.api.customer.resp.UserBehaviorDataGetResp;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -19,7 +19,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date  : 2021/6/26
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CUSTOMER)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CUSTOMER)
 public interface CustomerStatApi {
   /**
    * 获取「联系客户统计」数据

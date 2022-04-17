@@ -4,8 +4,8 @@ import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
 import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
-import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.utils.StringUtil;
 
@@ -68,19 +68,14 @@ public interface ApiConfigurationProvider {
     }
 
     /**
-     * get config by app type
+     * get config by appId
      *
-     * @param appType app type
-     * @return {@link QiyeWechatAppVo}
+     * @param appId app type
+     * @return {@link QiyeWechatConfigVo}
      */
-    default QiyeWechatAppVo getConfigByAppType(String appType) {
-        return (StringUtil.isBlank(appType) || AppTypeEnum.DEFAULT.getAppId().equals(appType)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appType);
+    default QiyeWechatConfigVo getConfigByAppId(String appId) {
+        return (StringUtil.isBlank(appId) || AppIdEnum.DEFAULT.getAppId().equals(appId)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appId);
     }
-
-    default QiyeWechatAppVo getConfigByAppId(String appId) {
-        return (StringUtil.isBlank(appId) || AppTypeEnum.DEFAULT.getAppId().equals(appId)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appId);
-    }
-
 
     AccessTokenApi getAccessTokenApi();
 
@@ -117,7 +112,7 @@ public interface ApiConfigurationProvider {
     /**
      * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
      *
-     * @param appId {@link AppTypeEnum}
+     * @param appId {@link AppIdEnum}
      * @return access_token
      */
     String getAppToken(String appId);
@@ -125,7 +120,7 @@ public interface ApiConfigurationProvider {
     /**
      * 第三方 企业 access_token
      *
-     * @param appId {@link AppTypeEnum}
+     * @param appId {@link AppIdEnum}
      * @return access_token
      */
     String getCorpToken(String appId);

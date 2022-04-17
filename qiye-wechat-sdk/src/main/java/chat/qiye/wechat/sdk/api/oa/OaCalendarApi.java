@@ -7,8 +7,8 @@ import chat.qiye.wechat.sdk.api.oa.param.CalendarGetLsitParam;
 import chat.qiye.wechat.sdk.api.oa.param.CalendarSaveParam;
 import chat.qiye.wechat.sdk.api.oa.resp.CalendarAddResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -20,7 +20,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_SCHEDULE)
+@QiYeWeChatApi(appType = AppIdEnum.APP_SCHEDULE)
 public interface OaCalendarApi {
 
     @RequestLine(OaApiUris.API_CALENDAR_ADD)

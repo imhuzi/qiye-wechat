@@ -6,8 +6,7 @@ import chat.qiye.wechat.sdk.api.school.param.SchoolContactSyncModelSetParam;
 import chat.qiye.wechat.sdk.api.school.resp.SchoolDeptCreateResp;
 import chat.qiye.wechat.sdk.api.school.resp.SchoolDeptListResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.SchoolApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -20,7 +19,7 @@ import feign.RequestLine;
  * @date : 2021/7/6
  */
 @Headers(value = {"Accept: application/json", "Content-Type: application/json"})
-@QiYeWeChatApi(appType = AppTypeEnum.APP_SCHOOL_CONTACT)
+@QiYeWeChatApi(appType = AppIdEnum.APP_SCHOOL_CONTACT)
 public interface SchoolDeptApi {
     /**
      * 设置家校通讯录自动同步模式

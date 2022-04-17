@@ -55,6 +55,7 @@ public interface BaseApiUris {
     String API_USER_GET_USERID = "POST /user/getuserid";
     String API_USER_AUTH_MEMBER_LIST = "GET /user/list_member_auth";
     String API_USER_CHECK_MEMBER_AUTH = "GET /user/check_member_auth";
+    String API_LIST_SELECTED_TICKET_USER = "POST /user/list_selected_ticket_user";
     // 通讯录-标签管理
     String API_TAG_LIST = "GET /tag/list";
     String API_TAG_CREATE = "POST /tag/create";
@@ -73,6 +74,7 @@ public interface BaseApiUris {
 
 
     // 应用管理
+    String API_GET_DOMAIN_IP = "GET /get_api_domain_ip";
     String API_AGENT_GET = "GET /agent/get?agentid={agentid}";
     String API_AGENT_SET = "POST /agent/set";
     String API_AGENT_MENU_CREATE = "POST /menu/create?agentid={agentid}";

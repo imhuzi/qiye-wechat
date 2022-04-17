@@ -13,8 +13,8 @@ import chat.qiye.wechat.sdk.api.oa.resp.ApprovalDetailResp;
 import chat.qiye.wechat.sdk.api.oa.resp.GetApprovalTemplateResp;
 import chat.qiye.wechat.sdk.api.oa.resp.GetVacationConfResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
 import feign.RequestLine;
 
 /**
@@ -26,7 +26,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/8
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_APPROVAL)
+@QiYeWeChatApi(appType = AppIdEnum.APP_APPROVAL)
 public interface OaApprovalApi {
     /**
      * 获取审批模板详情

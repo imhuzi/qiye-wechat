@@ -11,7 +11,7 @@ import chat.qiye.wechat.sdk.api.oa.resp.MeetingRoomBookingResp;
 import chat.qiye.wechat.sdk.api.oa.resp.MeetingRoomListResp;
 import chat.qiye.wechat.sdk.api.oa.resp.MeetingRoomQueryBookingResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
 import feign.RequestLine;
 
@@ -24,7 +24,7 @@ import feign.RequestLine;
  * @date : 2021/9/8
  */
 
-@QiYeWeChatApi(appType = AppTypeEnum.APP_MEETING_ROOM)
+@QiYeWeChatApi(appType = AppIdEnum.APP_MEETING_ROOM)
 public interface OaMeetingRoomApi {
 
     @RequestLine(OaApiUris.API_ADD_MEETING_ROOM)

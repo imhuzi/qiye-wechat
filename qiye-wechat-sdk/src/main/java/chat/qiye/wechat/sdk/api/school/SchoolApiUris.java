@@ -1,4 +1,4 @@
-package chat.qiye.wechat.sdk.constant;
+package chat.qiye.wechat.sdk.api.school;
 
 /**
  * 家校沟通相关接口 api uri 常量

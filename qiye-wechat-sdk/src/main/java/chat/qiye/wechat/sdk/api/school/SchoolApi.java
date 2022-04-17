@@ -9,7 +9,6 @@ import chat.qiye.wechat.sdk.api.school.resp.ExternalcontactListResp;
 import chat.qiye.wechat.sdk.api.school.resp.SubscribeModelGetResp;
 import chat.qiye.wechat.sdk.api.school.resp.SubscribeQrCodeResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.SchoolApiUris;
 import feign.Param;
 import feign.RequestLine;
 

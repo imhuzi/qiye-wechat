@@ -4,8 +4,8 @@ import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
 import chat.qiye.wechat.sdk.api.inner.resp.AccessTokenResp;
 import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
-import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.utils.AssertUtil;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -72,17 +72,17 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
     /**
      * 获取 系统 应用 专属 token, 比如 通讯录，客户关系等
      *
-     * @param appType {@link AppTypeEnum}
+     * @param appId {@link AppIdEnum}
      * @return access_token
      */
     @SneakyThrows
     @Override
-    public String getAppToken(String appType) {
-        return APP_TOKEN_CACHE.get(appType).getAccessToken();
+    public String getAppToken(String appId) {
+        return APP_TOKEN_CACHE.get(appId).getAccessToken();
     }
 
-    public AccessTokenInfoVo loadAppToken(String appType) {
-        QiyeWechatAppVo configVo = getConfigByAppType(appType);
+    public AccessTokenInfoVo loadAppToken(String appId) {
+        QiyeWechatConfigVo configVo = getConfigByAppId(appId);
         AssertUtil.notNull(configVo, "app config is null");
         AssertUtil.notNull(configVo.getCorpId(), "corpId config is null");
         AssertUtil.notNull(configVo.getSecret(), "app Secret config is null");
@@ -91,7 +91,7 @@ public class ApiConfigurationDefaultProvider implements ApiConfigurationProvider
             log.error("AccessToken Error:{},{},{}", resp.getErrcode(), resp.getErrmsg(), configVo);
         }
         AccessTokenInfoVo accessTokenInfoVo = new AccessTokenInfoVo();
-        accessTokenInfoVo.setApp(appType);
+        accessTokenInfoVo.setApp(appId);
         accessTokenInfoVo.setAccessToken(resp.getAccessToken());
         accessTokenInfoVo.setExpiresIn(resp.getExpiresIn());
         accessTokenInfoVo.setFailureTime(System.currentTimeMillis() + ((resp.getExpiresIn() - 200) * 1000));

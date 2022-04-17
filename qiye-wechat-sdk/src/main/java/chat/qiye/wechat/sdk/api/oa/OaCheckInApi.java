@@ -13,7 +13,7 @@ import chat.qiye.wechat.sdk.api.oa.resp.CorpCheckInRuleResp;
 import chat.qiye.wechat.sdk.api.oa.resp.UserCheckInRuleResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.OaApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -25,7 +25,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/8
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_CHECK_IN)
+@QiYeWeChatApi(appType = AppIdEnum.APP_CHECK_IN)
 public interface OaCheckInApi {
     /**
      * 获取企业所有打卡规则

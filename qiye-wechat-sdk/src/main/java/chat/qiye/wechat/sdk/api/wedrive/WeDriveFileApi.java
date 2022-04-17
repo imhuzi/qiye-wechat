@@ -11,7 +11,7 @@ import chat.qiye.wechat.sdk.api.wedrive.resp.FileRenameResp;
 import chat.qiye.wechat.sdk.api.wedrive.resp.FileUploadResp;
 import chat.qiye.wechat.sdk.api.wedrive.resp.WeDriveFileShareResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.RequestLine;
 
 /**
@@ -19,7 +19,7 @@ import feign.RequestLine;
  * @version : 1.0
  * @date : 2021/9/10
  */
-@QiYeWeChatApi(appType = AppTypeEnum.APP_WX_DRIVE)
+@QiYeWeChatApi(appType = AppIdEnum.APP_WX_DRIVE)
 public interface WeDriveFileApi {
     // 文件管理
     String API_FILE_LIST = "POST /wedrive/file_list";

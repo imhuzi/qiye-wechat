@@ -15,8 +15,7 @@ import chat.qiye.wechat.sdk.api.school.resp.StudentBatchOperationResp;
 import chat.qiye.wechat.sdk.api.school.resp.StudentListResp;
 import chat.qiye.wechat.sdk.api.school.resp.StudentOrParentGetResp;
 import chat.qiye.wechat.sdk.common.RespStatus;
-import chat.qiye.wechat.sdk.constant.SchoolApiUris;
-import chat.qiye.wechat.sdk.constant.AppTypeEnum;
+import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -29,7 +28,7 @@ import feign.RequestLine;
  * @date  : 2021/7/3
  */
 @Headers(value = {"Accept: application/json", "Content-Type: application/json"})
-@QiYeWeChatApi(appType = AppTypeEnum.APP_SCHOOL_CONTACT)
+@QiYeWeChatApi(appType = AppIdEnum.APP_SCHOOL_CONTACT)
 public interface SchoolUserApi {
   /**
    * 创建学生
