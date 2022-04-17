@@ -1,5 +1,6 @@
 package chat.qiye.wechat.example.sdk;
 
+import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptDetailVo;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class MainClass {
     public static void main(String[] args) {
         ContactService contactService = new ContactService();
         // 查询 通讯录 部门列表
-        List<ContactDeptVo> deptVoList = contactService.listDept(0);
+        List<ContactDeptDetailVo> deptVoList = contactService.listDept(0);
         System.out.println("DeptList:" + deptVoList);
         // 创建部门
 

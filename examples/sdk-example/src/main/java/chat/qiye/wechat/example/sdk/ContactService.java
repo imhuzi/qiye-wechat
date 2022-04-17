@@ -2,6 +2,7 @@ package chat.qiye.wechat.example.sdk;
 
 import chat.qiye.wechat.sdk.api.contact.ContactDeptApi;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptCreateResp;
+import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptDetailVo;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 import chat.qiye.wechat.sdk.service.ApiFactory;
 
@@ -26,7 +27,7 @@ public class ContactService extends BaseService {
      * @param id 部门id
      * @return 部门列表
      */
-    public List<ContactDeptVo> listDept(Integer id) {
+    public List<ContactDeptDetailVo> listDept(Integer id) {
         return contactDeptApi.list(id).getDepartment();
     }
 

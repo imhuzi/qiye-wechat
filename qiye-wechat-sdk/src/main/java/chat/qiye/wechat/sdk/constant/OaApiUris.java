@@ -63,6 +63,8 @@ public interface OaApiUris {
     String API_CALENDAR_DEL = "POST /oa/calendar/del";
 
     String API_SCHEDULE_ADD = "POST /oa/schedule/add";
+    String API_SCHEDULE_ADD_ATTENDEES = "POST /oa/schedule/add_attendees";
+    String API_SCHEDULE_DEL_ATTENDEES = "POST /oa/schedule/del_attendees";
     String API_SCHEDULE_UPDATE = "POST /oa/schedule/update";
     String API_SCHEDULE_GET = "POST /oa/schedule/get";
     String API_SCHEDULE_DEL = "POST /oa/schedule/del";
