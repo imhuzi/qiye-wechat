@@ -3,8 +3,8 @@ package chat.qiye.wechat.sdk.service;
 import chat.qiye.wechat.sdk.api.inner.AccessTokenApi;
 import chat.qiye.wechat.sdk.api.thirdparty.ThirdAccessTokenApi;
 import chat.qiye.wechat.sdk.common.AccessTokenInfoVo;
+import chat.qiye.wechat.sdk.confg.QiyeWechatAppVo;
 import chat.qiye.wechat.sdk.confg.QiyeWechatConfig;
-import chat.qiye.wechat.sdk.confg.QiyeWechatConfigVo;
 import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.Constant;
 import chat.qiye.wechat.sdk.utils.StringUtil;
@@ -71,9 +71,9 @@ public interface ApiConfigurationProvider {
      * get config by appId
      *
      * @param appId app type
-     * @return {@link QiyeWechatConfigVo}
+     * @return {@link QiyeWechatAppVo}
      */
-    default QiyeWechatConfigVo getConfigByAppId(String appId) {
+    default QiyeWechatAppVo getConfigByAppId(String appId) {
         return (StringUtil.isBlank(appId) || AppIdEnum.DEFAULT.getAppId().equals(appId)) ? QiyeWechatConfig.getAppConfig() : QiyeWechatConfig.getSysAppConfig(appId);
     }
 
