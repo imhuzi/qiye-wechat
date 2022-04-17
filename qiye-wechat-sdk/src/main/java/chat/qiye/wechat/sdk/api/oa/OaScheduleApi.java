@@ -1,9 +1,11 @@
 package chat.qiye.wechat.sdk.api.oa;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
+import chat.qiye.wechat.sdk.api.oa.param.CalendarSaveParam;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleDelParam;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleGetByCalendarParam;
 import chat.qiye.wechat.sdk.api.oa.param.ScheduleGetListParam;
+import chat.qiye.wechat.sdk.api.oa.param.ScheduleSaveAttendeesParam;
 import chat.qiye.wechat.sdk.api.oa.resp.ScheduleAddResp;
 import chat.qiye.wechat.sdk.api.oa.resp.ScheduleGetListResp;
 import chat.qiye.wechat.sdk.api.oa.vo.ScheduleVo;
@@ -27,6 +29,13 @@ public interface OaScheduleApi {
 
     @RequestLine(OaApiUris.API_SCHEDULE_ADD)
     ScheduleAddResp add(ScheduleVo param);
+
+
+    @RequestLine(OaApiUris.API_SCHEDULE_ADD_ATTENDEES)
+    RespStatus addAttendees(ScheduleSaveAttendeesParam param);
+
+    @RequestLine(OaApiUris.API_SCHEDULE_DEL_ATTENDEES)
+    RespStatus delAttendees(ScheduleSaveAttendeesParam param);
 
     @RequestLine(OaApiUris.API_SCHEDULE_UPDATE)
     RespStatus update(ScheduleVo param);

@@ -46,7 +46,7 @@ public class ContactUserGetResp extends RespStatus implements Serializable  {
   /**
    * 部门内的排序值，默认为0。数量必须和department一致，数值越大排序越前面。值范围是[0, 2^32)
    */
-  private Integer order;
+  private Integer[] order;
 
   /**
    * 职位
@@ -57,6 +57,9 @@ public class ContactUserGetResp extends RespStatus implements Serializable  {
    * 邮箱
    */
   private String email;
+
+  @JsonProperty("biz_mail")
+  private String bizMail;
 
   /**
    * 性别。0表示未定义，1表示男性，2表示女性
@@ -83,9 +86,12 @@ public class ContactUserGetResp extends RespStatus implements Serializable  {
   /**
    * 表示在所在的部门内是否为上级。；第三方仅通讯录应用可获取；对于非第三方创建的成员，第三方通讯录应用也不可获取
    */
-
   @JsonProperty("is_leader_in_dept")
   private Integer[] leaderInDept;
+
+  @JsonProperty("direct_leader")
+  private String[] directLeader;
+
   /**
    * 联系电话
    */

@@ -14,6 +14,8 @@ public interface BaseApiUris {
     //通讯录-> 部门管理
 
     String API_DEPT_LIST = "GET /department/list?id={id}";
+    String API_DEPT_SIMPLELIST= "GET /department/simplelist?id={id}";
+    String API_DEPT_GET= "GET /department/get?id={id}";
     String API_DEPT_CREATE = "POST /department/create";
     String API_DEPT_UPDATE = "POST /department/update";
     String API_DEPT_DELETE = "GET /department/delete?id={id}";

@@ -4,6 +4,7 @@ package chat.qiye.wechat.sdk.api.contact;
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptCreateResp;
 import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptListResp;
+import chat.qiye.wechat.sdk.api.contact.resp.ContactDeptSimpleListResp;
 import chat.qiye.wechat.sdk.api.contact.vo.ContactDeptVo;
 import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.BaseApiUris;
@@ -31,6 +32,12 @@ public interface ContactDeptApi{
    */
   @RequestLine(BaseApiUris.API_DEPT_LIST)
   ContactDeptListResp list(@Param("id") Integer id);
+
+  @RequestLine(BaseApiUris.API_DEPT_SIMPLELIST)
+  ContactDeptSimpleListResp simpleList(@Param("id") Integer id);
+
+  @RequestLine(BaseApiUris.API_DEPT_GET)
+  ContactDeptSimpleListResp get(@Param("id") Integer id);
 
   @RequestLine(BaseApiUris.API_DEPT_CREATE)
   ContactDeptCreateResp create(ContactDeptVo param);
