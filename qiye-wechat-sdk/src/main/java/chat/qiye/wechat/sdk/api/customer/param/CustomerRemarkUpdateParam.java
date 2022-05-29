@@ -1,5 +1,7 @@
 package chat.qiye.wechat.sdk.api.customer.param;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -18,7 +20,7 @@ public class CustomerRemarkUpdateParam {
     private String remarkCompany;
 
     @JsonProperty("remark_mobiles")
-    private String remarkMobiles;
+    private List<String> remarkMobiles;
 
     @JsonProperty("remark_pic_mediaid")
     private String remarkPicMediaid;

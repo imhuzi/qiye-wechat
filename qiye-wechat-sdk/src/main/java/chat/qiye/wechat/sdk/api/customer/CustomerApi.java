@@ -2,8 +2,11 @@ package chat.qiye.wechat.sdk.api.customer;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.customer.param.CustomerBatchByUserParam;
+import chat.qiye.wechat.sdk.api.customer.param.CustomerRemarkUpdateParam;
+import chat.qiye.wechat.sdk.api.customer.resp.CustomerBatchResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerGetResp;
 import chat.qiye.wechat.sdk.api.customer.resp.CustomerListResp;
+import chat.qiye.wechat.sdk.common.RespStatus;
 import chat.qiye.wechat.sdk.constant.AppIdEnum;
 import chat.qiye.wechat.sdk.constant.CustomerApiUris;
 import feign.Param;
@@ -78,10 +81,10 @@ public interface CustomerApi {
      * }
      *
      * @param req 请求参数
-     * @return {@link CustomerGetResp}
+     * @return {@link CustomerBatchResp}
      */
     @RequestLine(CustomerApiUris.API_CUSTOMER_BATCH)
-    CustomerGetResp batchByUser(CustomerBatchByUserParam req);
+    CustomerBatchResp batchByUser(CustomerBatchByUserParam req);
 
     /**
      * 修改客户备注信息
@@ -96,7 +99,7 @@ public interface CustomerApi {
      * @return {@link CustomerGetResp}
      */
     @RequestLine(CustomerApiUris.API_CUSTOMER_REMARK_UPDATE)
-    CustomerGetResp updateRemark(CustomerBatchByUserParam req);
+    RespStatus updateRemark(CustomerRemarkUpdateParam req);
 
 
 }
