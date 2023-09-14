@@ -2,6 +2,7 @@ package chat.qiye.wechat.sdk.api.kf;
 
 import chat.qiye.wechat.sdk.annotation.QiYeWeChatApi;
 import chat.qiye.wechat.sdk.api.kf.param.KfAccountIdParam;
+import chat.qiye.wechat.sdk.api.kf.param.KfAccountListParam;
 import chat.qiye.wechat.sdk.api.kf.param.KfAddContactWayParam;
 import chat.qiye.wechat.sdk.api.kf.resp.KfAccountAddResp;
 import chat.qiye.wechat.sdk.api.kf.resp.KfAccountListResp;
@@ -14,7 +15,7 @@ import feign.RequestLine;
 /**
  * 客服 账号管理
  * <p>
- * https://work.weixin.qq.com/api/doc/90000/90135/94648
+ * https://developer.work.weixin.qq.com/document/path/94662
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]
  * @version : 1.0
@@ -25,7 +26,7 @@ public interface KfAccountApi {
     String KF_ACCOUNT_ADD = "POST /kf/account/add";
     String KF_ACCOUNT_DEL = "POST /kf/account/del";
     String KF_ACCOUNT_UPDATE = "POST /kf/account/update";
-    String KF_ACCOUNT_LIST = "GET /kf/account/list";
+    String KF_ACCOUNT_LIST = "POST /kf/account/list";
     String KF_ADD_CONTACT_WAY = "POST /kf/add_contact_way";
 
     /**
@@ -46,7 +47,7 @@ public interface KfAccountApi {
     RespStatus update(KfAccountVo param);
 
     @RequestLine(KF_ACCOUNT_LIST)
-    KfAccountListResp list();
+    KfAccountListResp list(KfAccountListParam param);
 
     /**
      * 获取客服帐号链接

@@ -2,6 +2,9 @@
 
 争取 做最好用的 企业微信 SDK, 帮助开发者 以最方便 最省时间的方式接入企业微信。qiye-wechat-sdk 基于 Figen 封装, 覆盖 企业微信 所有API
 
+## Java Version
+JDK 17
+
 ## Quick Start
 
 ### Spring Boot 项目
@@ -68,26 +71,25 @@ public class DeptController {
     <artifactId>qiye-wechat-sdk</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
+<dependency>
+   <groupId>org.apache.logging.log4j</groupId>
+   <artifactId>log4j-core</artifactId>
+   <optional>true</optional>
+</dependency>
+<dependency>
+   <groupId>org.apache.logging.log4j</groupId>
+   <artifactId>log4j-1.2-api</artifactId>
+   <optional>true</optional>
+</dependency>
 
 <dependency>
-<groupId>org.apache.logging.log4j</groupId>
-<artifactId>log4j-core</artifactId>
-<optional>true</optional>
+   <groupId>org.apache.logging.log4j</groupId>
+   <artifactId>log4j-slf4j-impl</artifactId>
+   <optional>true</optional>
 </dependency>
 <dependency>
-<groupId>org.apache.logging.log4j</groupId>
-<artifactId>log4j-1.2-api</artifactId>
-<optional>true</optional>
-</dependency>
-
-<dependency>
-<groupId>org.apache.logging.log4j</groupId>
-<artifactId>log4j-slf4j-impl</artifactId>
-<optional>true</optional>
-</dependency>
-<dependency>
-<groupId>commons-logging</groupId>
-<artifactId>commons-logging</artifactId>
+   <groupId>commons-logging</groupId>
+   <artifactId>commons-logging</artifactId>
 </dependency>
 ```
 
